@@ -1,0 +1,581 @@
+!-----------------------------------------------------------------------
+! SELFE model parameter inputs.
+! Format rules for param.in:
+! (1) Lines beginning with "!" are comments; blank lines are ignored;
+! (2) one line for each parameter in the format: keywords= value;
+!     keywords are case sensitive; spaces allowed between keywords and "=" and value;
+!     comments starting with "!"  allowed after value;
+! (3) value is an integer, double, or 2-char string (no single quote needed); for double, any of the format is acceptable:
+!     40 40. 4.e1
+!     Use of decimal point in integers is OK but discouraged.
+! (4) If duplicate entries are present, the first entry gets used.
+!-----------------------------------------------------------------------
+
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! Model configuration parameters 
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!-----------------------------------------------------------------------
+! Coordinate option: 1: Cartesian; 2: lon/lat (hgrid.gr3=hgrid.ll in this case,
+! and orientation of triangles is outward of earth)
+!-----------------------------------------------------------------------
+  ics = 1 !Coordinate option
+
+!-----------------------------------------------------------------------
+! Pre-processing option. Useful for checking grid violations.0
+!-----------------------------------------------------------------------
+  ipre = 0 !Pre-processor flag (1: on; 0: off)
+
+!-----------------------------------------------------------------------
+! 2D model flag (0: 3D; 1: 2D)
+! For 2D model, the following modules cannot be used:
+! USE_ECO, USE_SED, PREC_EVAP, USE_GOTM, USE_NAPZD
+!-----------------------------------------------------------------------
+  im2d = 1
+!-----------------------------------------------------------------------
+! Implicitness factor for Coriolis for 2D model (not used in 3D)
+!-----------------------------------------------------------------------
+  theta2 = 0.5 !between 0 and 1
+
+!-----------------------------------------------------------------------
+! If WWM is used, set coupling/decoupling flag. Not used if USE_WWM is distabled in Makefile
+!       0: decoupled so 2 models will run independently; 
+!       1: full coupled (elevation, vel, and wind are all passed to WWM); 
+!       2: elevation and currents in wwm, no wave force in selfe;  
+!       3: no elevation and no currents in wwm, wave force in selfe;
+!       4: elevation but no currents in wwm, wave force in selfe;
+!       5: elevation but no currents in wwm, no wave force in selfe;
+!       6: no elevation but currents in wwm, wave force in selfe;
+!       7: no elevation but currents in wwm, no wave force in selfe;
+! Note that all these parameters must be present in this file (even though not used).
+!-----------------------------------------------------------------------
+  icou_elfe_wwm = 0 
+  nstep_wwm = 1 !call WWM every this many time steps. If /=1, consider using quasi-steady mode in WWM
+  iwbl = 0 !1: modified Grant-Madsen formulation for wave boundary layer; used only if icou_elfe_wwm/=0; if icou_elfe_wwm=0, set iwbl=0
+  msc2 = 24 !same as MSC in .nml ... for consitency check between SELFE and WWM-II
+  mdc2 = 30 !same as MDC in .nml
+  hmin_radstress = 1. !min. total water depth used only in radiation stress calculation [m]
+
+!-----------------------------------------------------------------------
+! Non-hydrostatic model switch (0: hydrostatic model; 1: non-hydrostatic model)
+! For non-hydrostatic model, use ihydro_region to indicate if  hydrostatic 
+! region needs to be specified in hydro_region.gr3 (depth=1 in hydrostatic region)
+!-----------------------------------------------------------------------
+  nonhydro = 0 !must be 0 for 2D model or ics=2 (lat/lon)
+  ihydro_region = 0 !0: no hydro_region.gr3 needed
+
+!-----------------------------------------------------------------------
+! # of passive tracers
+! Note for age calculation (flag_model=0): ntracers=2*N where N is # of age tracers
+!-----------------------------------------------------------------------
+  ntracers = 0 !must =0 for 2D model
+
+!-----------------------------------------------------------------------
+! Bed deformation option (0: off; 1: vertical deformation only; 2: 3D bed deformation). 
+! If imm=1, bdef.gr3 is needed; if imm=2, user needs to update depth info etc
+! in the code (not working for ics=2 yet).
+!-----------------------------------------------------------------------
+  imm = 0
+! ibdef = 10 !needed if imm=1; # of steps used in deformation
+
+!-----------------------------------------------------------------------
+! Reference latitude for beta-plane approximation when ncor=1 (not used if ics=2)
+!-----------------------------------------------------------------------
+  cpp_lon = -124  !lon - not really used
+  cpp_lat = 45 !lat
+
+!-----------------------------------------------------------------------
+! Baroclinic/barotropic option. If ibcc=0 (baroclinic model), itransport is not used.
+!-----------------------------------------------------------------------
+  ibcc = 1 !Baroclinic option; must be 1 for 2D model
+  itransport = 0 !must be 0 for 2D model
+  nrampbc = 0 !ramp-up flag for baroclinic force
+  drampbc = 1. !not used if nrampbc=0
+
+!-----------------------------------------------------------------------
+! Hotstart option. 0: cold start; 1: hotstart with time reset to 0; 2: 
+! continue from the step in hotstart.in
+!-----------------------------------------------------------------------
+  ihot = 0
+
+!-----------------------------------------------------------------------
+! Hydraulic model option. If ihydraulics/=0, hydraulics.in 
+! is required. This option cannot be used with non-hydrostatic model.
+!-----------------------------------------------------------------------
+  ihydraulics = 0
+
+!-----------------------------------------------------------------------
+! Point sources/sinks option (0: no; 1: on). If =1, needs source_sink.in,
+! vsource,th, vsink.th, and msource.th
+!-----------------------------------------------------------------------
+  if_source = 0
+
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! Physical parameters
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+!-----------------------------------------------------------------------
+! Horizontal viscosity option; if ihorcon=1, horizontal viscosity is given in hvis.gr3.
+!-----------------------------------------------------------------------
+  ihorcon = 0 !must =0 for ics=2 (lat/lon)
+  cdh = 0.01 !needed only if ihorcon/=0; land friction coefficient
+
+!-----------------------------------------------------------------------
+! Horizontal diffusivity option. if ihdif=1, horizontal diffusivity is given in hdif.gr3
+!-----------------------------------------------------------------------
+  ihdif = 0 !!must =0 for 2D model
+
+!-----------------------------------------------------------------------
+! Bottom b.c. for momentum eq.
+! 1: old formulation (solve from surface to bottom level+1);
+! 2: new formulation (solve from surface to bottom level)
+!-----------------------------------------------------------------------
+  ibottom_bc = 1
+
+!-----------------------------------------------------------------------
+! Bottom drag formulation option. If idrag=1, linear drag is used (in this case, itur<0
+! and bfric=0); if idrag=2 (default), quadratic drag formulation is used.
+!-----------------------------------------------------------------------
+  idrag = 2
+
+!-----------------------------------------------------------------------
+! Bottom friction. 
+! 2D model: bfric=-1, and needs manning.gr3 (Manning's n) and hmin_man below;
+! 3D model: bfric=0: drag coefficients specified in drag.gr3; bfric=1:
+!           bottom roughness (in meters) specified in rough.gr3 (and in this case, negative
+!           or 0 depths in rough.gr3 indicate time-independent Cd, not roughness!).
+!           Cd is calculated using the log law, when dzb>=dzb_min; when dzb<dzb_min,
+!           Cd=Cdmax*exp[dzb_decay*(1-dzb/dzb_min)], where Cdmax=Cd(dzb=dzb_min),
+!           and dzb_decay (<=0) is a decay const specified below.
+!           If iwbl=1, bfric must =1.
+!-----------------------------------------------------------------------
+  bfric = -1 !nchi in code; must be -1 for 2D model
+  !dzb_min = 0.5 !needed if bfric==1; min. bottom boundary layer thickness [m].
+  !dzb_decay = -3.4539 !needed if bfric=1; a decay const. [-]
+  hmin_man = 1 !needed if bfric=-1; min. depth used in Manning's formulation (suggest: 1m)
+
+!-----------------------------------------------------------------------
+! Coriolis. If ncor=-1, specify "latitude" (in degrees); if ncor=0,
+! specify Coriolis parameter in "coriolis"; if ncor=1, model uses
+! lat/lon in hgrid.ll for beta-plane approximation if ics=1, and in this case,
+! the latitude specified in CPP projection ('cpp_lat') is used. If ncor=1 and ics=2,
+! Coriolis is calculated from local latitude, and 'cpp_lat' is not used.
+!-----------------------------------------------------------------------
+  ncor = -1 !must be 1 if ics=2
+  latitude = 38 !if ncor=-1
+  !coriolis = 1.e-4 !if ncor=0
+
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! Numerical parameters
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!-----------------------------------------------------------------------
+! Elevation initial condition flag. If ic_elev=1, elev.ic (in *.gr3 format) is needed
+! to specify the initial elevations; otherwise elevation is initialized to 0 everywhere 
+! (cold start only)
+!-----------------------------------------------------------------------
+  ic_elev = 1
+
+!-----------------------------------------------------------------------
+! Elevation boundary condition ramp-up flag. =0: ramp up from 0; =1: ramp up from
+! elev. values read in from elev.ic or hotstart.in - if neither is present, from 0.
+! This flag is mainly used to start the simulation from non-zero elev.
+! The ramp-up period is same as 'dramp' below.
+!-----------------------------------------------------------------------
+  nramp_elev = 1
+
+
+!-----------------------------------------------------------------------
+! Optional inverse barometric effects on the elev. b.c.
+! If inv_atm_bnd=1, the elev.'s at boundary are corrected by the difference
+! between the actual atmos. pressure and a reference pressure (prmsl_ref below)
+!-----------------------------------------------------------------------
+  inv_atm_bnd = 0 !0: off; 1: on
+  prmsl_ref = 101325. !reference atmos. pressure on bnd [Pa]
+
+!-----------------------------------------------------------------------
+! Initial condition for T,S. This value only matters for ihot=0 (cold start).
+! If icst=1, the initial T,S field is read in from temp.ic and salt.ic (horizontally varying).
+! If icst=2, the initial T,S field is read in from ts.ic (vertical varying).
+! If ihot=0 && icst=2 || ibcc_mean=1, ts.ic is used for removing mean density profile.
+!-----------------------------------------------------------------------
+  icst = 1 !must =1 for 2D model
+
+!-----------------------------------------------------------------------
+! Mean T,S profile option. If ibcc_mean=1 (or ihot=0 and icst=2), mean profile
+! is read in from ts.ic, and will be removed when calculating baroclinic force.
+! No ts.ic is needed if ibcc_mean=0.
+!-----------------------------------------------------------------------
+  ibcc_mean = 0 !must be 0 for 2D model
+
+!-----------------------------------------------------------------------
+! Methods for computing velocity at nodes. If indvel=-1, non-conformal 
+! linear shape function is used for velocity; if indvel=0, conformal
+! linear shape function is used; if indvel=1, averaging method is used.
+! For indvel<=0, Shapiro filter is used for side velocity.
+!-----------------------------------------------------------------------
+  indvel = 1
+  shapiro = 0.5 !default is 0.5
+  ishapiro_violation = 0 !used if indvel<=0. 0: no violation check; 1: violation check 
+ 
+!-----------------------------------------------------------------------
+! Max. horizontal velocity magnitude, used mainly to prevent problem in 
+! bulk aerodynamic module
+!-----------------------------------------------------------------------
+  rmaxvel = 10.
+
+!-----------------------------------------------------------------------
+!  Following 2 parameters control backtracking
+!-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+!  min. vel for invoking btrack and for abnormal exit in quicksearch
+!-----------------------------------------------------------------------
+  velmin_btrack = 1.e-4
+!-----------------------------------------------------------------------
+! Nudging factors for starting side/node - add noise to avoid underflow
+! The starting location is nudged to: old*(1-btrack_nudge)+btrack_nudge*centroid
+! Suggested value: btrack_nudge=9.013e-3
+!-----------------------------------------------------------------------
+  btrack_nudge= 9.013e-3 
+
+!-----------------------------------------------------------------------
+! Wetting and drying. If ihhat=1, \hat{H} is made non-negative to enhance
+! robustness near wetting and drying; if ihhat=0, no retriction is imposed for
+! this quantity. 
+! inunfl=0 is used for normal cases and inunfl=1 is used for more accurate wetting
+! and drying if grid resolution is suffieciently fine.
+!-----------------------------------------------------------------------
+  ihhat = 1 !not used for 2D model
+  inunfl = 1
+  h0 = 0.01 !min. water depth for wetting/drying
+
+!-----------------------------------------------------------------------
+! Implicitness factor (0.5<thetai<=1).
+!-----------------------------------------------------------------------
+  thetai = 1.0
+
+!-----------------------------------------------------------------------
+! Run time and ramp option
+!-----------------------------------------------------------------------
+  rnday = 25 !total run time in days 
+  nramp = 1 !ramp-up option (1: on; 0: off)
+  dramp = 2. !needed if nramp=1; ramp-up period in days
+  dt = 120. !Time step in sec
+
+!-----------------------------------------------------------------------
+! Solver option. JCG is used presently.
+!-----------------------------------------------------------------------
+  slvr_output_spool = 50 !output spool for solver info
+  mxitn = 1500 !max. iteration allowed
+  tolerance = 1.e-12 !error tolerance
+
+!-----------------------------------------------------------------------
+! Advection (ELM) option. If nadv=1, backtracking is done using Euler method; 
+! nadv=2, using 2nd order Runge-Kutta; if nadv=0, advection in momentum 
+! is turned off/on in adv.gr3 (the depths=0,1, or 2 also control methods 
+! in backtracking as above). dtb_max/min are the max/min steps allowed -
+! actual step is calculated adaptively based on local gradient.
+!-----------------------------------------------------------------------
+  nadv = 2
+  dtb_max = 60. !in sec
+  dtb_min = 10.
+
+!-----------------------------------------------------------------------
+! If inter_mom=0, linear interpolation is used for velocity at foot of char. line.
+! If inter_mom=1 or -1, Kriging is used, and the choice of covariance function is
+! specified in 'kr_co'. If inter_mom=1, Kriging is applied to whole domain;
+! if inter_mom=-1, the regions where Kriging is used is specified in krvel.gr3 
+! (depth=0: no kriging; depth=1: with kriging). 
+! For velocity, additional controls are available in 'blend_internal' and 'blend_bnd',
+! two parameters specifying how continuous and discontinuous velocities are blended 
+! for internal and boundary sides. If indvel=1, code resets blend_internal=blend_bnd=0.
+!-----------------------------------------------------------------------
+  inter_mom = 0 
+  kr_co = 1 !not used if inter_mom=0
+  blend_internal = 0.
+  blend_bnd = 0.
+
+!-----------------------------------------------------------------------
+! Transport method. If iupwind_t=0, ELM is used for T & S (based on inter_st below).
+! If iupwind_t=1, upwind method is used. If iupwind_t=2, 2nd-order TVD method is used
+! on an element/prism if the total depth (at all 3 nodes of the elem.)>=h_tvd and the flag in
+! tvd.prop = 1 for the elem. (tvd.prop is required in this case); 
+! otherwise upwind is used for efficiency. 
+! If iupwind_t>0, the interpolation method below ('inter_st') does not affect T or S.
+! New: iupwind_t=3, implicit TVD (under dev)
+!-----------------------------------------------------------------------
+  iupwind_t = 2 !not used for 2D model
+!  h_tvd = 6. !used only if iupwind_t=2; cut-off depth (m) 
+  !The following 2 parameters should only be changed if cpp flag CHOOSE_TVD is turned on
+  tvd_mid = AA !AA (default) or CC (Casulli's formulation); needed only if iupwind_t=2
+  flimiter = SB !flux limiter option if iupwind_t=2
+              !revert to upwind; used in conjunction with the flags in tvd.prop
+
+!-----------------------------------------------------------------------
+! Interpolation methods in ELM for salinity and temperature. Used when iupwind_t=0.
+! If inter_st=1, split linear
+! is used for T,S at foot of char. line. If inter_st=2, quadratic interpolation
+! is used there. If inter_st=0, the interpolation method is specified in lqk.gr3.
+!-----------------------------------------------------------------------
+  inter_st = 1 !formerly lq 
+
+!-----------------------------------------------------------------------
+! Atmos. option. If nws=0, no atmos. forcing is applied. If nws=1, atmos.
+! variables are read in from wind.th. If nws=2, atmos. variables are
+! read in from sflux_ files.
+! If nws=4, ascii format is used for wind and atmos. pressure at each node (see source code).
+! If nws>0, 'iwindoff' can be used to scale wind speed (with windfactor.gr3).
+!
+! Stress calculation:
+! If nws=1 or 4, or nws=2 and ihconsv=0, or nws=2 and iwind_form=-1, 
+! the stress is calculated from Pond & Pichard formulation 
+! If nws=2, ihconsv=1 and iwind_form=0, the stress is calculated from heat exchange
+! routine; 
+! If WWM is enabled and icou_elfe_wwm>0 and iwind_form=-2, stress is calculated by WWM;
+! otherwise the formulations above are used.
+!-----------------------------------------------------------------------
+  nws = 1 !must /=3 for 2D model
+  wtiminc = 1000000. !time step for atmos. forcing
+  nrampwind = 1 !ramp-up option for atmos. forcing
+  drampwind = 2. !needed if nrampwind/=0; ramp-up period in days
+  iwindoff = 0 !needed only if nws/=0; '1': needs windfactor.gr3
+!  iwind_form = -1 
+
+!-----------------------------------------------------------------------
+! Heat and salt exchange. isconsv=1 needs ihconsv=1; ihconsv=1 needs nws=2.
+! If isconsv=1, need to compile with precip/evap module turned on.
+! For 2D model, both must be 0.
+!-----------------------------------------------------------------------
+  ihconsv = 0 !heat exchange option
+  isconsv = 0 !evaporation/precipitation model
+
+!-----------------------------------------------------------------------
+! Turbulence closure.
+!-----------------------------------------------------------------------
+  itur = 0 !must be 0 for 2D model
+  dfv0 = 0
+  dfh0 = 1.e-6
+!  turb_met = KE 
+!  turb_stab = KC
+
+!-----------------------------------------------------------------------
+! Sponge layer for elevation and vel.
+! If inu_elev=0, no relaxation is applied to elev.
+! If inu_elev=1, relax. constants are specified in elev_nudge.gr3
+!   and applied to eta=0 (thus a depth=0 means no relaxation).
+! Similarly for inu_uv (with input uv_nudge.gr3)
+!-----------------------------------------------------------------------
+  inu_elev = 0
+  inu_uv = 0
+
+!-----------------------------------------------------------------------
+! Nudging options for T,S.  If inu_st=0, no nudging is used. If inu_st=1,
+! nudge T,S to initial condition according to relaxation constants specified
+! in t_nudge.gr3 and s_nudge.gr3, and vertical relax. specified below. 
+! If inu_st=2, nudge T,S to values in temp_nu,in
+! and salt_nu.in (with step 'step_nu') according to t_nudge.gr3 and s_nudge.gr3
+! and vertical relax. specified below. The final relaxation = horizontal relax
+! (specified in [t,s]_nudge.gr3) times vertical relax (which varies linearly 
+! along local depth according to (vnh1,vnf1,vnh2,vnf2)) times dt.
+! No nudging can be used for 2D model.
+!-----------------------------------------------------------------------
+  inu_st = 0 !nudging option; must =0 for 2D model
+  step_nu = 43200. !in sec; only used if inu_st=2
+  vnh1 = 400 !vertical nudging depth
+  vnf1 = 1 !vertical relax
+  vnh2 = 401 !vertical nudging depth
+  vnf2 = 1. !vertical relax
+
+!-----------------------------------------------------------------------
+! Cut-off depth for cubic spline interpolation near bottom when computing horizontal gradients
+! using hgrad_nodes() (baroc. force, radiation stress, and gradients of qnon and qhat in non-hydro model). 
+! If depth > depth_zsigma ('deep'),
+! a min. (e.g. max bottom z-cor for the element) is imposed in the spline and so a more
+! conservative method is used without extrapolation beyond bottom; 
+! otherwise constant extrapolation below bottom is used.
+!-----------------------------------------------------------------------
+  depth_zsigma = 100. !h_bcc1
+
+!-----------------------------------------------------------------------
+! Dimensioning parameters for inter-subdomain btrack. 
+!-----------------------------------------------------------------------
+  s1_mxnbt = 0.5
+  s2_mxnbt = 3.5
+
+!-----------------------------------------------------------------------
+! Global output options.
+! For 2D model, the only outputs available are: elev.61, dahv.62, wind.62, wist.62 and hvel.64
+!-----------------------------------------------------------------------
+  nspool = 30 !output step spool
+  ihfskip = 720 !stack spool; every ihfskip steps will be put into 1_*, 2_*, etc...
+
+  elev.61 = 1 !0: off; 1: on - elev. [m]
+  pres.61 = 0 !air pressure [Pa]
+  airt.61 = 0 !air temperature [C]
+  shum.61 = 0 !Specific humidity [-]
+  srad.61 = 0 !solar (shortwave) radiation [W/m/m]
+  flsu.61 = 0 !sensible flux (positive upward) [W/m/m] 
+  fllu.61 = 0 !latent heat flux (positive upward) [W/m/m]
+  radu.61 = 0 !upward longwave radiation (positive upward) [W/m/m]
+  radd.61 = 0 !downward longwave radiation (positive downward) [W/m/m]
+  flux.61 = 0 !total flux=-flsu-fllu-(radu-radd) [W/m/m]
+  evap.61 = 0 !evaporation rate [kg/m/m/s]
+  prcp.61 = 0 !precipitation rate [kg/m/m/s]
+  wind.62 = 1 !wind speed [m/s]
+  bdrc.61 = 0 !Bottom drag coefficient [-]
+  wist.62 = 0 !wind stress [m^2/s/s]
+  dahv.62 = 0 !depth-averaged vel. [m/s]
+  vert.63 = 0 !vertical velocity [m/s]
+  temp.63 = 0 !water temperature [C]
+  salt.63 = 0 !water salinity [PSU]
+  conc.63 = 0 !water density [kg/m^3]
+  tdff.63 = 0 !turbulent diffusivity [m^2/s]
+  vdff.63 = 0 !turbulent diffusivity [m^2/s]
+  kine.63 = 0 !turbulent kinetic energy
+  mixl.63 = 0 !turbulent mixing length [m]
+  zcor.63 = 0 !z-coordinates [m]
+  qnon.63 = 0 !non-hydrostatic pressure
+  hvel.64 = 1 !horizontal vel. [m/s]
+
+!-----------------------------------------------------------------------
+! Outputs from WWM (USE_WWM must be on in Makefile)
+!-----------------------------------------------------------------------
+  wwm_1.61  = 0 !sig. height (m)
+  wwm_2.61  = 0 !Mean average period (sec) - TM01
+  wwm_3.61  = 0 !Zero down crossing period for comparison with buoy (s) - TM02
+  wwm_4.61  = 0 !Average period of wave runup/overtopping - TM10
+  wwm_5.61  = 0 !Mean wave number (1/m)
+  wwm_6.61  = 0 !Mean wave length (m)
+  wwm_7.61  = 0 !Mean average energy transport direction (deg)
+  wwm_8.61  = 0 !Mean directional spreading (deg)
+  wwm_9.61  = 0 !Discrete peak period (sec)
+  wwm_10.61 = 0 !Continuous peak period (Tp) based on higher order moments (sec) 
+  wwm_11.61 = 0 !Peak phase vel. (m/s)
+  wwm_12.61 = 0 !Peak n-factor [-]
+  wwm_13.61 = 0 !Peak group vel. (m/s)
+  wwm_14.61 = 0 !Peak wave number (1/m)
+  wwm_15.61 = 0 !Peak wave length (m)
+  wwm_16.61 = 0 !Peak (dominant) wave direction (degr) ... some buoys record this 
+  wwm_17.61 = 0 !Peak directional spreading (deg) ... some buoys record this  
+  wwm_18.61 = 0 !Discrete peak direction (deg) ... some buoys record this  
+  wwm_19.61 = 0 !Orbital vel. (m/s)
+  wwm_20.61 = 0 !RMS orbital vel. (m/s)
+  wwm_21.61 = 0 !Bottom excursion period (sec)
+  wwm_22.61 = 0 !bottom wave period (sec)
+  wwm_23.61 = 0 !Ursell number based on peak period 
+  wwm_24.61 = 0 !none 
+  wwm_25.62 = 0 !Etot energy vector (m^2)
+  wwm_26.62 = 0 !none 
+
+!-----------------------------------------------------------------------
+! Tracer outputs (if ntracers/=0)
+!-----------------------------------------------------------------------
+  trcr_1.63 = 1 !Nitrate
+  trcr_2.63 = 1 !Ammonium
+
+!-----------------------------------------------------------------------
+! Non-standard outputs section. Some of these need corresponding cpp flags
+! to be on in order to be active.
+!-----------------------------------------------------------------------
+  hvel.67 = 0 !horizontal vel. defined at side [m/s]
+  vert.69 = 0 !vertical vel. at centroids [m/s]
+  temp.70 = 0 !T at prism centers [C]
+  salt.70 = 0 !S at prism centers [PSU]
+  bthk.66 = 0 ! total bed thickness (m) {module: SED}
+  bage.66 = 0 ! total bed age over all layers (sec) {module: SED}
+  z0st.66 = 0 ! Sediment transport roughness length (m) {module: SED}
+  z0eq.66 = 0 !Total roughness length (m) {module: SED2D}
+  z0cr.66 = 0 !current-ripples roughness length (m) {module: SED or SED2D}
+  z0sw.66 = 0 !sand-waves roughness length (m) {module: SED or SED2D}
+  z0wr.66 = 0 !wave-ripples roughness length (m) {module: SED or SED2D}
+  bpgr.65 = 0 ! Barotropic pressure gradient force (m.s-2) at side centers (only if im2d = 1) {DEBUG}
+  wafo.67 = 0 ! Wave force (m.s-2) computed by wwm at side centers and whole levels {module: WWM &DEBUG}
+  bdoc.66 = 0 !ICM bed sediment flux arrays: BENDOC
+  bnh4.66 = 0 !ICM bed sediment flux arrays: SED_BENNH4
+  bno3.66 = 0 !ICM bed sediment flux arrays: SED_BENNO3
+  bpo4.66 = 0 !ICM bed sediment flux arrays: BENPO4
+  bcod.66 = 0 !ICM bed sediment flux arrays: SED_BENCOD
+  sbdo.66 = 0 !ICM bed sediment flux arrays: sed_BENDO 
+  sbsa.66 = 0 !ICM bed sediment flux arrays: BENSA
+
+
+!-----------------------------------------------------------------------
+! Station output option. If iout_sta/=0, need output skip (nspool_sta) and
+! a station.in. If ics=2, the cordinates in station.in must be in lon., lat,
+! and z (measured from MSL; not used for 2D variables). 
+!-----------------------------------------------------------------------
+  iout_sta = 1
+  nspool_sta = 3 !needed if iout_sta/=0
+
+!-----------------------------------------------------------------------
+! Flag for harmonic analysis for elevation. If used , need to turn on cpp flags
+! in Makefile first. Otherwise set it to 0.
+!-----------------------------------------------------------------------
+  iharind = 0
+
+!-----------------------------------------------------------------------
+! Option for hotstart outputs
+!-----------------------------------------------------------------------
+  hotout = 0 !1: output *_hotstart every 'hotout_write' steps
+  hotout_write = 720
+
+!-----------------------------------------------------------------------
+! Conservation check option. If consv_check=1, some fluxes are computed
+! in regions specified in fluxflag.prop (regional number from -1 to an arbitrary integer).
+!-----------------------------------------------------------------------
+  consv_check = 1
+
+!-----------------------------------------------------------------------
+! Tracer parameters (used when ntracers>0)
+!-----------------------------------------------------------------------
+
+! Time
+  sim_year = 2000
+  sim_month = 2
+  sim_day = 1
+  sim_hour = 0
+  sim_minute = 0
+  sim_second = 0
+
+! Model id (0- tracer age; 1-Sediments Model; 
+!           2-Ecological Model; 3-Oil Spill Model; 4-NAPZD; 5: ICM; 
+!           6: Timor/Mud; -1: for users; need to update the part in selfe_init and selfe_step
+!           - search for "user-defined tracer part")
+  flag_model = 1
+
+! initial conditions
+! 1: needs inputs htr_[1,2,...].ic ('1...' is tracer id); format of each file is similar to salt.ic;
+!    i.e. horizontally varying i.c. is used for each tracer.
+! 2: needs vtr_[1,2,...].ic. Format of each file (for each tracer) is similar to ts.ic
+!    (i.e. level #, z-coord., tracer value). Verically varying i.c. is used for each tracer.
+! 0: model sets own i.c. (EcoSim; TIMOR)
+  flag_ic = 1
+
+!-----------------------------------------------------------------------
+  !Transport solver for tracers. 1: upwind; 2: TVD (in this case, h_tvd and tvd.prop are shared with T,S)
+  !New: 3: implicit TVD (under dev)
+  itr_met = 1
+  !The following 2 parameters should ONLY be changed if CHOOSE_TVD is turned on.
+  tvd_mid2 = AA !needed only for TVD. See tvd_mid above
+  flimiter2 = SB !needed only for TVD. See flimiter above
+  !Nudging option for tracers. See inu_st above for explanation; the relax. input is tracer_nudge.gr3 
+  inu_tr = 0
+  step_nu_tr = 86400. !used only if inu_tr=2; time step [sec] in tr_nu.in
+
+!-----------------------------------------------------------------------
+! Test flags for debugging. These flags should be turned off normally.
+!-----------------------------------------------------------------------
+! Williamson test #5 (zonal flow over an isolated mount); if
+! on, ics must =2
+!-----------------------------------------------------------------------
+  izonal5 = 0 !"0" - no test; otherwise on
+
+!-----------------------------------------------------------------------
+! Rotating Gausshill test with stratified T,S (1: on; 0: off)
+! Surface T,S read in from *.ic; code generates stratification
+!-----------------------------------------------------------------------
+  ibtrack_test = 0
+
+!-----------------------------------------------------------------------
+! Rouse profile test (1: on; 0: off)
+! If on, must turn on USE_TIMOR
+!-----------------------------------------------------------------------
+  irouse_test = 0

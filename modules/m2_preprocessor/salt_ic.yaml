@@ -1,0 +1,10 @@
+default: 4
+polygons:
+  - name: example
+    type: none
+    attribute: 12.0 - (x/65000.)*8
+    vertices:
+      - [0., -20000.]
+      - [80000., -20000]
+      - [80000., 20000.]
+      - [0., 20000.]
