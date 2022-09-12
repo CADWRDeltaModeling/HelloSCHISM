@@ -9,7 +9,7 @@ The transport flag *iupwind_t=0* signals the Eulerian-Lagrangian method of trans
 
    The information on **iupwind_t** variable needs to be updated
 
-Setting *iupwind_t=2* is a single flag change in **param.in.** However, because it is a hybrid scheme, SCHISM expects a property file called **tvd.prop** of 0 and 1 values describing where TVD can be used potentially. Keep in mind, even with this file TVD will only be used if *H > 6m*. 
+Setting *iupwind_t=2* is a single flag change in **param.nml**. However, because it is a hybrid scheme, SCHISM expects a property file called **tvd.prop** of 0 and 1 values describing where TVD can be used potentially. Keep in mind, even with this file TVD will only be used if *H > 6m*. 
 
 The .prop file format just pairs element numbers and values. We are controlling TVD entirely with depth, so we just need a prop file full of ones. There are 4636 elements in the domain (you can get this number from first number on the second line of **hgrid.gr3**). So this file will be two columns, the first of which will be the numbers 1 to 4636 and the second of which will be the number 1:
 
@@ -43,7 +43,7 @@ The task is also a soft introduction to the preprocessor:
    prop:
      tvd.prop: !include tvd.yaml
  
-4.	Now we need a trivial **tvd.yaml**, which will contain a default and one polygon. Because the default will assign 1.0 to anything we miss, the actual specification of the polygon doesn’t matter. However, we will add one that amply contains the whole domain (the “All” part is just a label). Here are the contents of **tvd.yaml**
+4.	Now we need to create a trivial **tvd.yaml**, which will contain a default and one polygon. Because the default will assign 1.0 to anything we miss, the actual specification of the polygon doesn’t matter. However, we will add one that amply contains the whole domain (the “All” part is just a label). Here are the contents of **tvd.yaml**
 
 .. code:: yaml
 
@@ -74,7 +74,7 @@ Navigate to the m1_Preprocessor folder in your file explorer. Type “cmd” in 
    
    python ../../scripts/schimpy-master/schimpy/prepare_schism.py input.yaml
 
-6.	At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. First, copy over **param.in** and **bctides.in** from Hello SCHISM (“<TUTORIAL_PATH>/hello_schism”). Set *iupwind_t = 2* and *rnday=5* in **param.in**. This changes the transport method to TVD2 and the runtime in days to 5.
+6.	At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. Locate and open the files **param.nml** and **bctides.in**. Set *iupwind_t = 2* and *rnday=5* in **param.nml**. This changes the transport method to TVD2 and the runtime in days to 5.
 
 7.	Launch the run (note, you’ll need the windows build of SCHISM to be set in your system Path):
 
@@ -84,7 +84,7 @@ Navigate to the m1_Preprocessor folder in your file explorer. Type “cmd” in 
 
 .. admonition:: Bonus Step:
 
-   Note in bctides.in that the run is driven by two constant inflows of -30.0 (fluxes into the domain are negative). Can you convert this to a very coarse time series?
+   Note in bctides.in that the run is driven by two constant inflows of -40.0 (fluxes into the domain are negative). Can you convert this to a very coarse time series?
 
-   * Hint, you will need to change the boundary flag from 2 to 1 in **param.in** and also create the time series. The time series can have a large time step, e.g. a million seconds.  You can keep it constant at -30.0 or you can taper it up or down. 
+   * Hint, you will need to change the boundary flag from 2 to 1 in **param.nml** and also create the time series. The time series can have a large time step, e.g. a million seconds.  You can keep it constant at -40.0 or you can taper it up or down. 
  

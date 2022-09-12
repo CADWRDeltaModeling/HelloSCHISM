@@ -22,7 +22,7 @@ RUNNING THE MODEL
 
 #. Navigate to "./module_data/**m1_hello_schism**"
 #. Make sure that the tools are accessible and schism build directory is on path (See :ref:`Getting Started <getstart>`). 
-#. Make sure that there is an /outputs directory inside the module directory. We include this with the module folder, so it should be there.
+#. Make sure that there is an **/outputs** directory inside the module directory. We include this with the module folder, so it should be there.
 #. Obtain a windows command prompt window by typing **cmd** in the windows explorer navigation bar and press enter. This sets the current directory to the folder you were viewing (**m1_hello_schism**). 
    |cmd|
 #. Launch the run in the command prompt using the following command:

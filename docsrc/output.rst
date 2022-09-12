@@ -3,7 +3,7 @@
 MODULE 3: OVREVIEW
 -------------------
 
-This module’s directory (“./module_data/**m3_output**”) contains a set of tutorials based on short set (a few days) of station and binary model output. These are stored in a directory named ./**outputs** along with supplementary files (like the global_to_local mapping files) needed to make sense out of them. 
+This module’s directory (“./module_data/**m3_output**”) contains a set of tutorials based on short set (a few weeks) of station and binary model output. These are stored in a directory named ./**outputs** along with supplementary files (like the global_to_local mapping files) needed to make sense out of them. 
 
 .. note::
     There are library imports from **schimpy** in this module. Be sure to have installed the python schimpy package (see :ref:`Getting Started - Python <pystart>`)
@@ -125,37 +125,36 @@ This will open a pop-out plot of the salinity timeseries for Location 1, you can
 
 Exercise 2
 ```````````
-
-.. warning::
-    This needs to be updated.
     
-In this exercise you will read and plot flow data using the **flux.out** file found in the ./outputs folder.
+In this exercise you will read and plot flow data using the **flux.out** file found in the ./outputs folder as well as the **flowlines.yaml** file found in the folder for this exercise "./**m3_output**".
 
 1.	Open ‘./m3_output/exercises/**exercise2.py**’
 
-2.	Since we want to retrieve flow data, you need to specify the output path. Add the following line at the end of the code within the *if __name__ == '__main__': block:*
+2.	Since we want to retrieve flow data, you need to specify the output path as well as the . Add the following lines at the end of the code within the *if __name__ == '__main__': block:*
 
 .. code-block:: python
 
+   station_fpath = '../flowlines.yaml'
    outputs_fpath = "../outputs/flux.out"
 
 3.	For this exercise you will read data from the mouth of River 1, so set the station_name using the following line:
 
 .. code-block:: python
 
-   station_name = "montezuma_mouth"
+   station_name = "north_weir_upstream"
 
 The schimpy function *read_flux_out* is a Python data extracting function that pulls out time series from the right column of the **flux.out** file. Calling this function stores the requested time series for all observation flow stations. Add the following line after the last edit you made, keeping consistent with indentation:
 
 .. code-block:: python
 
-   all_ts = read_flux_out(outputs_fpath, station_fpath, time_basis)
+   aall_ts = read_flux_out(outputs_fpath, station_fpath, time_basis)
+
 
 4.	To retrieve a specific station’s time series and then plot using the matplotlib plotting library in Python, add the following two lines after the last edits you made, again keeping consistent with indentation:
 
 .. code-block:: python
 
-   all_ts[station_name + "_" + sub_loc].plot()
+   all_ts[station_name].plot()
    plt.show()
 
 5.	Save the file (“./m3_output/exercises/**exercise2.py**”) and run the script in the command line.
@@ -164,7 +163,7 @@ The schimpy function *read_flux_out* is a Python data extracting function that p
 
    python exercise2.py
 
-This will open a pop-out plot of the flow timeseries for the mouth of Montezuma Slough, you can zoom around in the plot window to evaluate the data. 
+This will open a pop-out plot of the flow timeseries from just upstream of River 1's weir, you can zoom around in the plot window to evaluate the data. 
 
 -----------------------------------------------------
 
@@ -173,12 +172,9 @@ This will open a pop-out plot of the flow timeseries for the mouth of Montezuma 
 Exercise 3
 ```````````
 
-.. warning::
-    This needs to be updated.
-
 In this exercise you will read and plot an observation file not created by SCHISM, but a paired timeseries found in “./m3_output/exercises/**9414290_gageheight.txt**”. If you open the file in a text editor (ex: Notepad++) you can see that there is a Date Time column, a Water Level column and some other quality flags. This timeseries was obtained from NOAA and has 7 lines of commented-out material, one header line and then the timeseries data.
 
-1.	Open ‘./m3_output/exercises/**exercise3-1.py**’ in a text editor or Python IDE.
+1.	Open ‘./m3_output/exercises/**exercise3.py**’ in a text editor or Python IDE.
 
 2.	Specify the input file by entering the following below the last line, keeping the indentation consistent with the above lines.
 
@@ -231,8 +227,8 @@ In this exercise you will combine techniques found in :ref:`Exercise 1-1 <ex1-1>
 
 .. code-block:: python
 
-   ts_obs.plot(legend=True)
-   all_ts_sim[station_name+"_"+sub_loc].plot(label="Sim",legend=True)
+   ts_obs.plot(legend=True, ax=ax)
+   all_ts_sim[station_name+"_"+sub_loc].plot(label="Sim", legend=True, ax=ax, linestyle='dashed')
    plt.show()
 
 5.	Save the file (“./m3_output/exercises/**exercise4.py**”) and run the script in the command line.
@@ -246,37 +242,72 @@ This will open a pop-out plot of the elevation timeseries, you can zoom around i
 BINARY OUTPUT
 -------------
 
-.. warning::
-    This needs to be updated.
-
-Previously, you used the station output files and observed timeseries files to gather and plot data. Now you will use binary outputs to extract and plot timeseries.
+Previously, you used the station output files and observed timeseries files to gather and plot data. Now you will use binary outputs to extract and plot timeseries. This is what you'd typically need to do if you hadn't set up the output station and transect locations prior to running the model.
 
 1.	Navigate to folder output, and create ‘**station.bp**,’ which has extraction points. Let’s add one station.
 
 .. code-block:: Text
 
-   sf.bp
+   mid.bp
    1 ! # of stations to extract
-   1  547094.8 4184503.1 -0.5  ! San Francisco
+   1  20000. 0. -1.0  ! Middle
 
 
-The first line is just comment, the second line is the number of stations, and the third is the list of station x-, y-, and z-coordinates. Notice the z-coordinate -0.5 in the third line, the post-processsing script is capable of interpreting this value as either an absolute elevation relative to the model datum (ex: -0.5 m NAVD88)….. 
-. We will treat it as absolute elevation later by specifying vertical coordinate system by screen inputting. Most of water column in our Bay-Delta model are negative. You can also use depth from free surface instead as vertical location, which is defined positive from surface to bottom.
-2.	Run ‘read_outputs10_xyz’ in the command line, and input parameter after each bold screen inquiry.
+The first line is just comment, the second line is the number of stations, and the third is the list of station x-, y-, and z-coordinates. Notice the z-coordinate -1.0 in the third line, the post-processsing script is capable of interpreting this value as either an absolute elevation relative to the model datum (ex: -1.0 m NAVD88) or a relative elevation to the surface.
 
-read_output10_xyz 
-Input extraction pts format (1: .bp; 2:.sta):
-1
-Input ics (1-linear interp; 2-nearest neighbor interp. 2 for node-based variables only! 2 is suggested for sub-meter resolution!):
-1
-Input variable name to read from nc (e.g. elevation):
-elevation
-Is the var node (1) or elem (2) based?
-1
-Input start and end file # to read:
-57 59
-Is the z-coord. in station.* relative to surface (1) or a fixed level (0)?
-0
+.. warning::
+
+   This explanation needs to be updated.
+
+We will treat it as absolute elevation later by specifying vertical coordinate system by screen inputting. ((((**Will we?**)))) *Most of water column in our Bay-Delta model are negative.* You can also use depth from free surface instead as vertical location, which is defined positive from surface to bottom.
+
+2.	Run '*read_output10_xyz*' in the command line, and input parameter after each bold screen inquiry.
+
+.. code-block:: console
+
+   read_output10_xyz 
+
+**Input extraction pts format (1: .bp; 2:.sta):**
+
+.. code-block:: console
+
+   1
+
+**Input ics (1-linear interp; 2-nearest neighbor interp. 2 for node-based variables only! 2 is suggested for sub-meter resolution!):**
+
+.. code-block:: console
+
+   1
+
+**Input variable name to read from nc (e.g. elevation):**
+
+.. code-block:: console
+
+   elevation
+
+**Is the var node (1) or elem (2) based?**
+
+.. code-block:: console
+
+   1
+
+**Input start and end file # to read:**
+
+.. code-block:: console
+
+   22 25
+
+**Is the z-coord. in station.* relative to surface (1) or a fixed level (0)?**
+
+.. code-block:: console
+
+   0
+
 The result will be saved in ‘fort.18’ in this case, take a look at it with Excel and plot the time series.
+
+.. warning::
+
+   This doesn't actually work for me. It doesn't seem to be able to find the station.bp file even when in the right directory.
+
 (Optional) Add more stations and repeat the exercise.
 
