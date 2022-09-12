@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MODULE 3: OVREVIEW &mdash; Hello SCHISM 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/design-tabs.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MODULE 4: OVERVIEW" href="requestoutputs.html" />
+    <link rel="prev" title="MODULE 2: OVREVIEW" href="preprocessor.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Hello SCHISM
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">GETTING STARTED</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 1: Hello SCHISM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html">MODULE 1: OVREVIEW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html#running-the-model">RUNNING THE MODEL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html#deprecated-combining-per-processor-binary-outputs">DEPRECATED: COMBINING PER-PROCESSOR BINARY OUTPUTS</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 2: Preprocessor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preprocessor.html">MODULE 2: OVREVIEW</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 3: Retrieving Output</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MODULE 3: OVREVIEW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#station-output">STATION OUTPUT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-1-1">Exercise 1-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-1-2">Exercise 1-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-2">Exercise 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-3">Exercise 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-4">Exercise 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#binary-output">BINARY OUTPUT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 4: Specifying Output Request Locations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">MODULE 4: OVERVIEW</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hello SCHISM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>MODULE 3: OVREVIEW</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/output.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-3-ovreview">
+<span id="module3"></span><h1>MODULE 3: OVREVIEW<a class="headerlink" href="#module-3-ovreview" title="Permalink to this heading">¶</a></h1>
+<p>This module’s directory (“./module_data/<strong>m3_output</strong>”) contains a set of tutorials based on short set (a few days) of station and binary model output. These are stored in a directory named ./<strong>outputs</strong> along with supplementary files (like the global_to_local mapping files) needed to make sense out of them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are library imports from <strong>schimpy</strong> in this module. Be sure to have installed the python schimpy package (see <a class="reference internal" href="index.html#pystart"><span class="std std-ref">Getting Started - Python</span></a>)</p>
+</div>
+<p>The station input file “<strong>station.in</strong>” used to launch <em>SCHISM</em> is how the x-,y-, and z- coordinates are associated with the station name. The z-coordinate in this example uses -1.0 m as the “default” observation depth, other depths are classified as “upper” or “lower” depending on where they are in the water column.</p>
+<p>In the Hello SCHISM example model, there are 6 stations that have been designated prior to running the model in the “station.in” file which are distributed in the model domain:</p>
+<div class="figure align-center" id="id1">
+<span id="obs-sta"></span><img alt="Hello SCHISM Input Stations" src="_images/schism_obs_stations.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text"><em>Hello SCHISM observation stations as specified by the station.in file</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="station-output">
+<h1>STATION OUTPUT<a class="headerlink" href="#station-output" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="exercise-1-1">
+<span id="ex1-1"></span><h2>Exercise 1-1<a class="headerlink" href="#exercise-1-1" title="Permalink to this heading">¶</a></h2>
+<p>In this exercise you will read and plot elevation data at a station using the SCHISM outputs provided.</p>
+<ol class="arabic simple">
+<li><p>Open ‘.m3_output/exercises/<strong>exercise1.py</strong>’ in a text editor (ex: Notepad++) or your Python IDE of choice (ex: Spyder, PyCharm, VSCode, etc.) Save the file as “./m3_output/exercises/<strong>exercise1-1.py</strong>”.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>While making edits, ensure consistency of indentation with previous lines (there are four spaces at the front of each line below the <em>if __name__ == ‘__main__’:</em> block).</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>In this example we want to read elevation data from the San Francisco station.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Since we’re wanting the elevation data, you need to set the output folder. Add the following line at the end of the code within the <em>if __name__ == ‘__main__’: block:</em></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">outputs_fpath</span> <span class="o">=</span> <span class="s2">&quot;../outputs/staout_1&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Now, to retrieve the Ocean Boundary Inland station you need to set the <strong>station_name</strong> variable as well as the <strong>sub_loc</strong> variable. These both correspond to the <strong>station.in</strong> SCHISM input file. The sub_loc corresponds to the observation depth at the station. Add the following lines after the last edit you made:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="s2">&quot;oc_in&quot;</span> <span class="c1"># Ocean Boundary Inland</span>
+<span class="n">sub_loc</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>The schimpy function <em>read_staout</em> is a Python data extracting function that pulls out time series from the right column of the <strong>staout_*</strong> files. Calling this function stores the requested time series for all stations. Add the following line after the last edit you made, keeping consistent with indentation:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span> <span class="o">=</span> <span class="n">read_staout</span><span class="p">(</span><span class="n">outputs_fpath</span><span class="p">,</span> <span class="n">station_fpath</span><span class="p">,</span> <span class="n">time_basis</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>To retrieve a specific station’s time series and then plot using the matplotlib plotting library in Python, add the following two lines after the last edits you made, again keeping consistent with indentation:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span><span class="p">[</span><span class="n">station_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Save the file (“.m3_output/exercises/<strong>exercise1-1.py</strong>”) and run the script in the command line.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python exercise1-1.py</span>
+</pre></div>
+</div>
+<p>This will open a pop-out plot of the elevation timeseries for the Ocean Inland station, you can zoom around in the plot window to evaluate the data.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-1-2">
+<h2>Exercise 1-2<a class="headerlink" href="#exercise-1-2" title="Permalink to this heading">¶</a></h2>
+<p>In this exercise you will read and plot salinity data at a different station than Exercise 1-1.</p>
+<ol class="arabic simple">
+<li><p>Re-Open ‘./m3_output/exercises/<strong>exercise1.py</strong>’. This should be the raw/original script without any edits you made in Exercise 1-1. Save this file as “./m3_output/exercises/<strong>exercise1-2.py</strong>”.</p></li>
+<li><p>In this exercise we want to evaluate salinity data from the station at Location 1 (<a class="reference internal" href="#obs-sta"><span class="std std-numref">Fig. 4</span></a>).</p></li>
+</ol>
+<ul class="simple">
+<li><p>Since we’re pulling salinity data, you need to specify the output folder. Add the following line at the end of the code within the <em>if __name__ == ‘__main__’: block:</em></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">outputs_fpath</span> <span class="o">=</span> <span class="s2">&quot;../outputs/staout_6&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Now, to retrieve the River 1 station you need to set the station_name variable as well as the sub_loc variable. Add the following lines after the last edit you made:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="s2">&quot;loc_1&quot;</span> <span class="c1"># Location 1</span>
+<span class="n">sub_loc</span> <span class="o">=</span> <span class="s2">&quot;upper&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>The schimpy function <em>read_staout</em> is a Python data extracting function that pulls out time series from the right column of the <strong>staout_*</strong> files. Calling this function stores the requested time series for all stations. Add the following line after the last edit you made, keeping consistent with indentation:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span> <span class="o">=</span> <span class="n">read_staout</span><span class="p">(</span><span class="n">outputs_fpath</span><span class="p">,</span> <span class="n">station_fpath</span><span class="p">,</span> <span class="n">time_basis</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>To retrieve a specific station’s time series and then plot using the matplotlib plotting library in Python, add the following two lines after the last edits you made, again keeping consistent with indentation:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span><span class="p">[</span><span class="n">station_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Save the file (“./m3_output/exercises/<strong>exercise1-2.py</strong>”) and run the script in the command line.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python exercise1-2.py</span>
+</pre></div>
+</div>
+<p>This will open a pop-out plot of the salinity timeseries for Location 1, you can zoom around in the plot window to evaluate the data.</p>
+<ol class="arabic simple" start="6">
+<li><p>(Optional) Retrieve salt at the same station with ‘sub_loc=lower’ and plot it with the previous time series. You can do this by adding the following line before you call <em>plt.show()</em></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span><span class="p">[</span><span class="n">station_name</span> <span class="o">+</span> <span class="s2">&quot;_lower&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This needs to be updated.</p>
+</div>
+<p>In this exercise you will read and plot flow data using the <strong>flux.out</strong> file found in the ./outputs folder.</p>
+<ol class="arabic simple">
+<li><p>Open ‘./m3_output/exercises/<strong>exercise2.py</strong>’</p></li>
+<li><p>Since we want to retrieve flow data, you need to specify the output path. Add the following line at the end of the code within the <em>if __name__ == ‘__main__’: block:</em></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">outputs_fpath</span> <span class="o">=</span> <span class="s2">&quot;../outputs/flux.out&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>For this exercise you will read data from the mouth of River 1, so set the station_name using the following line:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="s2">&quot;montezuma_mouth&quot;</span>
+</pre></div>
+</div>
+<p>The schimpy function <em>read_flux_out</em> is a Python data extracting function that pulls out time series from the right column of the <strong>flux.out</strong> file. Calling this function stores the requested time series for all observation flow stations. Add the following line after the last edit you made, keeping consistent with indentation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span> <span class="o">=</span> <span class="n">read_flux_out</span><span class="p">(</span><span class="n">outputs_fpath</span><span class="p">,</span> <span class="n">station_fpath</span><span class="p">,</span> <span class="n">time_basis</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>To retrieve a specific station’s time series and then plot using the matplotlib plotting library in Python, add the following two lines after the last edits you made, again keeping consistent with indentation:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span><span class="p">[</span><span class="n">station_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Save the file (“./m3_output/exercises/<strong>exercise2.py</strong>”) and run the script in the command line.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python exercise2.py</span>
+</pre></div>
+</div>
+<p>This will open a pop-out plot of the flow timeseries for the mouth of Montezuma Slough, you can zoom around in the plot window to evaluate the data.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="exercise-3">
+<span id="ex3"></span><h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This needs to be updated.</p>
+</div>
+<p>In this exercise you will read and plot an observation file not created by SCHISM, but a paired timeseries found in “./m3_output/exercises/<strong>9414290_gageheight.txt</strong>”. If you open the file in a text editor (ex: Notepad++) you can see that there is a Date Time column, a Water Level column and some other quality flags. This timeseries was obtained from NOAA and has 7 lines of commented-out material, one header line and then the timeseries data.</p>
+<ol class="arabic simple">
+<li><p>Open ‘./m3_output/exercises/<strong>exercise3-1.py</strong>’ in a text editor or Python IDE.</p></li>
+<li><p>Specify the input file by entering the following below the last line, keeping the indentation consistent with the above lines.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fpath_in</span> <span class="o">=</span> <span class="s1">&#39;9414290_gageheight.txt&#39;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Gather the data into a “<em>ts</em>” object by entering the following line next:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">read_ts</span><span class="p">(</span><span class="n">fpath_in</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Plot the data by adding these two lines at the end of the script:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Save the file (“./m3_output/exercises/<strong>exercise3.py</strong>”) and run the script in the command line.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python exercise3.py</span>
+</pre></div>
+</div>
+<p>This will open a pop-out plot of the elevation timeseries, you can zoom around in the plot window to evaluate the data.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-4">
+<h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this heading">¶</a></h2>
+<p>In this exercise you will combine techniques found in <a class="reference internal" href="#ex1-1"><span class="std std-ref">Exercise 1-1</span></a> and <a class="reference internal" href="#ex3"><span class="std std-ref">Exercise 3</span></a> to compare two time series in a plot.</p>
+<ol class="arabic simple">
+<li><p>Open ‘./m3_output/exercises/<strong>exercise4.py</strong>’</p></li>
+<li><p>Use the techniques in Exercise 1-1 to define the <em>outputs_fpath</em>, <em>station_name</em>, and <em>sub_loc</em> variables so that you get the elevation data you retrieved previously. Write the function to store this data into a variable called <em>“sim_data”</em>.</p></li>
+<li><p>Now, enter an empty line to differentiate the two data retrieval inputs. Use the techniques in <a class="reference internal" href="#ex3"><span class="std std-ref">Exercise 3</span></a> to gather the same observation data into a variable called “<em>ts_obs</em>”. Recall, you’ll need to define the <em>obs_fpath</em> variable.</p></li>
+</ol>
+<ul class="simple">
+<li><p>The <em>ts_obs</em> object now has the ability to rename the column so that when plotting in matplotlib the legend will reflect an aptly named column. Use the following line to change the name of the “Water Level” column to “Obs”:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ts_obs</span> <span class="o">=</span> <span class="n">ts_obs</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Water Level&quot;</span><span class="p">:</span><span class="s2">&quot;Obs&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Now, to plot the time series with legends, use the following lines of code after entering an empty line to imply a new block of plotting commands.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ts_obs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">all_ts_sim</span><span class="p">[</span><span class="n">station_name</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sim&quot;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Save the file (“./m3_output/exercises/<strong>exercise4.py</strong>”) and run the script in the command line.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python exercise4.py</span>
+</pre></div>
+</div>
+<p>This will open a pop-out plot of the elevation timeseries, you can zoom around in the plot window to evaluate the data</p>
+</div>
+</div>
+<div class="section" id="binary-output">
+<h1>BINARY OUTPUT<a class="headerlink" href="#binary-output" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This needs to be updated.</p>
+</div>
+<p>Previously, you used the station output files and observed timeseries files to gather and plot data. Now you will use binary outputs to extract and plot timeseries.</p>
+<ol class="arabic simple">
+<li><p>Navigate to folder output, and create ‘<strong>station.bp</strong>,’ which has extraction points. Let’s add one station.</p></li>
+</ol>
+<div class="highlight-Text notranslate"><div class="highlight"><pre><span></span>sf.bp
+1 ! # of stations to extract
+1  547094.8 4184503.1 -0.5  ! San Francisco
+</pre></div>
+</div>
+<p>The first line is just comment, the second line is the number of stations, and the third is the list of station x-, y-, and z-coordinates. Notice the z-coordinate -0.5 in the third line, the post-processsing script is capable of interpreting this value as either an absolute elevation relative to the model datum (ex: -0.5 m NAVD88)…..
+. We will treat it as absolute elevation later by specifying vertical coordinate system by screen inputting. Most of water column in our Bay-Delta model are negative. You can also use depth from free surface instead as vertical location, which is defined positive from surface to bottom.
+2.      Run ‘read_outputs10_xyz’ in the command line, and input parameter after each bold screen inquiry.</p>
+<p>read_output10_xyz
+Input extraction pts format (1: .bp; 2:.sta):
+1
+Input ics (1-linear interp; 2-nearest neighbor interp. 2 for node-based variables only! 2 is suggested for sub-meter resolution!):
+1
+Input variable name to read from nc (e.g. elevation):
+elevation
+Is the var node (1) or elem (2) based?
+1
+Input start and end file # to read:
+57 59
+Is the z-coord. in station.* relative to surface (1) or a fixed level (0)?
+0
+The result will be saved in ‘fort.18’ in this case, take a look at it with Excel and plot the time series.
+(Optional) Add more stations and repeat the exercise.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="requestoutputs.html" class="btn btn-neutral float-right" title="MODULE 4: OVERVIEW" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="preprocessor.html" class="btn btn-neutral float-left" title="MODULE 2: OVREVIEW" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, Jon Shu, Eli Ateljevic, Lily Tomkovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
