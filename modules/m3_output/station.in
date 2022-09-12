@@ -1,0 +1,16 @@
+1 0 0 0 0 1 1 1 0  !elev, air pressure, windx, windy, T, S, u, v, w
+14
+1  3100  0   -1.00 ! ocean default "Ocean Boundary"
+2  3100  0   -5.00 ! ocean upper "Ocean Boundary"
+3  3100  0   -10.00 ! ocean lower "Ocean Boundary"
+4  8000  0   -1.00 ! oc_in default "Ocean Boundary Inland"
+5  8000  0   -5.00 ! oc_in upper "Ocean Boundary Inland"
+6  8000  0   -10.00 ! oc_in lower "Ocean Boundary Inland"
+7  10695 3700 -1.0 ! loc_1 default "Location 1"
+8  10695 3700 -5.0 ! loc_1 upper "Location 1"
+9  10695 3700 -10.0 ! loc_1 lower "Location 1"
+10  13850 5480 -1.0 ! loc_2 default "Location 2"
+11  13850 5480 -5.0 ! loc_2 upper "Location 2"
+12  13850 5480 -10.0 ! loc_2 lower "Location 2"
+13  33000 7500 -1.00 ! river_1 default "River 1"
+14  33000 -7500 -1.00 ! river_2 default "River 2"

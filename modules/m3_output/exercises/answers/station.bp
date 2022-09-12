@@ -1,0 +1,4 @@
+mid.bp
+1 ! # of stations to extract
+1  20000. 0. -1.0  ! Middle
+ 
