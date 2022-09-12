@@ -180,7 +180,7 @@
             
   <div class="section" id="module-3-ovreview">
 <span id="module3"></span><h1>MODULE 3: OVREVIEW<a class="headerlink" href="#module-3-ovreview" title="Permalink to this heading">¶</a></h1>
-<p>This module’s directory (“./module_data/<strong>m3_output</strong>”) contains a set of tutorials based on short set (a few days) of station and binary model output. These are stored in a directory named ./<strong>outputs</strong> along with supplementary files (like the global_to_local mapping files) needed to make sense out of them.</p>
+<p>This module’s directory (“./module_data/<strong>m3_output</strong>”) contains a set of tutorials based on short set (a few weeks) of station and binary model output. These are stored in a directory named ./<strong>outputs</strong> along with supplementary files (like the global_to_local mapping files) needed to make sense out of them.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There are library imports from <strong>schimpy</strong> in this module. Be sure to have installed the python schimpy package (see <a class="reference internal" href="index.html#pystart"><span class="std std-ref">Getting Started - Python</span></a>)</p>
@@ -293,32 +293,29 @@
 <hr class="docutils" />
 <div class="section" id="exercise-2">
 <h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">¶</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This needs to be updated.</p>
-</div>
-<p>In this exercise you will read and plot flow data using the <strong>flux.out</strong> file found in the ./outputs folder.</p>
+<p>In this exercise you will read and plot flow data using the <strong>flux.out</strong> file found in the ./outputs folder as well as the <strong>flowlines.yaml</strong> file found in the folder for this exercise “./<strong>m3_output</strong>”.</p>
 <ol class="arabic simple">
 <li><p>Open ‘./m3_output/exercises/<strong>exercise2.py</strong>’</p></li>
-<li><p>Since we want to retrieve flow data, you need to specify the output path. Add the following line at the end of the code within the <em>if __name__ == ‘__main__’: block:</em></p></li>
+<li><p>Since we want to retrieve flow data, you need to specify the output path as well as the . Add the following lines at the end of the code within the <em>if __name__ == ‘__main__’: block:</em></p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">outputs_fpath</span> <span class="o">=</span> <span class="s2">&quot;../outputs/flux.out&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station_fpath</span> <span class="o">=</span> <span class="s1">&#39;../flowlines.yaml&#39;</span>
+<span class="n">outputs_fpath</span> <span class="o">=</span> <span class="s2">&quot;../outputs/flux.out&quot;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>For this exercise you will read data from the mouth of River 1, so set the station_name using the following line:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="s2">&quot;montezuma_mouth&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="s2">&quot;north_weir_upstream&quot;</span>
 </pre></div>
 </div>
 <p>The schimpy function <em>read_flux_out</em> is a Python data extracting function that pulls out time series from the right column of the <strong>flux.out</strong> file. Calling this function stores the requested time series for all observation flow stations. Add the following line after the last edit you made, keeping consistent with indentation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span> <span class="o">=</span> <span class="n">read_flux_out</span><span class="p">(</span><span class="n">outputs_fpath</span><span class="p">,</span> <span class="n">station_fpath</span><span class="p">,</span> <span class="n">time_basis</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">aall_ts</span> <span class="o">=</span> <span class="n">read_flux_out</span><span class="p">(</span><span class="n">outputs_fpath</span><span class="p">,</span> <span class="n">station_fpath</span><span class="p">,</span> <span class="n">time_basis</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>To retrieve a specific station’s time series and then plot using the matplotlib plotting library in Python, add the following two lines after the last edits you made, again keeping consistent with indentation:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span><span class="p">[</span><span class="n">station_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span><span class="p">[</span><span class="n">station_name</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -328,18 +325,14 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python exercise2.py</span>
 </pre></div>
 </div>
-<p>This will open a pop-out plot of the flow timeseries for the mouth of Montezuma Slough, you can zoom around in the plot window to evaluate the data.</p>
+<p>This will open a pop-out plot of the flow timeseries from just upstream of River 1’s weir, you can zoom around in the plot window to evaluate the data.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="exercise-3">
 <span id="ex3"></span><h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">¶</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This needs to be updated.</p>
-</div>
 <p>In this exercise you will read and plot an observation file not created by SCHISM, but a paired timeseries found in “./m3_output/exercises/<strong>9414290_gageheight.txt</strong>”. If you open the file in a text editor (ex: Notepad++) you can see that there is a Date Time column, a Water Level column and some other quality flags. This timeseries was obtained from NOAA and has 7 lines of commented-out material, one header line and then the timeseries data.</p>
 <ol class="arabic simple">
-<li><p>Open ‘./m3_output/exercises/<strong>exercise3-1.py</strong>’ in a text editor or Python IDE.</p></li>
+<li><p>Open ‘./m3_output/exercises/<strong>exercise3.py</strong>’ in a text editor or Python IDE.</p></li>
 <li><p>Specify the input file by entering the following below the last line, keeping the indentation consistent with the above lines.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fpath_in</span> <span class="o">=</span> <span class="s1">&#39;9414290_gageheight.txt&#39;</span>
@@ -384,8 +377,8 @@
 <ol class="arabic simple" start="4">
 <li><p>Now, to plot the time series with legends, use the following lines of code after entering an empty line to imply a new block of plotting commands.</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ts_obs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">all_ts_sim</span><span class="p">[</span><span class="n">station_name</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sim&quot;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ts_obs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">all_ts_sim</span><span class="p">[</span><span class="n">station_name</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sim&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -400,37 +393,57 @@
 </div>
 <div class="section" id="binary-output">
 <h1>BINARY OUTPUT<a class="headerlink" href="#binary-output" title="Permalink to this heading">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This needs to be updated.</p>
-</div>
-<p>Previously, you used the station output files and observed timeseries files to gather and plot data. Now you will use binary outputs to extract and plot timeseries.</p>
+<p>Previously, you used the station output files and observed timeseries files to gather and plot data. Now you will use binary outputs to extract and plot timeseries. This is what you’d typically need to do if you hadn’t set up the output station and transect locations prior to running the model.</p>
 <ol class="arabic simple">
 <li><p>Navigate to folder output, and create ‘<strong>station.bp</strong>,’ which has extraction points. Let’s add one station.</p></li>
 </ol>
-<div class="highlight-Text notranslate"><div class="highlight"><pre><span></span>sf.bp
+<div class="highlight-Text notranslate"><div class="highlight"><pre><span></span>mid.bp
 1 ! # of stations to extract
-1  547094.8 4184503.1 -0.5  ! San Francisco
+1  20000. 0. -1.0  ! Middle
 </pre></div>
 </div>
-<p>The first line is just comment, the second line is the number of stations, and the third is the list of station x-, y-, and z-coordinates. Notice the z-coordinate -0.5 in the third line, the post-processsing script is capable of interpreting this value as either an absolute elevation relative to the model datum (ex: -0.5 m NAVD88)…..
-. We will treat it as absolute elevation later by specifying vertical coordinate system by screen inputting. Most of water column in our Bay-Delta model are negative. You can also use depth from free surface instead as vertical location, which is defined positive from surface to bottom.
-2.      Run ‘read_outputs10_xyz’ in the command line, and input parameter after each bold screen inquiry.</p>
-<p>read_output10_xyz
-Input extraction pts format (1: .bp; 2:.sta):
-1
-Input ics (1-linear interp; 2-nearest neighbor interp. 2 for node-based variables only! 2 is suggested for sub-meter resolution!):
-1
-Input variable name to read from nc (e.g. elevation):
-elevation
-Is the var node (1) or elem (2) based?
-1
-Input start and end file # to read:
-57 59
-Is the z-coord. in station.* relative to surface (1) or a fixed level (0)?
-0
-The result will be saved in ‘fort.18’ in this case, take a look at it with Excel and plot the time series.
-(Optional) Add more stations and repeat the exercise.</p>
+<p>The first line is just comment, the second line is the number of stations, and the third is the list of station x-, y-, and z-coordinates. Notice the z-coordinate -1.0 in the third line, the post-processsing script is capable of interpreting this value as either an absolute elevation relative to the model datum (ex: -1.0 m NAVD88) or a relative elevation to the surface.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This explanation needs to be updated.</p>
+</div>
+<p>We will treat it as absolute elevation later by specifying vertical coordinate system by screen inputting. ((((<strong>Will we?</strong>)))) <em>Most of water column in our Bay-Delta model are negative.</em> You can also use depth from free surface instead as vertical location, which is defined positive from surface to bottom.</p>
+<ol class="arabic simple" start="2">
+<li><p>Run ‘<em>read_output10_xyz</em>’ in the command line, and input parameter after each bold screen inquiry.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">read_output10_xyz</span>
+</pre></div>
+</div>
+<p><strong>Input extraction pts format (1: .bp; 2:.sta):</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">1</span>
+</pre></div>
+</div>
+<p><strong>Input ics (1-linear interp; 2-nearest neighbor interp. 2 for node-based variables only! 2 is suggested for sub-meter resolution!):</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">1</span>
+</pre></div>
+</div>
+<p><strong>Input variable name to read from nc (e.g. elevation):</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">elevation</span>
+</pre></div>
+</div>
+<p><strong>Is the var node (1) or elem (2) based?</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">1</span>
+</pre></div>
+</div>
+<p><strong>Input start and end file # to read:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">22 25</span>
+</pre></div>
+</div>
+<p><strong>Is the z-coord. in station.* relative to surface (1) or a fixed level (0)?</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">0</span>
+</pre></div>
+</div>
+<p>The result will be saved in ‘fort.18’ in this case, take a look at it with Excel and plot the time series.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This doesn’t actually work for me. It doesn’t seem to be able to find the station.bp file even when in the right directory.</p>
+</div>
+<p>(Optional) Add more stations and repeat the exercise.</p>
 </div>
 
 

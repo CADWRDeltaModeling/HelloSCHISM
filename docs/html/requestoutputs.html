@@ -107,6 +107,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MODULE 4: OVERVIEW</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#adding-flow-observation-transects">Adding Flow Observation Transects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-observation-point-locations">Adding Observation Point Locations</a></li>
 </ul>
 </li>
 </ul>
@@ -175,21 +176,38 @@
             
   <div class="section" id="module-4-overview">
 <span id="module4"></span><h1>MODULE 4: OVERVIEW<a class="headerlink" href="#module-4-overview" title="Permalink to this heading">¶</a></h1>
-<p>This module’s directory (“./module_data/<strong>m4_outputrequest</strong>”) contains a sample of model input files that you will need to edit in order to change what outputs are produced in Hello SCHISM.</p>
+<p>This module’s directory (“./module_data/<strong>m4_requestoutput</strong>”) contains a sample of model input files that you will need to edit in order to change what outputs are produced in Hello SCHISM.</p>
 <div class="section" id="adding-flow-observation-transects">
 <h2>Adding Flow Observation Transects<a class="headerlink" href="#adding-flow-observation-transects" title="Permalink to this heading">¶</a></h2>
-<p>As seen in “FIGURE” there are X transects already specified in the model wiht the <strong>flow_station_xsects.yaml</strong> file, called by the <strong>fluxflag.prop</strong> file. You will add a X+1-nth transect to capture flow through A LOCATION as shown below:</p>
+<p>As seen in “FIGURE” there are X transects already specified in the model with the <strong>flowlines.yaml</strong> file, which creates the <strong>fluxflag.prop</strong> file. You will add a X+1-nth transect to capture flow through A LOCATION as shown below:</p>
 <p>“FIGURE N”</p>
-<p>The coordinates for the transect you will add is</p>
-<p>Create a new fluxflag.prop.
-1.      Open ‘flow_station_xsects.yaml’ in an editor, and note the contents.
-2.      Add one line or remove one for the location to calculate flows if you want.
-3.      Run the preprocessor to create a new fluxflag.prop.
-prepare_pschism.py input.yaml
-More prepreprocessing documentation may be found here:
+<p>The coordinates for the transect you will add will be one line straight down the center of the grid.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[ Some coordinates here ]
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Open ‘flow_station_xsects.yaml’ in an editor, and note the contents.</p></li>
+<li><p>Add one line or remove one for the location to calculate flows if you want.</p></li>
+<li><p>Run the preprocessor to create a new fluxflag.prop.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">prepare_pschism.py input.yaml</span>
+</pre></div>
+</div>
+<p>This creates all the neceesarry files for SCHISM to run, and your edit to the <strong>flowlines.yaml</strong> file is what modifies the <strong>fluxflag.prop</strong> file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More prepreprocessing documentation may be found here:
 <a class="reference external" href="http://baydeltaoffice.water.ca.gov/modeling/deltamodeling/models/tools/">http://baydeltaoffice.water.ca.gov/modeling/deltamodeling/models/tools/</a></p>
+</div>
+</div>
+<div class="section" id="adding-observation-point-locations">
+<h2>Adding Observation Point Locations<a class="headerlink" href="#adding-observation-point-locations" title="Permalink to this heading">¶</a></h2>
 <p>The station input file “<strong>station.in</strong>” used to launch <em>SCHISM</em> is how the x-,y-, and z- coordinates are associated with the station name. The z-coordinate in this example uses -1.0 m as the “default” observation depth, other depths are classified as “upper” or “lower” depending on where they are in the water column.</p>
 <p>In the Hello SCHISM example model, there are 6 stations that have been designated prior to running the model in the “station.in” file which are distributed in the model domain:</p>
+<div class="figure align-center" id="id1">
+<span id="obs-sta-req"></span><img alt="Hello SCHISM Input Stations" src="_images/schism_obs_stations.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text"><em>Hello SCHISM observation stations as specified by the station.in file</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 

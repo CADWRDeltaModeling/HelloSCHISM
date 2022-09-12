@@ -178,7 +178,7 @@
 <p class="admonition-title">Warning</p>
 <p>The information on <strong>iupwind_t</strong> variable needs to be updated</p>
 </div>
-<p>Setting <em>iupwind_t=2</em> is a single flag change in <strong>param.in.</strong> However, because it is a hybrid scheme, SCHISM expects a property file called <strong>tvd.prop</strong> of 0 and 1 values describing where TVD can be used potentially. Keep in mind, even with this file TVD will only be used if <em>H &gt; 6m</em>.</p>
+<p>Setting <em>iupwind_t=2</em> is a single flag change in <strong>param.nml</strong>. However, because it is a hybrid scheme, SCHISM expects a property file called <strong>tvd.prop</strong> of 0 and 1 values describing where TVD can be used potentially. Keep in mind, even with this file TVD will only be used if <em>H &gt; 6m</em>.</p>
 <p>The .prop file format just pairs element numbers and values. We are controlling TVD entirely with depth, so we just need a prop file full of ones. There are 4636 elements in the domain (you can get this number from first number on the second line of <strong>hgrid.gr3</strong>). So this file will be two columns, the first of which will be the numbers 1 to 4636 and the second of which will be the number 1:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
@@ -223,7 +223,7 @@ TIP:</div>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Now we need a trivial <strong>tvd.yaml</strong>, which will contain a default and one polygon. Because the default will assign 1.0 to anything we miss, the actual specification of the polygon doesn’t matter. However, we will add one that amply contains the whole domain (the “All” part is just a label). Here are the contents of <strong>tvd.yaml</strong></p></li>
+<li><p>Now we need to create a trivial <strong>tvd.yaml</strong>, which will contain a default and one polygon. Because the default will assign 1.0 to anything we miss, the actual specification of the polygon doesn’t matter. However, we will add one that amply contains the whole domain (the “All” part is just a label). Here are the contents of <strong>tvd.yaml</strong></p></li>
 </ol>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
 <span class="nt">polygons</span><span class="p">:</span><span class="w"></span>
@@ -252,7 +252,7 @@ TIP:</div>
 <div><p>python ../../scripts/schimpy-master/schimpy/prepare_schism.py input.yaml</p>
 </div></blockquote>
 <ol class="arabic simple" start="6">
-<li><p>At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. First, copy over <strong>param.in</strong> and <strong>bctides.in</strong> from Hello SCHISM (“&lt;TUTORIAL_PATH&gt;/hello_schism”). Set <em>iupwind_t = 2</em> and <em>rnday=5</em> in <strong>param.in</strong>. This changes the transport method to TVD2 and the runtime in days to 5.</p></li>
+<li><p>At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. Locate and open the files <strong>param.nml</strong> and <strong>bctides.in</strong>. Set <em>iupwind_t = 2</em> and <em>rnday=5</em> in <strong>param.nml</strong>. This changes the transport method to TVD2 and the runtime in days to 5.</p></li>
 <li><p>Launch the run (note, you’ll need the windows build of SCHISM to be set in your system Path):</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4</span>
@@ -260,9 +260,9 @@ TIP:</div>
 </div>
 <div class="admonition-bonus-step admonition">
 <p class="admonition-title">Bonus Step:</p>
-<p>Note in bctides.in that the run is driven by two constant inflows of -30.0 (fluxes into the domain are negative). Can you convert this to a very coarse time series?</p>
+<p>Note in bctides.in that the run is driven by two constant inflows of -40.0 (fluxes into the domain are negative). Can you convert this to a very coarse time series?</p>
 <ul class="simple">
-<li><p>Hint, you will need to change the boundary flag from 2 to 1 in <strong>param.in</strong> and also create the time series. The time series can have a large time step, e.g. a million seconds.  You can keep it constant at -30.0 or you can taper it up or down.</p></li>
+<li><p>Hint, you will need to change the boundary flag from 2 to 1 in <strong>param.nml</strong> and also create the time series. The time series can have a large time step, e.g. a million seconds.  You can keep it constant at -40.0 or you can taper it up or down.</p></li>
 </ul>
 </div>
 </div>
