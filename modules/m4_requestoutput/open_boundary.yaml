@@ -1,0 +1,13 @@
+linestrings:
+- coordinates:
+  - [56000.0,10250.0]
+  - [56000.0,10450.0]
+  name: north
+- coordinates:
+  - [56000.0, -10450.0]
+  - [56000.0, -10250.0]
+  name: south
+- coordinates:
+  - [90.0, 10410.0]
+  - [30.0, -10540.0]
+  name: ocean

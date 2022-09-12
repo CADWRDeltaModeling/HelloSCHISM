@@ -1,0 +1,58 @@
+mesh:
+  mesh_inputfile: hgrid_.gr3
+  gr3_outputfile: hgrid.gr3
+  open_boundaries:
+    linestrings:
+    - coordinates:
+      - - 56000.0
+        - 10250.0
+      - - 56000.0
+        - 10450.0
+      name: north
+    - coordinates:
+      - - 56000.0
+        - -10450.0
+      - - 56000.0
+        - -10250.0
+      name: south
+    - coordinates:
+      - - 90.0
+        - 10410.0
+      - - 30.0
+        - -10540.0
+      name: ocean
+  ll_outputfile: hgrid.ll
+gr3:
+  elev.ic:
+    default: 1.0
+  temp.ic:
+    default: 20.0
+  salt.ic:
+    default: 4.0
+  manning.gr3:
+    default: 0.025
+  rough.gr3:
+    default: 0.007
+  diffmin.gr3:
+    default: 1.0e-06
+  diffmax.gr3:
+    default: 1.0
+  xlsc.gr3:
+    default: 0.5
+  windrot_geo2proj.gr3:
+    default: 0.0
+flow_outputs:
+  linestrings:
+  - coordinates:
+    - - 40400
+      - 0.96
+    - - 40400.0
+      - 10500
+    name: north_weir_upstream
+  - coordinates:
+    - - 40400
+      - -10500
+    - - 40400
+      - -9600
+    name: south_gate_upstream
+  outputfile: fluxflag.prop

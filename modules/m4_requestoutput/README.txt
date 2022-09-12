@@ -1,0 +1,1 @@
+This directory contains template files for a simple domain that has ocean boundary on west, a bay of a hour-glass shape in the middle, and two rivers on east.

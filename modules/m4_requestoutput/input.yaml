@@ -1,0 +1,29 @@
+mesh:
+  mesh_inputfile: hgrid_.gr3
+  gr3_outputfile: hgrid.gr3
+  open_boundaries: !include open_boundary.yaml
+  ll_outputfile: hgrid.ll
+
+gr3:
+  elev.ic:
+     default: 1.0
+  temp.ic: 
+     default: 20.
+  salt.ic: 
+     default: 4.
+  manning.gr3: 
+     default: 0.025
+  rough.gr3:
+     default: 0.007
+  diffmin.gr3: 
+     default: 1.0e-6
+  diffmax.gr3: 
+     default: 1.0
+  xlsc.gr3: 
+     default: 0.5
+  windrot_geo2proj.gr3:
+     default: 0.0
+
+flow_outputs:
+   include: flowlines.yaml
+   outputfile: fluxflag.prop

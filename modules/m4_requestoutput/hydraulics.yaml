@@ -1,0 +1,32 @@
+nudging: 0.1
+structures:
+  - name: north_weir
+    type: weir
+    end_points:
+      [[40300, 9600],
+      [40300, 10500]]
+    configuration:
+      n_duplicates: 1
+      elevation: -1.0
+      width: 500.
+      coefficient: 0.8
+      op_downstream: 1.0
+      op_upstream: 1.0
+      use_time_series: 0
+    reference: self
+  - name: south_gate
+    type: radial
+    end_points:
+      [[40300,  -10500],
+      [40300,  -9600]]
+    configuration:
+      n_duplicates: 6
+      elevation: -7.0
+      width: 100.
+      height: 10.
+      coefficient: 0.8
+      coefficient_height: 0.1
+      op_upstream: 1.0
+      op_downstream: 1.0
+      use_time_series: 1
+    reference: self
