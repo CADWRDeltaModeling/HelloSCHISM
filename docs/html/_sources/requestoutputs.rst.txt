@@ -22,7 +22,8 @@ The coordinates for the transect you will add will be one line straight down the
 
 .. code-block:: text
 
-    [ Some coordinates here ] 
+   - [15587.5, -10294.] 
+   - [15885.9, 10294.] 
 
 1.	Open ‘flow_station_xsects.yaml’ in an editor, and note the contents. 
 

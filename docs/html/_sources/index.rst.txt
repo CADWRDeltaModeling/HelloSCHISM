@@ -22,9 +22,10 @@ The modules contain the following exercises:
 *	:ref:`Module 1 <module1>`: Running the Model
 *	:ref:`Module 2 <module2>`: Running Pre-Processing Scripts
 *	:ref:`Module 3 <module3>`: Extracting Outputs
-*	:ref:`Module 4 <module4>`: Specifying Output Request Locations
-*	Module 5: Applying Open Ocean Boundary
-*	Module 6: Barotropic v. Baroclinic Circulations
+*	:ref:`Module 4 <module4>`: Specifying Output Requests
+*	:ref:`Module 5 <module5>`: Visualizing with VisIt
+*	Module 6: Applying Open Ocean Boundary
+*	Module 7: Barotropic v. Baroclinic Circulations
 
 The explanatory material for these modules is found in this document, while the supporting data required to run through the training is found in the “**Module_Data**” folder, with each Module labeled according to the above list. In order to have in-tact training material, it is recommended that you make a copy of the Module_Data folder called “**Module_Data_Working**”. This way you can see the difference between your completed work and the original tutorial data.
 
@@ -76,6 +77,8 @@ This will take some time (~4+ minutes). The “*-n schism*” flag tells conda t
 
 Download the latest version of schimpy from GitHub https://github.com/CADWRDeltaModeling/schimpy
 Copy the schimpy folder you downloaded into the scripts folder in your Tutorial folder (next to Tutorial_Modules and Software). The resulting folder will be “./scripts/schimpy-master”
+
+.. _vistart:
 
 VisIt
 `````````````````````
@@ -148,6 +151,11 @@ You can ensure that the Plug-Ins are working appropriately by opening the VisIt 
 
    requestoutputs
 
+.. toctree::
+   :maxdepth: 3
+   :caption: Module 5: Visualizing with VisIt
+
+   visit
 
 Indices and tables
 ==================

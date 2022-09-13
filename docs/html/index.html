@@ -107,6 +107,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">Module 4: Overview</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a></li>
+</ul>
 
             
           
@@ -182,9 +186,10 @@
 <li><p><a class="reference internal" href="helloschism.html#module1"><span class="std std-ref">Module 1</span></a>: Running the Model</p></li>
 <li><p><a class="reference internal" href="preprocessor.html#module2"><span class="std std-ref">Module 2</span></a>: Running Pre-Processing Scripts</p></li>
 <li><p><a class="reference internal" href="output.html#module3"><span class="std std-ref">Module 3</span></a>: Extracting Outputs</p></li>
-<li><p><a class="reference internal" href="requestoutputs.html#module4"><span class="std std-ref">Module 4</span></a>: Specifying Output Request Locations</p></li>
-<li><p>Module 5: Applying Open Ocean Boundary</p></li>
-<li><p>Module 6: Barotropic v. Baroclinic Circulations</p></li>
+<li><p><a class="reference internal" href="requestoutputs.html#module4"><span class="std std-ref">Module 4</span></a>: Specifying Output Requests</p></li>
+<li><p><a class="reference internal" href="visit.html#module5"><span class="std std-ref">Module 5</span></a>: Visualizing with VisIt</p></li>
+<li><p>Module 6: Applying Open Ocean Boundary</p></li>
+<li><p>Module 7: Barotropic v. Baroclinic Circulations</p></li>
 </ul>
 <p>The explanatory material for these modules is found in this document, while the supporting data required to run through the training is found in the “<strong>Module_Data</strong>” folder, with each Module labeled according to the above list. In order to have in-tact training material, it is recommended that you make a copy of the Module_Data folder called “<strong>Module_Data_Working</strong>”. This way you can see the difference between your completed work and the original tutorial data.</p>
 <div class="section" id="software-requirements">
@@ -227,7 +232,7 @@ Download both x64 and x86 and run the .exe’s</p>
 Copy the schimpy folder you downloaded into the scripts folder in your Tutorial folder (next to Tutorial_Modules and Software). The resulting folder will be “./scripts/schimpy-master”</p>
 </div>
 <div class="section" id="visit">
-<h3>VisIt<a class="headerlink" href="#visit" title="Permalink to this heading">¶</a></h3>
+<span id="vistart"></span><h3>VisIt<a class="headerlink" href="#visit" title="Permalink to this heading">¶</a></h3>
 <p>To visualize results, you’ll need to download and install Visit as well as the SCHISM Plug-In. With Visit you’ll be able to read in SCHISM binaries and visualize model results. The front end works with Windows, but the back end can reach Linux server results in the “server-client mode” – this requires the same version of Visit on both Linux and Windows sides.</p>
 <p>For this tutorial, you just need to work on the Windows components if working on a Windows machine.</p>
 <ol class="arabic simple">
@@ -312,6 +317,17 @@ Copy the schimpy folder you downloaded into the scripts folder in your Tutorial 
 <li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">Module 4: Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="requestoutputs.html#adding-flow-observation-transects">Adding Flow Observation Transects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="requestoutputs.html#adding-observation-point-locations">Adding Observation Point Locations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visit.html#plotting-salinity">Plotting Salinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visit.html#plotting-velocity-vectors">Plotting Velocity Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visit.html#enhanced-plotting-animation">Enhanced Plotting: Animation</a></li>
 </ul>
 </li>
 </ul>
