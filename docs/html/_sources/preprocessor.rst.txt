@@ -1,6 +1,6 @@
 .. _module2:
 
-MODULE 2: OVREVIEW
+Module 2: Overview
 --------------------
 
 The transport flag *iupwind_t=0* signals the Eulerian-Lagrangian method of transport. Because it is not conservative for salt, this numerical method is not common in practice. Instead, we want to use the hybrid second order (TVD, *iupwind_t=2*) finite volume scheme with upwind being preferred in water shallower than 6m total depth. In the simplified grid example, which has a sea level of about a meter above the bathymetric datum, a total depth of 6m will occur at about 5m nominal bathymetric depth. 

@@ -1,6 +1,6 @@
 .. _module4:
 
-MODULE 4: OVERVIEW
+Module 4: Overview
 -------------------
 
 This module’s directory (“./module_data/**m4_requestoutput**”) contains a sample of model input files that you will need to edit in order to change what outputs are produced in Hello SCHISM.
@@ -8,9 +8,15 @@ This module’s directory (“./module_data/**m4_requestoutput**”) contains a 
 Adding Flow Observation Transects
 ``````````````````````````````````
 
-As seen in "FIGURE" there are X transects already specified in the model with the **flowlines.yaml** file, which creates the **fluxflag.prop** file. You will add a X+1-nth transect to capture flow through A LOCATION as shown below:
+As seen in "FIGURE" there are 2 transects already specified in the model with the **flowlines.yaml** file, which creates the **fluxflag.prop** file. You will add a X+1-nth transect to capture flow through A LOCATION as shown below:
 
-"FIGURE N"
+.. _obs_xs_req:
+
+.. figure:: /img/schism_obs_transects.png
+   :alt: Hello SCHISM Input Transects
+   :align: center
+
+   *Hello SCHISM observation transects as specified by the fluxflag.prop file*
 
 The coordinates for the transect you will add will be one line straight down the center of the grid.
 

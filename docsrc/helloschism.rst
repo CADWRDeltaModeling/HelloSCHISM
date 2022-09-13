@@ -1,6 +1,6 @@
 .. _module1:
 
-MODULE 1: OVREVIEW
+Module 1: Overview
 --------------------
 
 The goal of this session is to practice running SCHISM using a pre-configured simulation on a small synthetic domain. The tutorial can be launched on either Windows or Linux.
@@ -12,7 +12,7 @@ The goal of this session is to practice running SCHISM using a pre-configured si
 
    *Simplified domain used for Hello SCHISM practice problems. Ocean boundary is on the left, two river inputs on the right. Domain length in the x direction is roughly 56km*
 
-RUNNING THE MODEL
+Running the Model
 -----------------
 
 #. Obtain SCHISM and follow the installation instructions and prerequisites

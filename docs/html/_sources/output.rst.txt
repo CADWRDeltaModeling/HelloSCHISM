@@ -1,6 +1,6 @@
 .. _module3:
 
-MODULE 3: OVREVIEW
+Module 3: Overview
 -------------------
 
 This module’s directory (“./module_data/**m3_output**”) contains a set of tutorials based on short set (a few weeks) of station and binary model output. These are stored in a directory named ./**outputs** along with supplementary files (like the global_to_local mapping files) needed to make sense out of them. 
@@ -20,7 +20,7 @@ In the Hello SCHISM example model, there are 6 stations that have been designate
 
    *Hello SCHISM observation stations as specified by the station.in file*
 
-STATION OUTPUT
+Station Output
 --------------
 
 .. _ex1-1:
@@ -239,7 +239,7 @@ In this exercise you will combine techniques found in :ref:`Exercise 1-1 <ex1-1>
 
 This will open a pop-out plot of the elevation timeseries, you can zoom around in the plot window to evaluate the data
 
-BINARY OUTPUT
+Binary Output
 -------------
 
 Previously, you used the station output files and observed timeseries files to gather and plot data. Now you will use binary outputs to extract and plot timeseries. This is what you'd typically need to do if you hadn't set up the output station and transect locations prior to running the model.

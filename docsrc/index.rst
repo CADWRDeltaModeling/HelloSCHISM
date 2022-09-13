@@ -5,7 +5,7 @@
 
 .. _getstart:
 
-GETTING STARTED
+Getting Started
 ========================================
 
 This tutorial is structured in modules to get you acquainted with the basic functions of SCHISM using a demo model domain, “Hello SCHISM”. The model has two upstream rivers (River 1 and River 2), and an open tidal boundary.
@@ -77,7 +77,7 @@ This will take some time (~4+ minutes). The “*-n schism*” flag tells conda t
 Download the latest version of schimpy from GitHub https://github.com/CADWRDeltaModeling/schimpy
 Copy the schimpy folder you downloaded into the scripts folder in your Tutorial folder (next to Tutorial_Modules and Software). The resulting folder will be “./scripts/schimpy-master”
 
-VisIt8
+VisIt
 `````````````````````
 To visualize results, you’ll need to download and install Visit as well as the SCHISM Plug-In. With Visit you’ll be able to read in SCHISM binaries and visualize model results. The front end works with Windows, but the back end can reach Linux server results in the “server-client mode” – this requires the same version of Visit on both Linux and Windows sides. 
 
