@@ -81,10 +81,3 @@ Navigate to the m1_Preprocessor folder in your file explorer. Type “cmd” in 
 .. code-block:: console
 
    mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4
-
-.. admonition:: Bonus Step:
-
-   Note in bctides.in that the run is driven by two constant inflows of -40.0 (fluxes into the domain are negative). Can you convert this to a very coarse time series?
-
-   * Hint, you will need to change the boundary flag from 2 to 1 in **param.nml** and also create the time series. The time series can have a large time step, e.g. a million seconds.  You can keep it constant at -40.0 or you can taper it up or down. 
- 
