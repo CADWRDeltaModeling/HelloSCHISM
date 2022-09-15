@@ -19,3 +19,5 @@ if __name__ == '__main__':
     all_ts[station_name + "_" + sub_loc].plot()
     plt.show()
 
+    all_ts[station_name + "_" + sub_loc].index.rename('Datetime', inplace=True)
+    all_ts[station_name + "_" + sub_loc].to_csv("oc_in_elevation_ts.csv", index=True, header=['Elevation (m)'])
