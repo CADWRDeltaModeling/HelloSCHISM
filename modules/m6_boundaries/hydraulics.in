@@ -1,0 +1,28 @@
+2 !# of structures
+0.100000  !Nudging factor
+1 north_weir
+6 2184 2164 !  # of node-pairs, 2 ref.nodes (global indices) for 2 faces
+2163 2156
+2169 2162
+2172 2166
+2178 2171
+2179 2173
+2186 2180
+weir ! struct type
+1 ! n_duplicates
+-1.000000 500.000000 ! elevation, width or radius
+0.800000 1.000000 1.000000 ! coef, op_downstream, op_upstream
+0 ! time series enabled
+2 south_gate
+6 463 500 !  # of node-pairs, 2 ref.nodes (global indices) for 2 faces
+453 459
+458 465
+464 472
+471 482
+475 486
+487 505
+radial ! struct type
+6 ! n_duplicates
+-7.000000 100.000000 10.000000 ! elevation, width, height or radius
+0.800000 1.000000 1.000000 ! coef, op_downstream, op_upstream
+1 ! time series enabled

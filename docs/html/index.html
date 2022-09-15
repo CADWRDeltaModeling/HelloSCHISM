@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <link rel="stylesheet" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -110,6 +111,12 @@
 <p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Module 6: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#ocean-boundary">Ocean Boundary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#river-inflow-boundaries">River Inflow Boundaries</a></li>
 </ul>
 
             
@@ -188,7 +195,7 @@
 <li><p><a class="reference internal" href="output.html#module3"><span class="std std-ref">Module 3</span></a>: Extracting Outputs</p></li>
 <li><p><a class="reference internal" href="requestoutputs.html#module4"><span class="std std-ref">Module 4</span></a>: Specifying Output Requests</p></li>
 <li><p><a class="reference internal" href="visit.html#module5"><span class="std std-ref">Module 5</span></a>: Visualizing with VisIt</p></li>
-<li><p>Module 6: Applying Open Ocean Boundary</p></li>
+<li><p><a class="reference internal" href="boundaries.html#module6"><span class="std std-ref">Module 6</span></a>: Modifying Boundaries</p></li>
 <li><p>Module 7: Barotropic v. Baroclinic Circulations</p></li>
 </ul>
 <p>The explanatory material for these modules is found in this document, while the supporting data required to run through the training is found in the “<strong>Module_Data</strong>” folder, with each Module labeled according to the above list. In order to have in-tact training material, it is recommended that you make a copy of the Module_Data folder called “<strong>Module_Data_Working</strong>”. This way you can see the difference between your completed work and the original tutorial data.</p>
@@ -301,11 +308,14 @@ Copy the schimpy folder you downloaded into the scripts folder in your Tutorial 
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="output.html">Module 3: Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="output.html#station-output">Station Output</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-1-1">Exercise 1-1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-1-2">Exercise 1-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-2">Exercise 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-3">Exercise 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-4">Exercise 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-1-1-station-elevation">Exercise 1-1 : Station Elevation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="output.html#writing-out-station-data">Writing Out Station Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-1-2-station-salinity">Exercise 1-2 : Station Salinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-2-transect-flow">Exercise 2 : Transect Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-3-observed-data">Exercise 3 : Observed Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-4-combined-plots">Exercise 4 : Combined Plots</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="output.html#binary-output">Binary Output</a></li>
@@ -327,9 +337,20 @@ Copy the schimpy folder you downloaded into the scripts folder in your Tutorial 
 <li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="visit.html#plotting-salinity">Plotting Salinity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="visit.html#plotting-velocity-vectors">Plotting Velocity Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visit.html#enhanced-plotting-animation">Enhanced Plotting: Animation</a></li>
 </ul>
 </li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Module 6: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#ocean-boundary">Ocean Boundary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#barotropic-v-baroclinic">Barotropic v. Baroclinic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#stage-time-series-at-ocean-boundary">Stage Time Series at Ocean Boundary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#river-inflow-boundaries">River Inflow Boundaries</a></li>
 </ul>
 </div>
 </div>

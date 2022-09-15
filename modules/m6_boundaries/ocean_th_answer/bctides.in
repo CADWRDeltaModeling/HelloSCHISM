@@ -1,0 +1,17 @@
+01/01/2000 00:00:00 PST
+0 40. no earth tides are used
+4     # ocean tide constituents are used
+Z0 ! 
+ 0             1           0
+O1 ! List of constituents, freq rad/s, nodal adjustment, earth equilibrium
+   0.675977E-04  1.11945   7.47302
+K1                                              
+   0.729212E-04  1.07391 206.78674
+M2                                              
+   0.140519E-03  0.97907 217.04138
+3          ! nope
+4 0 2 0 0 0 ! River 1: 4 nodes wide, elevation (0=unspecified), flow (1=*.th time history, 2=constant), temperature (0=unspecified), salinity (2=constant), generic tracer ()
+-20.0      ! Constant inflow
+4 0 2 0 0 0 ! River 2: 4 nodes wide, elevation (0=unspecified), flow (1=*.th time history, 2=constant), temperature (0=unspecified), salinity (2=constant), generic tracer ()
+-20.0        ! Constant inflow
+17 1 0 0 0 0 ! Ocean: 17 nodes, type of boundary (3=tidal constituents), elev and temp not specified, constant salt

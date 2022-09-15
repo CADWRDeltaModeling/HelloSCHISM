@@ -104,6 +104,7 @@ Again we will adjust the legend limits for this plot object, this time to be bet
 To add velocity vectors, we'll use the same data source (out2d.visit) but we'll Add > Vector > depthAverageVel and then Draw.
 
 * Now to format the vectors we'll double-click on the Vector plot object
+
    * In the Vectors tab, change the Vector amount to a Stride of 2
    * In the Data tab, change the color to constant, and choose white or black for the color
    * In the Glyphs tab, change the scale to 0.1
@@ -115,8 +116,3 @@ Hit Apply and close the window and now you'll see your updated plot with vectors
    :align: center
 
    *Hello SCHISM depth-averaged velocity model results as viewed in VisIt, formatted with color limits to allow better visualization of the dynamics as well as velocity vectors scaled with magnitude*
-
-Enhanced Plotting: Animation
-`````````````````````````````
-
-Blahblah

@@ -25,8 +25,8 @@ Station Output
 
 .. _ex1-1:
 
-Exercise 1-1 
-`````````````
+Exercise 1-1 : Station Elevation
+```````````````````````````````````````
 
 In this exercise you will read and plot elevation data at a station using the SCHISM outputs provided.
 
@@ -70,10 +70,37 @@ In this exercise you will read and plot elevation data at a station using the SC
 
 This will open a pop-out plot of the elevation timeseries for the Ocean Inland station, you can zoom around in the plot window to evaluate the data.
 
+Writing Out Station Data
+.........................
+
+Now if we want to write the paired timeseries data to a csv we can use pandas built-in "*to_csv*" function on the "*all_ts[station_name + "_" + sub_loc]*" object (which **is** a pandas Series object).
+
+1. Open your saved **exercise1-1.py** script.
+
+2. Comment out the *all_ts[station_name + "_" + sub_loc].plot()* and *plt.show()* lines by adding a "#" before each line.
+
+3. Add a line to write the series out to a csv using the following command:
+
+.. code-block:: python
+
+   all_ts[station_name + "_" + sub_loc].index.rename('Datetime', inplace=True)
+   all_ts[station_name + "_" + sub_loc].to_csv("oc_in_elevation_ts.csv", index=True, header=['Elevation (m)'])
+
+This will rename the index of the series to "Datetime" so that the csv header uses "Datetime" for the index column, and then it writes out the csv file **oc_in_elevation_ts.csv** while specifying that the data column has the header of "Elevation (m)".
+
+Take a look at the csv file created and see that it's written out data that looks like this:
+
+.. code-block:: text
+
+   Datetime,Elevation (m)
+   2009-02-10 00:06:00,1.0
+   2009-02-10 00:12:00,1.00022
+   2009-02-10 00:18:00,1.00176
+
 -----------------------------------------------------
 
-Exercise 1-2 
-``````````````
+Exercise 1-2 : Station Salinity
+````````````````````````````````````````
 
 In this exercise you will read and plot salinity data at a different station than Exercise 1-1.
 
@@ -123,8 +150,8 @@ This will open a pop-out plot of the salinity timeseries for Location 1, you can
 
 -----------------------------------------------------
 
-Exercise 2
-```````````
+Exercise 2 : Transect Flow 
+`````````````````````````````````````
     
 In this exercise you will read and plot flow data using the **flux.out** file found in the ./outputs folder as well as the **flowlines.yaml** file found in the folder for this exercise "./**m3_output**".
 
@@ -169,8 +196,8 @@ This will open a pop-out plot of the flow timeseries from just upstream of River
 
 .. _ex3:
 
-Exercise 3
-```````````
+Exercise 3 : Observed Data
+`````````````````````````````````````
 
 In this exercise you will read and plot an observation file not created by SCHISM, but a paired timeseries found in “./m3_output/exercises/**9414290_gageheight.txt**”. If you open the file in a text editor (ex: Notepad++) you can see that there is a Date Time column, a Water Level column and some other quality flags. This timeseries was obtained from NOAA and has 7 lines of commented-out material, one header line and then the timeseries data.
 
@@ -206,8 +233,8 @@ This will open a pop-out plot of the elevation timeseries, you can zoom around i
 
 -----------------------------------------------------
 
-Exercise 4
-```````````
+Exercise 4 : Combined Plots
+`````````````````````````````````````````
 
 In this exercise you will combine techniques found in :ref:`Exercise 1-1 <ex1-1>` and :ref:`Exercise 3 <ex3>` to compare two time series in a plot.
 

@@ -108,6 +108,16 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">Module 4: Overview</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Module 6: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#ocean-boundary">Ocean Boundary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#river-inflow-boundaries">River Inflow Boundaries</a></li>
+</ul>
 
             
           
@@ -257,13 +267,6 @@ TIP:</div>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4</span>
 </pre></div>
-</div>
-<div class="admonition-bonus-step admonition">
-<p class="admonition-title">Bonus Step:</p>
-<p>Note in bctides.in that the run is driven by two constant inflows of -40.0 (fluxes into the domain are negative). Can you convert this to a very coarse time series?</p>
-<ul class="simple">
-<li><p>Hint, you will need to change the boundary flag from 2 to 1 in <strong>param.nml</strong> and also create the time series. The time series can have a large time step, e.g. a million seconds.  You can keep it constant at -40.0 or you can taper it up or down.</p></li>
-</ul>
 </div>
 </div>
 

@@ -1,0 +1,9 @@
+linestrings:
+- coordinates:
+  - [40400,  .9600]  
+  - [40400., 10500]
+  name: north_weir_upstream
+- coordinates:  
+  - [40400, -10500]
+  - [40400, -9600]
+  name: south_gate_upstream   

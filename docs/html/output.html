@@ -102,11 +102,14 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Module 3: Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#station-output">Station Output</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-1-1">Exercise 1-1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-1-2">Exercise 1-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-2">Exercise 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-3">Exercise 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-4">Exercise 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-1-1-station-elevation">Exercise 1-1 : Station Elevation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#writing-out-station-data">Writing Out Station Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-1-2-station-salinity">Exercise 1-2 : Station Salinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-2-transect-flow">Exercise 2 : Transect Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-3-observed-data">Exercise 3 : Observed Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-4-combined-plots">Exercise 4 : Combined Plots</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#binary-output">Binary Output</a></li>
@@ -114,6 +117,14 @@
 <p class="caption" role="heading"><span class="caption-text">Module 4: Specifying Output Request Locations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">Module 4: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a></li>
 </ul>
 
             
@@ -194,8 +205,8 @@
 </div>
 <div class="section" id="station-output">
 <h1>Station Output<a class="headerlink" href="#station-output" title="Permalink to this heading">¶</a></h1>
-<div class="section" id="exercise-1-1">
-<span id="ex1-1"></span><h2>Exercise 1-1<a class="headerlink" href="#exercise-1-1" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="exercise-1-1-station-elevation">
+<span id="ex1-1"></span><h2>Exercise 1-1 : Station Elevation<a class="headerlink" href="#exercise-1-1-station-elevation" title="Permalink to this heading">¶</a></h2>
 <p>In this exercise you will read and plot elevation data at a station using the SCHISM outputs provided.</p>
 <ol class="arabic simple">
 <li><p>Open ‘.m3_output/exercises/<strong>exercise1.py</strong>’ in a text editor (ex: Notepad++) or your Python IDE of choice (ex: Spyder, PyCharm, VSCode, etc.) Save the file as “./m3_output/exercises/<strong>exercise1-1.py</strong>”.</p></li>
@@ -241,10 +252,31 @@
 </pre></div>
 </div>
 <p>This will open a pop-out plot of the elevation timeseries for the Ocean Inland station, you can zoom around in the plot window to evaluate the data.</p>
+<div class="section" id="writing-out-station-data">
+<h3>Writing Out Station Data<a class="headerlink" href="#writing-out-station-data" title="Permalink to this heading">¶</a></h3>
+<p>Now if we want to write the paired timeseries data to a csv we can use pandas built-in “<em>to_csv</em>” function on the “<em>all_ts[station_name + “_” + sub_loc]</em>” object (which <strong>is</strong> a pandas Series object).</p>
+<ol class="arabic simple">
+<li><p>Open your saved <strong>exercise1-1.py</strong> script.</p></li>
+<li><p>Comment out the <em>all_ts[station_name + “_” + sub_loc].plot()</em> and <em>plt.show()</em> lines by adding a “#” before each line.</p></li>
+<li><p>Add a line to write the series out to a csv using the following command:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_ts</span><span class="p">[</span><span class="n">station_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Datetime&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">all_ts</span><span class="p">[</span><span class="n">station_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">sub_loc</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;oc_in_elevation_ts.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This will rename the index of the series to “Datetime” so that the csv header uses “Datetime” for the index column, and then it writes out the csv file <strong>oc_in_elevation_ts.csv</strong> while specifying that the data column has the header of “Elevation (m)”.</p>
+<p>Take a look at the csv file created and see that it’s written out data that looks like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Datetime,Elevation (m)
+2009-02-10 00:06:00,1.0
+2009-02-10 00:12:00,1.00022
+2009-02-10 00:18:00,1.00176
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
-<div class="section" id="exercise-1-2">
-<h2>Exercise 1-2<a class="headerlink" href="#exercise-1-2" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="exercise-1-2-station-salinity">
+<h2>Exercise 1-2 : Station Salinity<a class="headerlink" href="#exercise-1-2-station-salinity" title="Permalink to this heading">¶</a></h2>
 <p>In this exercise you will read and plot salinity data at a different station than Exercise 1-1.</p>
 <ol class="arabic simple">
 <li><p>Re-Open ‘./m3_output/exercises/<strong>exercise1.py</strong>’. This should be the raw/original script without any edits you made in Exercise 1-1. Save this file as “./m3_output/exercises/<strong>exercise1-2.py</strong>”.</p></li>
@@ -291,8 +323,8 @@
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="exercise-2">
-<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="exercise-2-transect-flow">
+<h2>Exercise 2 : Transect Flow<a class="headerlink" href="#exercise-2-transect-flow" title="Permalink to this heading">¶</a></h2>
 <p>In this exercise you will read and plot flow data using the <strong>flux.out</strong> file found in the ./outputs folder as well as the <strong>flowlines.yaml</strong> file found in the folder for this exercise “./<strong>m3_output</strong>”.</p>
 <ol class="arabic simple">
 <li><p>Open ‘./m3_output/exercises/<strong>exercise2.py</strong>’</p></li>
@@ -328,8 +360,8 @@
 <p>This will open a pop-out plot of the flow timeseries from just upstream of River 1’s weir, you can zoom around in the plot window to evaluate the data.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="exercise-3">
-<span id="ex3"></span><h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="exercise-3-observed-data">
+<span id="ex3"></span><h2>Exercise 3 : Observed Data<a class="headerlink" href="#exercise-3-observed-data" title="Permalink to this heading">¶</a></h2>
 <p>In this exercise you will read and plot an observation file not created by SCHISM, but a paired timeseries found in “./m3_output/exercises/<strong>9414290_gageheight.txt</strong>”. If you open the file in a text editor (ex: Notepad++) you can see that there is a Date Time column, a Water Level column and some other quality flags. This timeseries was obtained from NOAA and has 7 lines of commented-out material, one header line and then the timeseries data.</p>
 <ol class="arabic simple">
 <li><p>Open ‘./m3_output/exercises/<strong>exercise3.py</strong>’ in a text editor or Python IDE.</p></li>
@@ -360,8 +392,8 @@
 <p>This will open a pop-out plot of the elevation timeseries, you can zoom around in the plot window to evaluate the data.</p>
 </div>
 <hr class="docutils" />
-<div class="section" id="exercise-4">
-<h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="exercise-4-combined-plots">
+<h2>Exercise 4 : Combined Plots<a class="headerlink" href="#exercise-4-combined-plots" title="Permalink to this heading">¶</a></h2>
 <p>In this exercise you will combine techniques found in <a class="reference internal" href="#ex1-1"><span class="std std-ref">Exercise 1-1</span></a> and <a class="reference internal" href="#ex3"><span class="std std-ref">Exercise 3</span></a> to compare two time series in a plot.</p>
 <ol class="arabic simple">
 <li><p>Open ‘./m3_output/exercises/<strong>exercise4.py</strong>’</p></li>
