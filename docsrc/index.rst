@@ -17,7 +17,9 @@ This tutorial is structured in modules to get you acquainted with the basic func
 
    *Simplified domain used for Hello SCHISM practice problems. Ocean boundary is on the left, two river inputs on the right. Domain length in the x direction is roughly 56km*
 
-The modules contain the following exercises:
+The modules found in the `github repository`_ contain the following exercises:
+
+.. _github repository:  https://github.com/CADWRDeltaModeling/HelloSCHISM
 
 *	:ref:`Module 1 <module1>`: Running the Model
 *	:ref:`Module 2 <module2>`: Running Pre-Processing Scripts
@@ -26,7 +28,7 @@ The modules contain the following exercises:
 *	:ref:`Module 5 <module5>`: Visualizing with VisIt
 *	:ref:`Module 6 <module6>`: Modifying Boundaries
 
-The explanatory material for these modules is found in this document, while the supporting data required to run through the training is found in the “**Module_Data**” folder, with each Module labeled according to the above list. In order to have in-tact training material, it is recommended that you make a copy of the Module_Data folder called “**Module_Data_Working**”. This way you can see the difference between your completed work and the original tutorial data.
+The explanatory material for these modules is found in this document, while the supporting data required to run through the training is found in the “**modules**” folder, with each Module labeled according to the above list. In order to have in-tact training material, it is recommended that you make a copy of the modules folder called “**modules_working**”. This way you can see the difference between your completed work and the original tutorial data.
 
 SOFTWARE REQUIREMENTS
 ---------------------
