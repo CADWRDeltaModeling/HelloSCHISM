@@ -35,7 +35,7 @@ SOFTWARE REQUIREMENTS
 
 SCHISM
 `````````````````````
-This training includes a ready-made Windows build of SCHISM 5.10 found in the folder “.\Software\schism_windows_5.10_build”. After downloading, installing, and setting up your working environment, you’ll want to add this folder to your path.
+This training includes a ready-made Windows build of SCHISM 5.10 found in the folder “.\\software\\schism_windows_5.10_build”. After downloading, installing, and setting up your working environment, you’ll want to add this folder to your path.
 
 C++
 `````````````````````
@@ -56,23 +56,15 @@ Python
 `````````````````````
 There are portions of this training that rely on schimpy – a DWR-made Python repository that handles pre- and post-processing of SCHISM data – and you’ll want to install this repository in your working directory. 
 
-If you are using anaconda/miniconda (recommended) use the following commands:
-
-.. warning::
-
-   This conda install methodology is to be updated.
+If you are using anaconda/miniconda (recommended) navigate to the HelloSCHISM repository, go to the software directory, and enter the following command:
 
 .. code-block:: console
 
-   conda create -y -n schism python=3.7*
+   conda env create --name schimpy -f environment.yml
 
-This creates a new environment called “schism” based on Python version 3.7
+This creates a new environment called “schimpy” which contains the necessary packages to run through these modules.
 
-.. code-block:: console
-
-   conda install –strict-channel-priority -y -n schism -c cadwr-dms -c defaults schimpy
-
-This will take some time (~4+ minutes). The “*-n schism*” flag tells conda to install schimpy to the newly created schism environment. The “*-c cadwr-dms -c defaults schimpy*” flags tell conda to download schimpy from the cadwr-dms channel.
+This will take some time (~4+ minutes). The “*-name schimpy*” flag tells conda to install schimpy to the newly created schimpy environment. The “*-f environment.yml*” flags tell conda to use the yaml file provided in the software folder to download the necessary packages.
 
 *If you are not using conda do the following:*
 
@@ -88,12 +80,9 @@ To visualize results, you’ll need to download and install Visit as well as the
 For this tutorial, you just need to work on the Windows components if working on a Windows machine.
 
 1.	Download version 3.1.4 of Visit: https://github.com/visit-dav/visit/releases
-2.	Dowload the SCHISM and NetCDF plugins: **LINK HERE**
+2.	Dowload the SCHISM and NetCDF plugins from the HelloSCHISM repository folder "software/visit_plugins"
 3.	Go to the Visit application folder (ex: “C:\Users\%userprofile%\LLNL\VisIt 3.1.4”) and copy the downloaded netcdf.dll to this folder.
 4.	Copy the following .dll files to the “VisIt 3.1.4\databases”
-
-.. warning::
-   Need to include SCHISM and NetCDF plugins to the Software folder
 
 .. grid:: 2
 

@@ -202,7 +202,7 @@
 <h2>SOFTWARE REQUIREMENTS<a class="headerlink" href="#software-requirements" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="schism">
 <h3>SCHISM<a class="headerlink" href="#schism" title="Permalink to this heading">¶</a></h3>
-<p>This training includes a ready-made Windows build of SCHISM 5.10 found in the folder “.Softwareschism_windows_5.10_build”. After downloading, installing, and setting up your working environment, you’ll want to add this folder to your path.</p>
+<p>This training includes a ready-made Windows build of SCHISM 5.10 found in the folder “.\software\schism_windows_5.10_build”. After downloading, installing, and setting up your working environment, you’ll want to add this folder to your path.</p>
 </div>
 <div class="section" id="c">
 <h3>C++<a class="headerlink" href="#c" title="Permalink to this heading">¶</a></h3>
@@ -220,19 +220,12 @@ Download both x64 and x86 and run the .exe’s</p>
 <div class="section" id="python">
 <span id="pystart"></span><h3>Python<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h3>
 <p>There are portions of this training that rely on schimpy – a DWR-made Python repository that handles pre- and post-processing of SCHISM data – and you’ll want to install this repository in your working directory.</p>
-<p>If you are using anaconda/miniconda (recommended) use the following commands:</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This conda install methodology is to be updated.</p>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda create -y -n schism python=3.7*</span>
+<p>If you are using anaconda/miniconda (recommended) navigate to the HelloSCHISM repository, go to the software directory, and enter the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda env create --name schimpy -f environment.yml</span>
 </pre></div>
 </div>
-<p>This creates a new environment called “schism” based on Python version 3.7</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda install –strict-channel-priority -y -n schism -c cadwr-dms -c defaults schimpy</span>
-</pre></div>
-</div>
-<p>This will take some time (~4+ minutes). The “<em>-n schism</em>” flag tells conda to install schimpy to the newly created schism environment. The “<em>-c cadwr-dms -c defaults schimpy</em>” flags tell conda to download schimpy from the cadwr-dms channel.</p>
+<p>This creates a new environment called “schimpy” which contains the necessary packages to run through these modules.</p>
+<p>This will take some time (~4+ minutes). The “<em>-name schimpy</em>” flag tells conda to install schimpy to the newly created schimpy environment. The “<em>-f environment.yml</em>” flags tell conda to use the yaml file provided in the software folder to download the necessary packages.</p>
 <p><em>If you are not using conda do the following:</em></p>
 <p>Download the latest version of schimpy from GitHub <a class="reference external" href="https://github.com/CADWRDeltaModeling/schimpy">https://github.com/CADWRDeltaModeling/schimpy</a>
 Copy the schimpy folder you downloaded into the scripts folder in your Tutorial folder (next to Tutorial_Modules and Software). The resulting folder will be “./scripts/schimpy-master”</p>
@@ -243,14 +236,10 @@ Copy the schimpy folder you downloaded into the scripts folder in your Tutorial 
 <p>For this tutorial, you just need to work on the Windows components if working on a Windows machine.</p>
 <ol class="arabic simple">
 <li><p>Download version 3.1.4 of Visit: <a class="reference external" href="https://github.com/visit-dav/visit/releases">https://github.com/visit-dav/visit/releases</a></p></li>
-<li><p>Dowload the SCHISM and NetCDF plugins: <strong>LINK HERE</strong></p></li>
+<li><p>Dowload the SCHISM and NetCDF plugins from the HelloSCHISM repository folder “software/visit_plugins”</p></li>
 <li><p>Go to the Visit application folder (ex: “C:Users%userprofile%LLNLVisIt 3.1.4”) and copy the downloaded netcdf.dll to this folder.</p></li>
 <li><p>Copy the following .dll files to the “VisIt 3.1.4databases”</p></li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Need to include SCHISM and NetCDF plugins to the Software folder</p>
-</div>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-column docutils">
