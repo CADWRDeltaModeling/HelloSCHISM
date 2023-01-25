@@ -39,19 +39,19 @@ This will take at least 20 minutes to run.
 Understanding the command
 ``````````````````````````
 
-The program mpiexec is a wrapper used to launch parallel processes (*mpirun* is a synonym on many systems). The name of the executable is *pschism* or “parallel SCHISM”. The flag  *-np 8* indicate that mpiexec should use 8 processors, the 4 at the end of command are the number of processor dedicated to output. 
+The program mpiexec is a wrapper used to launch parallel processes (*mpirun* is a synonym on many systems). The name of the executable is *pschism_PREC_EVAP_GOTM_TVD-VL* derived from “parallel SCHISM”. The flag  *-np 8* indicates that mpiexec should use 8 processors for computing, while the "4" at the end of command is the number of processors dedicated to writing output. 
 
-The number of output processors equals number of types output desired in your **param.nml** file. You should see eight processes if you look at top (in Linux) or the Performance monitor (in Windows).  
+The number of output processors equals the number of output types desired in your **param.nml** file. You should see eight processors if you use the "top" command (in Linux) or the Performance monitor application (in Windows).  
 
 Monitoring Output
 ```````````````````
 
-SCHISM creates an output log “./outputs/mirror.out” that shows the simulation progress. Here you can look to see how much progress your simulation has made since there is no text output to the console. Look for the last lines in the file and find the “TIME STEP=” and “TIME=” line. Here you’re looking at which computational timestep the simulation has reached, and what the total time in seconds has elapsed in the simulation.
+SCHISM creates an output log “./outputs/mirror.out” showing the simulation progress. Here you can look to see how much progress your simulation has made since there is no text output to the console. Look for the last lines in the file and find the “TIME STEP=” and “TIME=” line. Here you’re looking at which computational timestep the simulation has reached, and what the total time in seconds has elapsed in the simulation.
 
 How many processors do I have (Windows) on my laptop/PC?
 `````````````````````````````````````````````````````````
 
-The number of processes (8) is system dependent. Even on this simple problem, we recommend a laptop with 8 cores, which is not uncommon in the current market. If you have a windows desktop with cores more than 48, you can run some realistic SCHISM model. In linux, the number of physical cores is usually part of the specifications of the cluster or the job submission process. On Windows it can be a bit harder to figure out and there is a lot of confusion between a “logical processor” and a “core” with the latter more likely to provide you with speed benefits. The number of cores on windows can be discovered using the WMIC command. 
+The number of processors (8 in this example) is system dependent. Even on this simple problem, we recommend a laptop with 8 cores, which is not uncommon in the current market. If you have a Windows desktop with more than 48 cores, you can run a realistic SCHISM model. In Linux, the number of physical cores is usually part of the specifications of the cluster or the job submission process. On Windows it can be a bit harder to figure out and there is a lot of confusion between a “logical processor” and a “core” with the latter more likely to provide you with speed benefits. The number of cores on windows can be discovered using the WMIC command. 
 
 .. code-block:: console
 
