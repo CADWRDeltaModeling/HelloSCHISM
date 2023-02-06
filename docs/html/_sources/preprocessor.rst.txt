@@ -49,7 +49,7 @@ The task is also a soft introduction to the preprocessor:
 
    default: 1
    polygons:
-   - attribute: ‘1’
+   - attribute: '1'
      name: All
      vertices:
      - [0.0, -100000.0]
@@ -64,12 +64,12 @@ The task is also a soft introduction to the preprocessor:
 .. code-block:: console
 
    conda activate schism
-   cd <PATH TO M1_PREPROCESSOR FOLDER>
+   cd <PATH TO M2_PREPROCESSOR FOLDER>
    prepare_schism input.yaml
 
 **Without conda:**
 
-Navigate to the m1_Preprocessor folder in your file explorer. Type “cmd” in the navigation bar to open a command prompt terminal in this directory. If you downloaded schimpy and placed it in the scripts folder (see the Python section of Getting Started) you should be able to do the following command:
+Navigate to the m2_preprocessor folder in your file explorer. Type “cmd” in the navigation bar to open a command prompt terminal in this directory. If you downloaded schimpy and placed it in the scripts folder (see the Python section of Getting Started) you should be able to do the following command:
 .. code-block:: console
    
    python ../../scripts/schimpy-master/schimpy/prepare_schism.py input.yaml
