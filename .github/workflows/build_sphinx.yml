@@ -31,10 +31,14 @@ jobs:
         python -m pip install sphinx-rtd-theme
         python -m pip install sphinx-autoapi
 
-    - name: make the sphinx docs
+    - name: change the directory
       shell: bash
       run: |
         cd docsrc
+        
+    - name: make the sphinx docs
+      shell: bash
+      run: |
         make html . ../docs
 
     # - name: Build HTML
