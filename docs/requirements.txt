@@ -1,0 +1,12 @@
+furo==2021.11.16
+# sphinx
+sphinx-design
+sphinx-argparse  
+sphinxcontrib-bibtex
+sphinx_rtd_theme
+nbsphinx
+numpydoc
+docutils
+matplotlib # needed for matplotlib.sphinxext.mathmply
+ipython    # neededd for IPython.sphinxext.ipython_directive
+pip
