@@ -54,21 +54,23 @@ jobs:
         cd docsrc
         make
 
-    # - name: Build HTML
-    #   uses: ammaraskar/sphinx-action@master
+    - name: Init new repo in dist folder and commit generated files
+      run: |
+        cd docs/html/
+        git init
+        touch .nojekyll
+        git add -A
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m 'deploy'
 
-    # - name: Upload artifacts
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: html-docs
-    #     path: docs/html/
-
-    # - name: Deploy
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   if: github.ref == 'refs/heads/main'
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: docs/html
+    - name: Force push to destination branch
+      uses: ad-m/github-push-action@v0.5.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        force: true
+        directory: ./docs/html
 
   # Build job
   build:
