@@ -30,7 +30,7 @@ jobs:
         python -m pip install -U sphinx
         pip install -r requirements.txt
 
-    - name: change the directory
+    - name: Build HTML files
       shell: bash
       run: |
         cd docsrc
