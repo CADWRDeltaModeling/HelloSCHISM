@@ -10,6 +10,8 @@ jobs:
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      SOURCEDIR: .
+      BUILDDIR: ../docs
 
     permissions:
       contents: write
