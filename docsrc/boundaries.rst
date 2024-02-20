@@ -16,7 +16,7 @@ In this module we will modify the three open boundaries applied to the model dom
 
    The boundaries are pre-defined in the hgrid.gr3 file which was created with *prepare_schism* (see :ref:`Module 2: Preprocessor <module2>` for more info).
 
-Ocean Boundary
+Salinity Boundaries
 --------------
 
 Barotropic v. Baroclinic
