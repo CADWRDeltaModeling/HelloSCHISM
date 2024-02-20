@@ -58,7 +58,6 @@ jobs:
         git add -A
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git config --global --add safe.directory /github/workspace/docs/html
         git commit -m 'deploy'
 
     # - name: Init new repo in dist folder and commit generated files
@@ -75,7 +74,7 @@ jobs:
       uses: ad-m/github-push-action@v0.5.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: gh-pages
+        branch: main
         force: true
         directory: ./docs/html
 
