@@ -34,9 +34,14 @@ For this exercise we will create a barotropic simulation.
 
    The current setup for River 1 looks as follows:
 
-   4 0 2 0 2 0 ! River 1
+   .. code-block::
 
-   Which means:
+      4 0 2 0 2 0 ! River 1: 4 nodes wide, elevation (0=unspecified), flow (1=*.th time history, 2=constant), temperature (0=unspecified), salinity (2=constant), generic tracer ()
+      -20.0      ! Constant inflow
+      4.0        ! Constant salt
+      1.0        ! Salt nudging
+
+   The first line means:
    
    .. tabularcolumns:: |>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|
 
@@ -52,11 +57,11 @@ For this exercise we will create a barotropic simulation.
         - 2
         - 0
       * - Number of nodes in BC
-        - Elevation (0=unspecified)
-        - Flow (1=*.th time history file, 2=constant)
-        - Temperature (0=unspecified, 1=*.th time history file, 2=constant)
-        - Salinity (0=unspecified, 1=*.th time history file, 2=constant)
-        - Generic Tracer (0=unspecified, 1=*.th time history file, 2=constant)
+        - Elevation definition (**0=unspecified**, 1=*.th time history file, 2=constant, 3=tidal amplitude/phases, ...)
+        - Flow definition (0=unspecified, 1=*.th time history file, **2=constant**, 3=tidal amplitude/phases, ...)
+        - Temperature (**0=unspecified**, 1=*.th time history file, 2=constant, 3=relax to init. cond., ...)
+        - Salinity (0=unspecified, 1=*.th time history file, **2=constant**, 3=relax to init. cond., ...)
+        - Generic Tracer (**0=unspecified**, 1=*.th time history file, 2=constant, 3=relax to init. cond., ...)
 
    Then the following lines specify the constant flow, salinity, and salt nudging factor as -20.0, 4.0, and 1.0, respectively.
 
@@ -66,9 +71,15 @@ For this exercise we will create a barotropic simulation.
 
 5. With the ocean boundary the values are similar to that of the rivers, but now the values will look like:
    
-   17 3 0 0 2 0 ! Ocean
+   .. code-block::
 
-   Which means:
+      17 3 0 0 2 0 ! Ocean: 17 nodes, type of boundary (3=tidal constituents), elev and temp not specified, constant salt
+      Z0
+         1.000000000000000        0.0000000000000
+         1.000000000000000        0.0000000000000
+      ...
+
+   The first line means:
 
    .. tabularcolumns:: |>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|>{\centering\arraybackslash}\Y{0.16}|
 
@@ -84,11 +95,11 @@ For this exercise we will create a barotropic simulation.
         - 2
         - 0
       * - Number of nodes in BC
-        - Type of boundary definition (1=*.th time history file, 2=constant, 3=tidal amplitude/phases)
-        - Elevation (0=unspecified)
-        - Flow (1=*.th time history file, 2=constant)
-        - Salinity (0=unspecified, 1=*.th time history file, 2=constant)
-        - Generic Tracer (0=unspecified, 1=*.th time history file, 2=constant)
+        - Elevation definition (0=unspecified, 1=*.th time history file, 2=constant, **3=tidal amplitude/phases**, ...)
+        - Flow definition (**0=unspecified**, 1=*.th time history file, 2=constant, 3=tidal amplitude/phases, ...)
+        - Temperature (**0=unspecified**, 1=*.th time history file, 2=constant, 3=relax to init. cond., ...)
+        - Salinity (0=unspecified, 1=*.th time history file, **2=constant**, 3=relax to init. cond., ...)
+        - Generic Tracer (**0=unspecified**, 1=*.th time history file, 2=constant, 3=relax to init. cond., ...)
 
    To remove salinity from this boundary change the fifth entry (2) to 0 and remove the lines at the bottom of the file that specify the constant salinity (12.0) and salt nudging factor (1.0).
 

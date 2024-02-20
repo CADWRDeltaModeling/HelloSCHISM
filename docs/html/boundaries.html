@@ -212,8 +212,13 @@
 <ol class="arabic" start="2">
 <li><p>Open the file “./modules/m6_boundaries/bctides.in”</p>
 <p>The current setup for River 1 looks as follows:</p>
-<p>4 0 2 0 2 0 ! River 1</p>
-<p>Which means:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>4 0 2 0 2 0 ! River 1: 4 nodes wide, elevation (0=unspecified), flow (1=*.th time history, 2=constant), temperature (0=unspecified), salinity (2=constant), generic tracer ()
+-20.0      ! Constant inflow
+4.0        ! Constant salt
+1.0        ! Salt nudging
+</pre></div>
+</div>
+<p>The first line means:</p>
 <table class="colwidths-given tight-table docutils align-default">
 <colgroup>
 <col style="width: 17%" />
@@ -234,11 +239,11 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Number of nodes in BC</p></td>
-<td><p>Elevation (0=unspecified)</p></td>
-<td><p>Flow (1=*.th time history file, 2=constant)</p></td>
-<td><p>Temperature (0=unspecified, 1=*.th time history file, 2=constant)</p></td>
-<td><p>Salinity (0=unspecified, 1=*.th time history file, 2=constant)</p></td>
-<td><p>Generic Tracer (0=unspecified, 1=*.th time history file, 2=constant)</p></td>
+<td><p>Elevation definition (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=tidal amplitude/phases, …)</p></td>
+<td><p>Flow definition (0=unspecified, 1=*.th time history file, <strong>2=constant</strong>, 3=tidal amplitude/phases, …)</p></td>
+<td><p>Temperature (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=relax to init. cond., …)</p></td>
+<td><p>Salinity (0=unspecified, 1=*.th time history file, <strong>2=constant</strong>, 3=relax to init. cond., …)</p></td>
+<td><p>Generic Tracer (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=relax to init. cond., …)</p></td>
 </tr>
 </tbody>
 </table>
@@ -247,8 +252,14 @@
 <li><p>Remove salinity from this boundary by changing the fifth entry (2) to a 0, and deleting the lines which define the constant salinity (4.0) and salt nudging factor (1.0).</p></li>
 <li><p>Repeat step 3 with River 2.</p></li>
 <li><p>With the ocean boundary the values are similar to that of the rivers, but now the values will look like:</p>
-<p>17 3 0 0 2 0 ! Ocean</p>
-<p>Which means:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>17 3 0 0 2 0 ! Ocean: 17 nodes, type of boundary (3=tidal constituents), elev and temp not specified, constant salt
+Z0
+   1.000000000000000        0.0000000000000
+   1.000000000000000        0.0000000000000
+...
+</pre></div>
+</div>
+<p>The first line means:</p>
 <table class="colwidths-given tight-table docutils align-default">
 <colgroup>
 <col style="width: 17%" />
@@ -269,11 +280,11 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Number of nodes in BC</p></td>
-<td><p>Type of boundary definition (1=*.th time history file, 2=constant, 3=tidal amplitude/phases)</p></td>
-<td><p>Elevation (0=unspecified)</p></td>
-<td><p>Flow (1=*.th time history file, 2=constant)</p></td>
-<td><p>Salinity (0=unspecified, 1=*.th time history file, 2=constant)</p></td>
-<td><p>Generic Tracer (0=unspecified, 1=*.th time history file, 2=constant)</p></td>
+<td><p>Elevation definition (0=unspecified, 1=*.th time history file, 2=constant, <strong>3=tidal amplitude/phases</strong>, …)</p></td>
+<td><p>Flow definition (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=tidal amplitude/phases, …)</p></td>
+<td><p>Temperature (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=relax to init. cond., …)</p></td>
+<td><p>Salinity (0=unspecified, 1=*.th time history file, <strong>2=constant</strong>, 3=relax to init. cond., …)</p></td>
+<td><p>Generic Tracer (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=relax to init. cond., …)</p></td>
 </tr>
 </tbody>
 </table>
