@@ -35,11 +35,7 @@ jobs:
       shell: bash
       run: |
         cd docsrc
-        
-    - name: make the sphinx docs
-      shell: bash
-      run: |
-        make html . ../docs
+        make html
 
     # - name: Build HTML
     #   uses: ammaraskar/sphinx-action@master
