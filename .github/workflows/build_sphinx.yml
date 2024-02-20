@@ -28,12 +28,12 @@ jobs:
         python -m pip install -U sphinx
         python -m pip install sphinx-rtd-theme
         python -m pip install sphinx-autoapi
-        
+
     - name: make the sphinx docs
       run: |
-        make -C docs clean 
+        make -C docsrc clean 
         # sphinx-apidoc -f -o docs/source . -H Test -e -t docs/source/_templates
-        make -C docs html
+        make -C docsrc html
 
     # - name: Build HTML
     #   uses: ammaraskar/sphinx-action@master
