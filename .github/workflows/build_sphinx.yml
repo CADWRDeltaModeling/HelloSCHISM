@@ -52,7 +52,7 @@ jobs:
       run: |
         cd docsrc
         make html
-        cd docs/html/
+        cd ../docs/html/
         git init
         touch .nojekyll
         git add -A
