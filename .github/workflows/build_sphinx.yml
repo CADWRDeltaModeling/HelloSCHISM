@@ -32,6 +32,7 @@ jobs:
         python -m pip install sphinx-autoapi
 
     - name: make the sphinx docs
+      shell: bash
       run: |
         cd docsrc
         make html
