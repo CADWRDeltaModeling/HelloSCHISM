@@ -31,9 +31,8 @@ jobs:
 
     - name: make the sphinx docs
       run: |
-        make -C docsrc clean 
-        # sphinx-apidoc -f -o docs/source . -H Test -e -t docs/source/_templates
-        make -C docsrc html
+        cd docsrc
+        make html
 
     # - name: Build HTML
     #   uses: ammaraskar/sphinx-action@master
