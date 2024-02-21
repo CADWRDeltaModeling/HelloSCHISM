@@ -83,7 +83,7 @@ jobs:
     - name: Run ghp-import
       shell: bash
       run: |
-        sudo aptitude install tree
+        # sudo aptitude install tree
         git config http.postBuffer 157286400
         git checkout gh-pages
         tree -L 2
