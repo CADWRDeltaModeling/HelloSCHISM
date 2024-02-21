@@ -112,6 +112,8 @@ You can ensure that the Plug-Ins are working appropriately by opening the VisIt 
 
    *A copy of the VisIt instruction manual for the SCHISM Plug-Ins is located in the base folder of this tutorial repository.*
 
+Documentation is done in sphinx with the sphinx_rtd_theme package.
+
 .. toctree::
    :hidden:
 
