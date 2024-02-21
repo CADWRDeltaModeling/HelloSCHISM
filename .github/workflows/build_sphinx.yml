@@ -81,7 +81,10 @@ jobs:
 
         
     - name: Run ghp-import
+      shell: bash
       run: |
+        git config http.postBuffer 157286400
+        echo ${$(git symbolic-ref --quiet HEAD)#refs/heads/}
         ghp-import -n -p -f docs/html
 
   # # Build job
