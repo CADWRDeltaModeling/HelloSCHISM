@@ -117,10 +117,8 @@ jobs:
       - name: Generate redirect
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          branch: gh-pages
-          run: |
-            url=https://cadwrdeltamodeling.github.io/HelloSCHISM/
-            sed -i '19i\
-                  <meta http-equiv="refresh" content="0;URL='"$url"manual/'">
-            ' index.html
+        run: |
+          url=https://cadwrdeltamodeling.github.io/HelloSCHISM/
+          sed -i '19i\
+                <meta http-equiv="refresh" content="0;URL='"$url"manual/'">
+          ' index.html
