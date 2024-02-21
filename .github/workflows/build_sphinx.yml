@@ -92,7 +92,7 @@ jobs:
         tree -L 2
         branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
         echo "Compiling and deploying $branch to production..."
-        ghp-import -n -p -f docs/html
+        ghp-import -n -p -f .
 
   # # Build job
   # build:
