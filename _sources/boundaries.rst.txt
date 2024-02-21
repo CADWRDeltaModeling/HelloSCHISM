@@ -22,7 +22,7 @@ Salinity Boundaries
 Barotropic v. Baroclinic
 `````````````````````````
 
-This module is building off of the base "Hello SCHISM" set-up (:ref:`See Module 1: Hello SCHISM <module1>`). In the base setup salinity is resolved and the model is ran in three dimensions. Because the model resolves salinity, density-driven circulations can be represented and thus the setup is "baroclinic" as opposed to "barotropic" - where density is dimensionally uniform.
+This module is building off of the base "Hello SCHISM" set-up (:ref:`See Module 1: Hello SCHISM <module1>`). In the base setup salinity is resolved (modeled as a tracer) and the model is ran in three dimensions. Because the model resolves salinity, density-driven circulations can be represented and thus the setup is "baroclinic" as opposed to "barotropic" - where density is dimensionally uniform.
 
 For this exercise we will create a barotropic simulation. 
 
