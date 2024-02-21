@@ -21,71 +21,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# jobs:
-#   # first run make files to produce new index.html files
-#   make_html:
-#     runs-on: ubuntu-latest
-
-#     environment:
-#       name: github-pages
-#       url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
-
-#     env:
-#       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-#       SOURCEDIR: .
-#       BUILDDIR: ../docs
-
-#     permissions:
-#       contents: write
-
-#     steps:
-#     - uses: actions/checkout@v4
-
-#     - name: Set up Python
-#       uses: actions/setup-python@v4
-
-#     - name: Display Python version
-#       run: python -c "import sys; print(sys.version)"
-
-#     - name: Install dependencies for Sphinx
-#       run: |
-#         pip install -r docsrc/requirements.txt
-
-#     - name: Build HTML files
-#       shell: bash
-#       run: |
-#         cd docsrc
-#         make html
-#         cd ../docs/html/
-#         git init
-#         touch .nojekyll
-#         git add -A
-#         git config --local user.email "action@github.com"
-#         git config --local user.name "GitHub Action"
-#         git config http.postBuffer 157286400
-#         git commit -m 'deploy'
-
-#     # - name: Init new repo in dist folder and commit generated files
-#     #   run: |
-#     #     cd docs/html/
-#     #     git init
-#     #     touch .nojekyll
-#     #     git add -A
-#     #     git config --local user.email "action@github.com"
-#     #     git config --local user.name "GitHub Action"
-#     #     git commit -m 'deploy's
-
-#     # - name: Force push to destination branch
-#     #   uses: ad-m/github-push-action@v0.8.0
-#     #   with:
-#     #     github_token: ${{ secrets.GITHUB_TOKEN }}
-#     #     branch: gh-pages
-#     #     force: true
-#     #     directory: ./docs/html
-
 jobs:
   # This workflow contains a single job called "build"
   build:
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -98,14 +37,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.10"
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r docsrc/requirements.txt
+
       - name: Build HTML
         run: |
           cd docsrc/
@@ -118,52 +55,7 @@ jobs:
         run: |
           git config http.postBuffer 157286400
           git pull
-          # git checkout gh-pages
-          tree -L 2 -a
-          # branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
-          # echo "Compiling and deploying $branch to production..."
+          tree -L 2 -a
 
           ghp-import -n -p -f ./docs/html
-
-  # # Build job
-  # build:
-  #   # make dependent on html files
-  #   needs: make_html
-
-  #   # Deploy to the github-pages environment
-  #   environment:
-  #     name: github-pages
-  #     url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
-
-  #   # Specify runner + deployment step
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Setup Pages
-  #       uses: actions/configure-pages@v4
-  #     - name: Upload artifact
-  #       uses: actions/upload-pages-artifact@v3
-
-  # # Deployment job
-  # deploy:
-  #   needs: build
-  #   environment:
-  #     name: github-pages
-  #     url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v4
-  #       with:
-  #         branch: gh-pages
-  #     - name: Generate redirect
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #       run: |
-  #         url=https://cadwrdeltamodeling.github.io/HelloSCHISM/
-  #         sed -i '19i\
-  #               <meta http-equiv="refresh" content="0;URL='"$url"manual/'">
-  #         ' index.html
