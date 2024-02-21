@@ -26,6 +26,10 @@ jobs:
   make_html:
     runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages
+      url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
+      
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       SOURCEDIR: .
