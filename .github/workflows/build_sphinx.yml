@@ -85,15 +85,14 @@ jobs:
       run: |
         git config http.postBuffer 157286400
         git pull
-        git branch -a
         git checkout gh-pages
         tree -L 2 -a
         branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+
         echo "Compiling and deploying $branch to production..."
-        # from your directory root :
-        find . -name .git -type f
-        git log --decorate | tail --lines=11
-        ghp-import -n -p -f .
+
+        # ghp-import -n -p -f .
+        ghp-import -n .
 
   # # Build job
   # build:
