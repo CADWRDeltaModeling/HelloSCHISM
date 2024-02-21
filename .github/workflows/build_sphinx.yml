@@ -83,15 +83,15 @@ jobs:
     - name: Run ghp-import
       shell: bash
       run: |
-        # sudo aptitude install tree
-        tree -L 2
         git config http.postBuffer 157286400
         git pull
         git branch -a
         git checkout gh-pages
-        tree -L 2
+        tree -L 2 -a
         branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
         echo "Compiling and deploying $branch to production..."
+        # from your directory root :
+        find . -name .git -type f
         ghp-import -n -p -f .
 
   # # Build job
