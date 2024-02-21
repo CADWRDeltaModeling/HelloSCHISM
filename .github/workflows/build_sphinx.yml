@@ -92,6 +92,7 @@ jobs:
         echo "Compiling and deploying $branch to production..."
         # from your directory root :
         find . -name .git -type f
+        git log --decorate | tail --lines=11
         ghp-import -n -p -f .
 
   # # Build job
