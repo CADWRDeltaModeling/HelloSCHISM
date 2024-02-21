@@ -76,7 +76,7 @@
 <p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Module 6: Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#salinity-boundaries">Salinity Boundaries</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#ocean-boundary">Ocean Boundary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#barotropic-v-baroclinic">Barotropic v. Baroclinic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stage-time-series-at-ocean-boundary">Stage Time Series at Ocean Boundary</a></li>
 </ul>
@@ -122,11 +122,11 @@
 <p>The boundaries are pre-defined in the hgrid.gr3 file which was created with <em>prepare_schism</em> (see <a class="reference internal" href="preprocessor.html#module2"><span class="std std-ref">Module 2: Preprocessor</span></a> for more info).</p>
 </div>
 </section>
-<section id="salinity-boundaries">
-<h1>Salinity Boundaries<a class="headerlink" href="#salinity-boundaries" title="Link to this heading"></a></h1>
+<section id="ocean-boundary">
+<h1>Ocean Boundary<a class="headerlink" href="#ocean-boundary" title="Link to this heading"></a></h1>
 <section id="barotropic-v-baroclinic">
 <h2>Barotropic v. Baroclinic<a class="headerlink" href="#barotropic-v-baroclinic" title="Link to this heading"></a></h2>
-<p>This module is building off of the base “Hello SCHISM” set-up (<a class="reference internal" href="helloschism.html#module1"><span class="std std-ref">See Module 1: Hello SCHISM</span></a>). In the base setup salinity is resolved (modeled as a tracer) and the model is ran in three dimensions. Because the model resolves salinity, density-driven circulations can be represented and thus the setup is “baroclinic” as opposed to “barotropic” - where density is dimensionally uniform.</p>
+<p>This module is building off of the base “Hello SCHISM” set-up (<a class="reference internal" href="helloschism.html#module1"><span class="std std-ref">See Module 1: Hello SCHISM</span></a>). In the base setup salinity is resolved and the model is ran in three dimensions. Because the model resolves salinity, density-driven circulations can be represented and thus the setup is “baroclinic” as opposed to “barotropic” - where density is dimensionally uniform.</p>
 <p>For this exercise we will create a barotropic simulation.</p>
 <ol class="arabic simple">
 <li><p>Open the file “./modules/m6_boundaries/<strong>param.nml</strong>”</p></li>

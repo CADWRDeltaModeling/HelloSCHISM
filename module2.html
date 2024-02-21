@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MODULE 2: OVREVIEW &mdash; Hello SCHISM 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/design-tabs.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MODULE 3: OVREVIEW" href="module3.html" />
+    <link rel="prev" title="MODULE 1: OVREVIEW" href="module1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Hello SCHISM
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">GETTING STARTED</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 1: Hello SCHISM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="module1.html">MODULE 1: OVREVIEW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module1.html#running-the-model">RUNNING THE MODEL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module1.html#deprecated-combining-per-processor-binary-outputs">DEPRECATED: COMBINING PER-PROCESSOR BINARY OUTPUTS</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 2: Preprocessor</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MODULE 2: OVREVIEW</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 3: Retrieving Output</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="module3.html">MODULE 3: OVREVIEW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module3.html#station-output">STATION OUTPUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module3.html#binary-output">BINARY OUTPUT</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hello SCHISM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>MODULE 2: OVREVIEW</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/module2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-2-ovreview">
+<span id="module2"></span><h1>MODULE 2: OVREVIEW<a class="headerlink" href="#module-2-ovreview" title="Permalink to this heading">¶</a></h1>
+<p>The transport flag <em>iupwind_t=0</em> signals the Eulerian-Lagrangian method of transport. Because it is not conservative for salt, this numerical method is not common in practice. Instead, we want to use the hybrid second order (TVD, <em>iupwind_t=2</em>) finite volume scheme with upwind being preferred in water shallower than 6m total depth. In the simplified grid example, which has a sea level of about a meter above the bathymetric datum, a total depth of 6m will occur at about 5m nominal bathymetric depth.</p>
+<p>Setting <em>iupwind_t=2</em> is a single flag change in <strong>param.in.</strong> However, because it is a hybrid scheme, SCHISM expects a property file called <strong>tvd.prop</strong> of 0 and 1 values describing where TVD can be used potentially. Keep in mind, even with this file TVD will only be used if <em>H &gt; 6m</em>.</p>
+<p>The .prop file format just pairs element numbers and values. We are controlling TVD entirely with depth, so we just need a prop file full of ones. There are 4636 elements in the domain (you can get this number from first number on the second line of <strong>hgrid.gr3</strong>). So this file will be two columns, the first of which will be the numbers 1 to 4636 and the second of which will be the number 1:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<div class="line-block">
+<div class="line">1     1</div>
+<div class="line">2     1</div>
+<div class="line">3     1</div>
+<div class="line">…   …</div>
+<div class="line">4636  1</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<img alt="background image" class="sd-card-img" src="_images/blue_background.png" />
+<div class="sd-card-img-overlay docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+TIP:</div>
+<blockquote>
+<div><p class="sd-card-text">One way to do this on a quick one-off basis if you are willing to put up with some cutting and pasting is to write a quick python script or do it in your favorite tool such as Excel. It should be space delineated rather than comma-delineated, which may require a search and replace if you save it in csv format.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The task is also a soft introduction to the preprocessor:</p>
+<ol class="arabic simple">
+<li><p>Navigate to the m2_preprocessor folder  (./Module_Data/<strong>m2_preprocessor</strong>”)</p></li>
+<li><p>Inspect the directory. The launch file for the preprocessor is called <strong>input.yaml</strong> in all our examples. There are two variants of the simple bay mesh, which differ only in depth. We will use the 16m version this time. Go to the <strong>“mesh”</strong> section of <strong>input.yaml</strong> and following the amount of indentation in the file (preferably using spaces), set the mesh input file to hgrid_16m.gr3.</p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mesh_inputfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hgrid_16.gr3</span><span class="w"></span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>We want to tell the preprocessor to build a .prop file based on a polygon. So at the outer level of indentation add:</p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prop</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">tvd.prop</span><span class="p">:</span><span class="w"> </span><span class="kt">!include</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tvd.yaml</span><span class="w"></span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Now we need a trivial <strong>tvd.yaml</strong>, which will contain a default and one polygon. Because the default will assign 1.0 to anything we miss, the actual specification of the polygon doesn’t matter. However, we will add one that amply contains the whole domain (the “All” part is just a label). Here are the contents of <strong>tvd.yaml</strong></p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="nt">polygons</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">attribute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">‘1’</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All</span><span class="w"></span>
+<span class="w">  </span><span class="nt">vertices</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-100000.0</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">100000.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-100000.0</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">100000.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">100000.0</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">100000.0</span><span class="p p-Indicator">]</span><span class="w"></span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Now you should be able to run the preprocessor. You will either need to be in the <strong>schism</strong> conda environment created in the <a class="reference internal" href="index.html#pystart"><span class="std std-ref">Getting Started  section</span></a> or you’ll need to specify the script location.</p></li>
+</ol>
+<p><strong>With conda (Preferred):</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda activate schism</span>
+<span class="go">cd &lt;PATH TO M1_PREPROCESSOR FOLDER&gt;</span>
+<span class="go">prepare_schism input.yaml</span>
+</pre></div>
+</div>
+<p><strong>Without conda:</strong></p>
+<p>Navigate to the m1_Preprocessor folder in your file explorer. Type “cmd” in the navigation bar to open a command prompt terminal in this directory. If you downloaded schimpy and placed it in the scripts folder (see the Python section of Getting Started) you should be able to do the following command:
+.. code-block:: console</p>
+<blockquote>
+<div><p>python ../../scripts/schimpy-master/schimpy/prepare_schism.py input.yaml</p>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. First, copy over <strong>param.in</strong> and <strong>bctides.in</strong> from Hello SCHISM (“&lt;TUTORIAL_PATH&gt;/hello_schism”). Set <em>iupwind_t = 2</em> and <em>rnday=5</em> in <strong>param.in</strong>. This changes the transport method to TVD2 and the runtime in days to 5.</p></li>
+<li><p>Launch the run (note, you’ll need the windows build of SCHISM to be set in your system Path):</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4</span>
+</pre></div>
+</div>
+<div class="admonition-bonus-step admonition">
+<p class="admonition-title">Bonus Step:</p>
+<p>Note in bctides.in that the run is driven by two constant inflows of -30.0 (fluxes into the domain are negative). Can you convert this to a very coarse time series?</p>
+<ul class="simple">
+<li><p>Hint, you will need to change the boundary flag from 2 to 1 in <strong>param.in</strong> and also create the time series. The time series can have a large time step, e.g. a million seconds.  You can keep it constant at -30.0 or you can taper it up or down.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="module3.html" class="btn btn-neutral float-right" title="MODULE 3: OVREVIEW" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="module1.html" class="btn btn-neutral float-left" title="MODULE 1: OVREVIEW" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, Jon Shu, Eli Ateljevic, Lily Tomkovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
