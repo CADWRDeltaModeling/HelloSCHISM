@@ -58,6 +58,7 @@ jobs:
         git add -A
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git config http.postBuffer 157286400s
         git commit -m 'deploy'
 
     # - name: Init new repo in dist folder and commit generated files
