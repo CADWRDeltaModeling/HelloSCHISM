@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; Hello SCHISM 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=79fc7e24" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Module 1: Overview" href="helloschism.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Hello SCHISM
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 1: Hello SCHISM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html">Module 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html#running-the-model">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html#deprecated-combining-per-processor-binary-outputs">DEPRECATED: COMBINING PER-PROCESSOR BINARY OUTPUTS</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 2: Preprocessor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preprocessor.html">Module 2: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 3: Retrieving Output</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Module 3: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html#station-output">Station Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html#binary-output">Binary Output</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 4: Specifying Output Request Locations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">Module 4: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Module 6: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#salinity-boundaries">Salinity Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#river-inflow-boundaries">River Inflow Boundaries</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Hello SCHISM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<span id="getstart"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<p>This tutorial is structured in modules to get you acquainted with the basic functions of SCHISM using a demo model domain, “Hello SCHISM”. The model has two upstream rivers (River 1 and River 2), and an open tidal boundary.</p>
+<figure class="align-center" id="id1">
+<span id="modelschem"></span><img alt="Hello SCHISM Model Schematic" src="_images/HelloSCHISM_ModelSchematic.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text"><em>Simplified domain used for Hello SCHISM practice problems. Ocean boundary is on the left, two river inputs on the right. Domain length in the x direction is roughly 56km</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The modules found in the <a class="reference external" href="https://github.com/CADWRDeltaModeling/HelloSCHISM">github repository</a> contain the following exercises:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="helloschism.html#module1"><span class="std std-ref">Module 1</span></a>: Running the Model</p></li>
+<li><p><a class="reference internal" href="preprocessor.html#module2"><span class="std std-ref">Module 2</span></a>: Running Pre-Processing Scripts</p></li>
+<li><p><a class="reference internal" href="output.html#module3"><span class="std std-ref">Module 3</span></a>: Extracting Outputs</p></li>
+<li><p><a class="reference internal" href="requestoutputs.html#module4"><span class="std std-ref">Module 4</span></a>: Specifying Output Requests</p></li>
+<li><p><a class="reference internal" href="visit.html#module5"><span class="std std-ref">Module 5</span></a>: Visualizing with VisIt</p></li>
+<li><p><a class="reference internal" href="boundaries.html#module6"><span class="std std-ref">Module 6</span></a>: Modifying Boundaries</p></li>
+</ul>
+<p>The explanatory material for these modules is found in this document, while the supporting data required to run through the training is found in the “<strong>modules</strong>” folder, with each Module labeled according to the above list. In order to have in-tact training material, it is recommended that you make a copy of the modules folder called “<strong>modules_working</strong>”. This way you can see the difference between your completed work and the original tutorial data.</p>
+<section id="software-requirements">
+<h2>SOFTWARE REQUIREMENTS<a class="headerlink" href="#software-requirements" title="Link to this heading"></a></h2>
+<section id="schism">
+<h3>SCHISM<a class="headerlink" href="#schism" title="Link to this heading"></a></h3>
+<p>This training includes a ready-made Windows build of SCHISM 5.10 found in the folder “.\software\schism_windows_5.10_build”. After downloading, installing, and setting up your working environment, you’ll want to add this folder to your path.</p>
+</section>
+<section id="c">
+<h3>C++<a class="headerlink" href="#c" title="Link to this heading"></a></h3>
+<p>For the above build to run on your machine, you’ll need to download and install the Microsoft Visual C++ Redistributable found here:https://www.microsoft.com/en-us/download/details.aspx?id=30679
+Download both x64 and x86 and run the .exe’s</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>TODO: Change this so that the .dlls are automatically bundled with the SCHISM build folder</p>
+</div>
+</section>
+<section id="mpi">
+<h3>MPI<a class="headerlink" href="#mpi" title="Link to this heading"></a></h3>
+<p>To run the model, you’ll want MPI installed on your machine. Go to <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=30679">https://www.microsoft.com/en-us/download/details.aspx?id=30679</a> and download MSMpiSetup.exe. Run the .exe and then add the path to your PATH environment variable (ex: C:Program FilesMicrosoft MPIBin)</p>
+</section>
+<section id="python">
+<span id="pystart"></span><h3>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h3>
+<p>There are portions of this training that rely on schimpy – a DWR-made Python repository that handles pre- and post-processing of SCHISM data – and you’ll want to install this repository in your working directory.</p>
+<p>If you are using anaconda/miniconda (recommended) navigate to the HelloSCHISM repository, go to the software directory, and enter the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda env create --name schimpy -f environment.yml</span>
+</pre></div>
+</div>
+<p>This creates a new environment called “schimpy” which contains the necessary packages to run through these modules.</p>
+<p>This will take some time (~4+ minutes). The “<em>-name schimpy</em>” flag tells conda to install schimpy to the newly created schimpy environment. The “<em>-f environment.yml</em>” flags tell conda to use the yaml file provided in the software folder to download the necessary packages.</p>
+<p><em>If you are not using conda do the following:</em></p>
+<p>Download the latest version of schimpy from GitHub <a class="reference external" href="https://github.com/CADWRDeltaModeling/schimpy">https://github.com/CADWRDeltaModeling/schimpy</a>
+Copy the schimpy folder you downloaded into the scripts folder in your Tutorial folder (next to Tutorial_Modules and Software). The resulting folder will be “./scripts/schimpy-master”</p>
+</section>
+<section id="visit">
+<span id="vistart"></span><h3>VisIt<a class="headerlink" href="#visit" title="Link to this heading"></a></h3>
+<p>To visualize results, you’ll need to download and install Visit as well as the SCHISM Plug-In. With Visit you’ll be able to read in SCHISM binaries and visualize model results. The front end works with Windows, but the back end can reach Linux server results in the “server-client mode” – this requires the same version of Visit on both Linux and Windows sides.</p>
+<p>For this tutorial, you just need to work on the Windows components if working on a Windows machine.</p>
+<ol class="arabic simple">
+<li><p>Download version 3.1.4 of Visit: <a class="reference external" href="https://github.com/visit-dav/visit/releases">https://github.com/visit-dav/visit/releases</a></p></li>
+<li><p>Dowload the SCHISM and NetCDF plugins from the HelloSCHISM repository folder “software/visit_plugins”</p></li>
+<li><p>Go to the Visit application folder (ex: “C:Users%userprofile%LLNLVisIt 3.1.4”) and copy the downloaded netcdf.dll to this folder.</p></li>
+<li><p>Copy the following .dll files to the “VisIt 3.1.4databases”</p></li>
+</ol>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<ul class="simple">
+<li><p>ESCHISMDatabase_par.dll</p></li>
+<li><p>ESCHISMDatabase_ser.dll</p></li>
+<li><p>ISCHISMDatabase.dll</p></li>
+<li><p>MSCHISMDatabase.dll</p></li>
+<li><p>Egr3Database_par.dll</p></li>
+<li><p>Egr3Database_ser.dll</p></li>
+</ul>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<ul class="simple">
+<li><p>EpropDatabase_par.dll</p></li>
+<li><p>EpropDatabase_ser.dll</p></li>
+<li><p>Igr3Database.dll</p></li>
+<li><p>IpropDatabase.dll</p></li>
+<li><p>Mgr3Database.dll</p></li>
+<li><p>MpropDatabase.dll</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>You can ensure that the Plug-Ins are working appropriately by opening the VisIt application, going to File &gt; Open File, and in that dialog box go to the “Open file as type:” drop-down to see if “SCHISM” is in the list of available file types.</p>
+<figure class="align-center" id="id2">
+<span id="visitdropdown"></span><img alt="VisIt Open File Window Drop Down" src="_images/VisIt_FileType_SCHISM.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text"><em>A copy of the VisIt instruction manual for the SCHISM Plug-Ins is located in the base folder of this tutorial repository.</em></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Module 1: Hello SCHISM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html">Module 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html#running-the-model">Running the Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helloschism.html#understanding-the-command">Understanding the command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloschism.html#monitoring-output">Monitoring Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloschism.html#how-many-processors-do-i-have-windows-on-my-laptop-pc">How many processors do I have (Windows) on my laptop/PC?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloschism.html#station-outputs">Station Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html#deprecated-combining-per-processor-binary-outputs">DEPRECATED: COMBINING PER-PROCESSOR BINARY OUTPUTS</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Module 2: Preprocessor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preprocessor.html">Module 2: Overview</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Module 3: Retrieving Output</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Module 3: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html#station-output">Station Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-1-1-station-elevation">Exercise 1-1 : Station Elevation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="output.html#writing-out-station-data">Writing Out Station Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-1-2-station-salinity">Exercise 1-2 : Station Salinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-2-transect-flow">Exercise 2 : Transect Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-3-observed-data">Exercise 3 : Observed Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html#exercise-4-combined-plots">Exercise 4 : Combined Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="output.html#binary-output">Binary Output</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Module 4: Specifying Output Request Locations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">Module 4: Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="requestoutputs.html#adding-flow-observation-transects">Adding Flow Observation Transects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requestoutputs.html#adding-observation-point-locations">Adding Observation Point Locations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visit.html#plotting-salinity">Plotting Salinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visit.html#plotting-velocity-vectors">Plotting Velocity Vectors</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Module 6: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#salinity-boundaries">Salinity Boundaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#barotropic-v-baroclinic">Barotropic v. Baroclinic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#stage-time-series-at-ocean-boundary">Stage Time Series at Ocean Boundary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#river-inflow-boundaries">River Inflow Boundaries</a></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="helloschism.html" class="btn btn-neutral float-right" title="Module 1: Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jon Shu, Eli Ateljevic, Lily Tomkovic.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

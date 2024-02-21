@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 6: Overview &mdash; Hello SCHISM 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=79fc7e24" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Module 5: Overview" href="visit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hello SCHISM
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 1: Hello SCHISM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html">Module 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html#running-the-model">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloschism.html#deprecated-combining-per-processor-binary-outputs">DEPRECATED: COMBINING PER-PROCESSOR BINARY OUTPUTS</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 2: Preprocessor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preprocessor.html">Module 2: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 3: Retrieving Output</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Module 3: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html#station-output">Station Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html#binary-output">Binary Output</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 4: Specifying Output Request Locations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">Module 4: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module 6: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#salinity-boundaries">Salinity Boundaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#barotropic-v-baroclinic">Barotropic v. Baroclinic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stage-time-series-at-ocean-boundary">Stage Time Series at Ocean Boundary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#river-inflow-boundaries">River Inflow Boundaries</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hello SCHISM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Module 6: Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/boundaries.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-6-overview">
+<span id="module6"></span><h1>Module 6: Overview<a class="headerlink" href="#module-6-overview" title="Link to this heading"></a></h1>
+<p>In this module we will modify the three open boundaries applied to the model domain as seen in <a class="reference internal" href="#modelschem-bc"><span class="std std-numref">Fig. 10</span></a>. The directory for this module is “./modules/<strong>m6_boundaries</strong>”.</p>
+<figure class="align-center" id="id1">
+<span id="modelschem-bc"></span><img alt="Hello SCHISM Model Schematic" src="_images/HelloSCHISM_ModelSchematic.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>Simplified domain used for Hello SCHISM practice problems. Ocean boundary is on the left, two river inputs on the right. Domain length in the x direction is roughly 56km</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The boundaries are pre-defined in the hgrid.gr3 file which was created with <em>prepare_schism</em> (see <a class="reference internal" href="preprocessor.html#module2"><span class="std std-ref">Module 2: Preprocessor</span></a> for more info).</p>
+</div>
+</section>
+<section id="salinity-boundaries">
+<h1>Salinity Boundaries<a class="headerlink" href="#salinity-boundaries" title="Link to this heading"></a></h1>
+<section id="barotropic-v-baroclinic">
+<h2>Barotropic v. Baroclinic<a class="headerlink" href="#barotropic-v-baroclinic" title="Link to this heading"></a></h2>
+<p>This module is building off of the base “Hello SCHISM” set-up (<a class="reference internal" href="helloschism.html#module1"><span class="std std-ref">See Module 1: Hello SCHISM</span></a>). In the base setup salinity is resolved and the model is ran in three dimensions. Because the model resolves salinity, density-driven circulations can be represented and thus the setup is “baroclinic” as opposed to “barotropic” - where density is dimensionally uniform.</p>
+<p>For this exercise we will create a barotropic simulation.</p>
+<ol class="arabic simple">
+<li><p>Open the file “./modules/m6_boundaries/<strong>param.nml</strong>”</p></li>
+</ol>
+<ul class="simple">
+<li><p>Search for iof_hydro(19) and set this to <em>0</em>. This will turn off salinity output.</p></li>
+</ul>
+<ol class="arabic" start="2">
+<li><p>Open the file “./modules/m6_boundaries/bctides.in”</p>
+<p>The current setup for River 1 looks as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>4 0 2 0 2 0 ! River 1: 4 nodes wide, elevation (0=unspecified), flow (1=*.th time history, 2=constant), temperature (0=unspecified), salinity (2=constant), generic tracer ()
+-20.0      ! Constant inflow
+4.0        ! Constant salt
+1.0        ! Salt nudging
+</pre></div>
+</div>
+<p>The first line means:</p>
+<table class="tight-table docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>4</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Number of nodes in BC</p></td>
+<td><p>Elevation definition (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=tidal amplitude/phases, …)</p></td>
+<td><p>Flow definition (0=unspecified, 1=*.th time history file, <strong>2=constant</strong>, 3=tidal amplitude/phases, …)</p></td>
+<td><p>Temperature (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=relax to init. cond., …)</p></td>
+<td><p>Salinity (0=unspecified, 1=*.th time history file, <strong>2=constant</strong>, 3=relax to init. cond., …)</p></td>
+<td><p>Generic Tracer (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=relax to init. cond., …)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Then the following lines specify the constant flow, salinity, and salt nudging factor as -20.0, 4.0, and 1.0, respectively.</p>
+</li>
+<li><p>Remove salinity from this boundary by changing the fifth entry (2) to a 0, and deleting the lines which define the constant salinity (4.0) and salt nudging factor (1.0).</p></li>
+<li><p>Repeat step 3 with River 2.</p></li>
+<li><p>With the ocean boundary the values are similar to that of the rivers, but now the values will look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>17 3 0 0 2 0 ! Ocean: 17 nodes, type of boundary (3=tidal constituents), elev and temp not specified, constant salt
+Z0
+   1.000000000000000        0.0000000000000
+   1.000000000000000        0.0000000000000
+...
+</pre></div>
+</div>
+<p>The first line means:</p>
+<table class="tight-table docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>17</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Number of nodes in BC</p></td>
+<td><p>Elevation definition (0=unspecified, 1=*.th time history file, 2=constant, <strong>3=tidal amplitude/phases</strong>, …)</p></td>
+<td><p>Flow definition (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=tidal amplitude/phases, …)</p></td>
+<td><p>Temperature (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=relax to init. cond., …)</p></td>
+<td><p>Salinity (0=unspecified, 1=*.th time history file, <strong>2=constant</strong>, 3=relax to init. cond., …)</p></td>
+<td><p>Generic Tracer (<strong>0=unspecified</strong>, 1=*.th time history file, 2=constant, 3=relax to init. cond., …)</p></td>
+</tr>
+</tbody>
+</table>
+<p>To remove salinity from this boundary change the fifth entry (2) to 0 and remove the lines at the bottom of the file that specify the constant salinity (12.0) and salt nudging factor (1.0).</p>
+<ol class="arabic simple" start="6">
+<li><p>Save the file</p></li>
+</ol>
+</li>
+</ol>
+<p>Now you have made the necessary edits to the <strong>bctides.in</strong> and <strong>param.nml</strong> files for the run to be barotropic in that there is no account for spatially-varying water density.</p>
+</section>
+<section id="stage-time-series-at-ocean-boundary">
+<h2>Stage Time Series at Ocean Boundary<a class="headerlink" href="#stage-time-series-at-ocean-boundary" title="Link to this heading"></a></h2>
+<p>Currently, the ocean boundary in the model uses tidal harmonic constituents (eg: M2, O1, K1) to define the open stage boundary. If, instead, you wanted to define the boundary with a time series, you can use a file with a “.th” extension. The file is provided in the “./modules/m6_boundaries” directory and is called “<strong>elev.th</strong>”.</p>
+<figure class="align-default" id="id2">
+<img alt="Time series plot of the elev.th file. X-axis is seconds since 2000-01-01 and Y-axis is elevation in meters. The plot oscillates in a tidal manner." src="_images/ocean_bc_ts.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text"><em>Time series plot of the elev.th file</em></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>Open the bctides.in file you modified earlier</p></li>
+<li><p>Navigate to the line that contains “! Ocean: 17 nodes” and change the second entry (3) to 1. This means that the model will use a time history file called “elev.th”</p></li>
+<li><p>Save the file</p></li>
+</ol>
+<p>Now SCHISM will see that the ocean elevation boundary requires a “elev.th” ascii file to specify the stage at the boundary in seconds since the reference model time.</p>
+</section>
+</section>
+<section id="river-inflow-boundaries">
+<h1>River Inflow Boundaries<a class="headerlink" href="#river-inflow-boundaries" title="Link to this heading"></a></h1>
+<p>As mentioned before, the two rivers use a constant inflow boundary of -20 cms (cubic meters per second). We are now going to change the inflow for River 1 to be a time-varying inflow.</p>
+<figure class="align-default" id="id3">
+<img alt="Time series plot of the flux.th file. X-axis is seconds since 2000-01-01 and Y-axis is flow in cubic meters per second. The plot dips twice." src="_images/river1_bc_ts.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>Time series plot of the flux.th file</em></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The flow applied to the boundary is negative if entering the model domain.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Open the bctides.in file you modified twice now</p></li>
+<li><p>Navigate to the line that contains “! River 1” and change the third entry (2) to 1. Now the model will point to a time history file called “flux.th”. Delete the line specifying the constant flow of -20.0 cms.</p></li>
+<li><p>Save the file. Now SCHISM will see that the River 1 boundary requires a “flux.th” ascii file to specify the stage at the boundary in seconds since the reference model time.</p></li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="visit.html" class="btn btn-neutral float-left" title="Module 5: Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jon Shu, Eli Ateljevic, Lily Tomkovic.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

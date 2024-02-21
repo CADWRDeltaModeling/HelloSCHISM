@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 1: Overview &mdash; Hello SCHISM 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=79fc7e24" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Module 2: Overview" href="preprocessor.html" />
+    <link rel="prev" title="Getting Started" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hello SCHISM
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 1: Hello SCHISM</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#running-the-model">Running the Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-command">Understanding the command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-output">Monitoring Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-many-processors-do-i-have-windows-on-my-laptop-pc">How many processors do I have (Windows) on my laptop/PC?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#station-outputs">Station Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#deprecated-combining-per-processor-binary-outputs">DEPRECATED: COMBINING PER-PROCESSOR BINARY OUTPUTS</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 2: Preprocessor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preprocessor.html">Module 2: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 3: Retrieving Output</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Module 3: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html#station-output">Station Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html#binary-output">Binary Output</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 4: Specifying Output Request Locations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requestoutputs.html">Module 4: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 5: Visualizing with VisIt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">Module 5: Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module 6: Modifying Boundaries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Module 6: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#salinity-boundaries">Salinity Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html#river-inflow-boundaries">River Inflow Boundaries</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hello SCHISM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Module 1: Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/helloschism.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-1-overview">
+<span id="module1"></span><h1>Module 1: Overview<a class="headerlink" href="#module-1-overview" title="Link to this heading"></a></h1>
+<p>The goal of this session is to practice running SCHISM using a pre-configured simulation on a small synthetic domain. The tutorial can be launched on either Windows or Linux.</p>
+<figure class="align-center" id="id1">
+<span id="modelschema"></span><img alt="Hello SCHISM Model Schematic" src="_images/HelloSCHISM_ModelSchematic.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text"><em>Simplified domain used for Hello SCHISM practice problems. Ocean boundary is on the left, two river inputs on the right. Domain length in the x direction is roughly 56km</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="running-the-model">
+<h1>Running the Model<a class="headerlink" href="#running-the-model" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>Obtain SCHISM and follow the installation instructions and prerequisites</p>
+<ul class="simple">
+<li><p>On Linux you will have to compile the model.</p></li>
+<li><p>On Windows, you will need precompiled Bay-Delta executables (found in “./software/schism_windows_5.10_build”).</p></li>
+</ul>
+</li>
+<li><p>Navigate to “./module_data/<strong>m1_hello_schism</strong>”</p></li>
+<li><p>Make sure that the tools are accessible and schism build directory is on path (See <a class="reference internal" href="index.html#getstart"><span class="std std-ref">Getting Started</span></a>).</p></li>
+<li><p>Make sure that there is an <strong>/outputs</strong> directory inside the module directory. We include this with the module folder, so it should be there.</p></li>
+<li><p>Obtain a windows command prompt window by typing <strong>cmd</strong> in the windows explorer navigation bar and press enter. This sets the current directory to the folder you were viewing (<strong>m1_hello_schism</strong>).
+<a class="reference internal" href="_images/cmd_example.png"><img alt="cmd" src="_images/cmd_example.png" style="width: 624.65px; height: 215.15px;" /></a></p></li>
+<li><p>Launch the run in the command prompt using the following command:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4</span>
+</pre></div>
+</div>
+<p>This will take at least 20 minutes to run.</p>
+<section id="understanding-the-command">
+<h2>Understanding the command<a class="headerlink" href="#understanding-the-command" title="Link to this heading"></a></h2>
+<p>The program mpiexec is a wrapper used to launch parallel processes (<em>mpirun</em> is a synonym on many systems). The name of the executable is <em>pschism_PREC_EVAP_GOTM_TVD-VL</em> derived from “parallel SCHISM”. The flag  <em>-np 8</em> indicates that mpiexec should use 8 processors for computing, while the “4” at the end of command is the number of processors dedicated to writing output.</p>
+<p>The number of output processors equals the number of output types desired in your <strong>param.nml</strong> file. You should see eight processors if you use the “top” command (in Linux) or the Performance monitor application (in Windows).</p>
+</section>
+<section id="monitoring-output">
+<h2>Monitoring Output<a class="headerlink" href="#monitoring-output" title="Link to this heading"></a></h2>
+<p>SCHISM creates an output log “./outputs/mirror.out” showing the simulation progress. Here you can look to see how much progress your simulation has made since there is no text output to the console. Look for the last lines in the file and find the “TIME STEP=” and “TIME=” line. Here you’re looking at which computational timestep the simulation has reached, and what the total time in seconds has elapsed in the simulation.</p>
+</section>
+<section id="how-many-processors-do-i-have-windows-on-my-laptop-pc">
+<h2>How many processors do I have (Windows) on my laptop/PC?<a class="headerlink" href="#how-many-processors-do-i-have-windows-on-my-laptop-pc" title="Link to this heading"></a></h2>
+<p>The number of processors (8 in this example) is system dependent. Even on this simple problem, we recommend a laptop with 8 cores, which is not uncommon in the current market. If you have a Windows desktop with more than 48 cores, you can run a realistic SCHISM model. In Linux, the number of physical cores is usually part of the specifications of the cluster or the job submission process. On Windows it can be a bit harder to figure out and there is a lot of confusion between a “logical processor” and a “core” with the latter more likely to provide you with speed benefits. The number of cores on windows can be discovered using the WMIC command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">WMIC CPU Get DeviceID,NumberOfCores,NumberOfLogicalProcessors</span>
+</pre></div>
+</div>
+<p>This will return something like the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">DeviceID  NumberOfCores  NumberOfLogicalProcessors</span>
+<span class="go">CPU0      4              4</span>
+</pre></div>
+</div>
+</section>
+<section id="station-outputs">
+<h2>Station Outputs<a class="headerlink" href="#station-outputs" title="Link to this heading"></a></h2>
+<p>The simulation defines some station output requests in the file <strong>station.in</strong>. Corresponding output is found in the columns of the files <strong>staout1</strong>, <strong>staout2</strong> … in the /<strong>outputs</strong> directory. These files are text and can be opened easily in, say, excel or numpy. The columns in the <strong>staout*</strong> files belong to individual stations, and correspond to rows in <strong>station.in</strong>. In some cases the horizontal (x,y) positions of these stations are duplicates. The first row is the time in days since the beginning of the run.</p>
+</section>
+</section>
+<section id="deprecated-combining-per-processor-binary-outputs">
+<h1>DEPRECATED: COMBINING PER-PROCESSOR BINARY OUTPUTS<a class="headerlink" href="#deprecated-combining-per-processor-binary-outputs" title="Link to this heading"></a></h1>
+<p>In SCHISM version 5.10 there is no longer the need for combining outputs, but for version 5.8 this may still be a requirement for viewing outputs. <strong>See DOCUMENT NAME</strong> for more information on combining outputs for earlier versions of SCHISM.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preprocessor.html" class="btn btn-neutral float-right" title="Module 2: Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jon Shu, Eli Ateljevic, Lily Tomkovic.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
