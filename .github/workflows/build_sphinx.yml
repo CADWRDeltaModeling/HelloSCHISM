@@ -108,7 +108,7 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
