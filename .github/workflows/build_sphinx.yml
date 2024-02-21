@@ -84,7 +84,8 @@ jobs:
       shell: bash
       run: |
         git config http.postBuffer 157286400
-        echo ${$(git symbolic-ref --quiet HEAD)#refs/heads/}
+        branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+        echo "\nCompiling and deploying $branch to production...\n\n"
         ghp-import -n -p -f docs/html
 
   # # Build job
