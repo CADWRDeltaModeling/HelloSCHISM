@@ -122,6 +122,10 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
+    
+    # make dependent on html files
+    needs: make_html
+
     steps:
       - name: Check out
         uses: actions/checkout@v3
