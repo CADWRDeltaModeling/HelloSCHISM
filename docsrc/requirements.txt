@@ -4,6 +4,7 @@ sphinx-design
 sphinx-argparse  
 sphinxcontrib-bibtex
 sphinx_rtd_theme
+ghp-import # for GitHub Pages import
 nbsphinx
 numpydoc
 docutils
