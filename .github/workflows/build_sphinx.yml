@@ -87,7 +87,6 @@ jobs:
     environment:
       name: github-pages
       url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
-      branch: gh-pages
 
     # Specify runner + deployment step
     runs-on: ubuntu-latest
@@ -98,6 +97,9 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
 
   # Deployment job
   deploy:
@@ -117,8 +119,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: gh-pages
-        run: |
-          url=https://cadwrdeltamodeling.github.io/HelloSCHISM/
-          sed -i '19i\
-                <meta http-equiv="refresh" content="0;URL='"$url"manual/'">
-          ' index.html
+          run: |
+            url=https://cadwrdeltamodeling.github.io/HelloSCHISM/
+            sed -i '19i\
+                  <meta http-equiv="refresh" content="0;URL='"$url"manual/'">
+            ' index.html
