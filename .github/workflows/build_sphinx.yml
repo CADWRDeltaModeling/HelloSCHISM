@@ -78,42 +78,69 @@ jobs:
         force: true
         directory: ./docs/html
 
-  # Build job
-  build:
-    # make dependent on html files
-    needs: make_html
+  # # Build job
+  # build:
+  #   # make dependent on html files
+  #   needs: make_html
 
-    # Deploy to the github-pages environment
-    environment:
-      name: github-pages
-      url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
+  #   # Deploy to the github-pages environment
+  #   environment:
+  #     name: github-pages
+  #     url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
 
-    # Specify runner + deployment step
+  #   # Specify runner + deployment step
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Setup Pages
+  #       uses: actions/configure-pages@v4
+  #       with:
+          
+  #     # - name: Build with Jekyll
+  #     #   uses: actions/jekyll-build-pages@v1
+  #     #   with:
+  #     #     source: ./docs/
+  #     #     destination: ./_site
+  #     - name: Upload artifact
+  #       uses: actions/upload-pages-artifact@v3
+  #       with:
+  #         # Upload docs repository
+  #         path: './docs'
+
+  # # Deployment job
+  # deploy:
+  #   needs: build
+  #   environment:
+  #     name: github-pages
+  #     url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
+
+    publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      # - name: Build with Jekyll
-      #   uses: actions/jekyll-build-pages@v1
-      #   with:
-      #     source: ./docs/
-      #     destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Generate your content
+        run: echo "Optional placeholder. Put your project's static website generator command here."
+
+      - name: Publish current workdir (which contains generated content) to GitHub Pages
+        uses: rayluo/github-pages-overwriter@v1.3
+
         with:
-          # Upload docs repository
-          path: './docs'
 
-  # Deployment job
-  deploy:
-    needs: build
-    environment:
-      name: github-pages
-      url: https://cadwrdeltamodeling.github.io/HelloSCHISM/
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          # Optional. Default value "." means the root directory of your project will be published.
+          # You can use whatever directory your project uses, for example "wwwroot".
+          # Such a directory does *not* have to already exist in your repo,
+          # it could be an output directory created dynamically by your static website builder.
+          source-directory: ./docs/html
+
+          # Optional. Default value "gh-pages".
+          # It specifies the temporary branch which hosts the static website.
+          # Each build will OVERWRITE this branch.
+          target-branch: gh-pages
