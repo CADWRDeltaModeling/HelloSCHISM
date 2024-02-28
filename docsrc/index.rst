@@ -39,7 +39,7 @@ This training includes a ready-made Windows build of SCHISM 5.10 found in the fo
 
 C++
 `````````````````````
-For the above build to run on your machine, you’ll need to download and install the Microsoft Visual C++ Redistributable found here:https://www.microsoft.com/en-us/download/details.aspx?id=30679
+For the above build to run on your machine, you’ll need to download and install the Microsoft Visual C++ Redistributable found here: https://www.microsoft.com/en-us/download/details.aspx?id=30679
 Download both x64 and x86 and run the .exe’s
 
 .. warning::
@@ -56,15 +56,17 @@ Python
 `````````````````````
 There are portions of this training that rely on schimpy – a DWR-made Python repository that handles pre- and post-processing of SCHISM data – and you’ll want to install this repository in your working directory. 
 
-If you are using anaconda/miniconda (recommended) navigate to the HelloSCHISM repository, go to the software directory, and enter the following command:
+If you are using anaconda/miniconda (recommended) download the `schism environment file`_ from the BayDeltaSCHISM repository, and enter the following command:
+
+.. _schimpy environment file: https://github.com/CADWRDeltaModeling/BayDeltaSCHISM/blob/master/schism_env.yml
 
 .. code-block:: console
 
-   conda env create --name schimpy -f environment.yml
+   conda env create --name schism -f schism_env.yml
 
-This creates a new environment called “schimpy” which contains the necessary packages to run through these modules.
+This creates a new environment called "schism" which contains the necessary packages to run through these modules.
 
-This will take some time (~4+ minutes). The “*-name schimpy*” flag tells conda to install schimpy to the newly created schimpy environment. The “*-f environment.yml*” flags tell conda to use the yaml file provided in the software folder to download the necessary packages.
+This will take some time (~4+ minutes). The “*--name schism*” flag tells conda to install schimpy to the newly created schimpy environment. The “*-f environment.yml*” flags tell conda to use the yaml file provided in the software folder to download the necessary packages.
 
 *If you are not using conda do the following:*
 
