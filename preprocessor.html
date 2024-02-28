@@ -186,7 +186,10 @@ TIP:</div>
 <div><p>python ../../scripts/schimpy-master/schimpy/prepare_schism.py input.yaml</p>
 </div></blockquote>
 <ol class="arabic simple" start="6">
-<li><p>At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. Locate and open the files <strong>param.nml</strong> and <strong>bctides.in</strong>. Set <em>iupwind_t = 2</em> and <em>rnday=5</em> in <strong>param.nml</strong>. This changes the transport method to TVD2 and the runtime in days to 5.</p></li>
+<li><p>At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. Locate and open the files <strong>param.barotropic.nml</strong>. Set <em>iupwind_t = 2</em> and <em>rnday=5</em> in <strong>param.barotropic.nml</strong>. This changes the transport method to TVD2 and the runtime in days to 5.</p></li>
+</ol>
+<p>Then save the <strong>param.barotropic.nml</strong> file as <strong>param.nml</strong> and the <strong>bctides.in.barotropic</strong> file as <strong>bctides.in</strong>. SCHISM is looking for a specific files called param.nml and bctidess.in, so depending on wether you’re running 2D or 3D you’ll want to save the barotropic/baroclinic param file out as those file names, or use symbolic links.</p>
+<ol class="arabic simple" start="7">
 <li><p>Launch the run (note, you’ll need the windows build of SCHISM to be set in your system Path):</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4</span>

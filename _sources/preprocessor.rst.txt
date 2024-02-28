@@ -74,7 +74,9 @@ Navigate to the m2_preprocessor folder in your file explorer. Type “cmd” in 
    
    python ../../scripts/schimpy-master/schimpy/prepare_schism.py input.yaml
 
-6.	At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. Locate and open the files **param.nml** and **bctides.in**. Set *iupwind_t = 2* and *rnday=5* in **param.nml**. This changes the transport method to TVD2 and the runtime in days to 5.
+6.	At this point, you have recreated the Hello SCHISM tutorial with an added prop file. Only a few more changes are needed. Locate and open the files **param.barotropic.nml**. Set *iupwind_t = 2* and *rnday=5* in **param.barotropic.nml**. This changes the transport method to TVD2 and the runtime in days to 5.
+
+Then save the **param.barotropic.nml** file as **param.nml** and the **bctides.in.barotropic** file as **bctides.in**. SCHISM is looking for a specific files called param.nml and bctidess.in, so depending on wether you're running 2D or 3D you'll want to save the barotropic/baroclinic param file out as those file names, or use symbolic links. 
 
 7.	Launch the run (note, you’ll need the windows build of SCHISM to be set in your system Path):
 
