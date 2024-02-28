@@ -174,7 +174,7 @@ The schimpy function *read_flux_out* is a Python data extracting function that p
 
 .. code-block:: python
 
-   aall_ts = read_flux_out(outputs_fpath, station_fpath, time_basis)
+   all_ts = read_flux_out(outputs_fpath, station_fpath, time_basis)
 
 
 4.	To retrieve a specific station’s time series and then plot using the matplotlib plotting library in Python, add the following two lines after the last edits you made, again keeping consistent with indentation:
