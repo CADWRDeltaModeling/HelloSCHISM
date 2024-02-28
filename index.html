@@ -131,7 +131,7 @@
 </section>
 <section id="c">
 <h3>C++<a class="headerlink" href="#c" title="Link to this heading"></a></h3>
-<p>For the above build to run on your machine, you’ll need to download and install the Microsoft Visual C++ Redistributable found here:https://www.microsoft.com/en-us/download/details.aspx?id=30679
+<p>For the above build to run on your machine, you’ll need to download and install the Microsoft Visual C++ Redistributable found here: <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=30679">https://www.microsoft.com/en-us/download/details.aspx?id=30679</a>
 Download both x64 and x86 and run the .exe’s</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -145,12 +145,12 @@ Download both x64 and x86 and run the .exe’s</p>
 <section id="python">
 <span id="pystart"></span><h3>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h3>
 <p>There are portions of this training that rely on schimpy – a DWR-made Python repository that handles pre- and post-processing of SCHISM data – and you’ll want to install this repository in your working directory.</p>
-<p>If you are using anaconda/miniconda (recommended) navigate to the HelloSCHISM repository, go to the software directory, and enter the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda env create --name schimpy -f environment.yml</span>
+<p>If you are using anaconda/miniconda (recommended) download the <a href="#id3"><span class="problematic" id="id4">`schism environment file`_</span></a> from the BayDeltaSCHISM repository, and enter the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda env create --name schism -f schism_env.yml</span>
 </pre></div>
 </div>
-<p>This creates a new environment called “schimpy” which contains the necessary packages to run through these modules.</p>
-<p>This will take some time (~4+ minutes). The “<em>-name schimpy</em>” flag tells conda to install schimpy to the newly created schimpy environment. The “<em>-f environment.yml</em>” flags tell conda to use the yaml file provided in the software folder to download the necessary packages.</p>
+<p>This creates a new environment called “schism” which contains the necessary packages to run through these modules.</p>
+<p>This will take some time (~4+ minutes). The “<em>–name schism</em>” flag tells conda to install schimpy to the newly created schimpy environment. The “<em>-f environment.yml</em>” flags tell conda to use the yaml file provided in the software folder to download the necessary packages.</p>
 <p><em>If you are not using conda do the following:</em></p>
 <p>Download the latest version of schimpy from GitHub <a class="reference external" href="https://github.com/CADWRDeltaModeling/schimpy">https://github.com/CADWRDeltaModeling/schimpy</a>
 Copy the schimpy folder you downloaded into the scripts folder in your Tutorial folder (next to Tutorial_Modules and Software). The resulting folder will be “./scripts/schimpy-master”</p>
