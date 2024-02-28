@@ -255,7 +255,7 @@ In this exercise you will combine techniques found in :ref:`Exercise 1-1 <ex1-1>
 .. code-block:: python
 
    ts_obs.plot(legend=True, ax=ax)
-   all_ts_sim[station_name+"_"+sub_loc].plot(label="Sim", legend=True, ax=ax, linestyle='dashed')
+   sim_data[station_name+"_"+sub_loc].plot(label="Sim", legend=True, ax=ax, linestyle='dashed')
    plt.show()
 
 5.	Save the file (“./m3_output/exercises/**exercise4.py**”) and run the script in the command line.
