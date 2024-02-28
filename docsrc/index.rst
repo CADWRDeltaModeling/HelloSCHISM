@@ -48,7 +48,7 @@ Download both x64 and x86 and run the .exe’s
 
 MPI
 `````````````````````
-To run the model, you’ll want MPI installed on your machine. Go to https://www.microsoft.com/en-us/download/details.aspx?id=30679 and download MSMpiSetup.exe. Run the .exe and then add the path to your PATH environment variable (ex: C:\Program Files\Microsoft MPI\Bin)
+To run the model, you’ll want MPI installed on your machine. Go to https://www.microsoft.com/en-us/download/details.aspx?id=57467 and download MSMpiSetup.exe. Run the .exe and then add the path to your PATH environment variable (ex: C:\Program Files\Microsoft MPI\Bin)
 
 .. _pystart:
 
