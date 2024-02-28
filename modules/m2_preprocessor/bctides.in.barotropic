@@ -10,15 +10,15 @@ K1
 M2                                              
    0.140519E-03  0.97907 217.04138
 3          ! nope
-4 0 2 0 2  ! River 1: 6 elements wide, only normal vel constant
--120.0      ! Constant inflow
+4 0 2 0 2 0 ! River 1: 4 nodes wide, elevation (0=unspecified), flow (1=*.th time history, 2=constant), temperature (0=unspecified), salinity (2=constant), generic tracer ()
+-40.0      ! Constant inflow
 4.0        ! Constant salt
 1.0        ! Salt nudging
-4 0 2 0 2 ! River 2:  6 elements wide, only normal vel constant
--120.0        ! Constant inflow
+4 0 2 0 2 0 ! River 2:  4 nodes wide, elevation (0=unspecified), flow (1=*.th time history, 2=constant), temperature (0=unspecified), salinity (2=constant), generic tracer ()
+-40.0        ! Constant inflow
 4.0        ! Constant salt
 1.0        ! Salt nudging
-17 3 0 0 2  ! Ocean: 17 nodes, tidal constituents for elevations, elev and temp not specified, constant salt
+17 3 0 0 2 0 ! Ocean: 17 nodes, type of boundary (3=tidal constituents), elev and temp not specified, constant salt
  Z0
   1.000000000000000        0.0000000000000
   1.000000000000000        0.0000000000000
@@ -91,5 +91,5 @@ M2
   0.578765931645790        190.500025893370
   0.578765931645790        190.500025893370
   0.578765931645790        190.500025893370
-12.         ! Constant salt
-0.2         ! Salt nudging
+12.0         ! Constant salt
+1.0         ! Salt nudging
