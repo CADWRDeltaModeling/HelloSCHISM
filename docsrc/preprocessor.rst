@@ -80,6 +80,12 @@ Then save the **param.barotropic.nml** file as **param.nml** and the **bctides.i
 
 7.	Launch the run (note, you’ll need the windows build of SCHISM to be set in your system Path):
 
+For Windows 10:
 .. code-block:: console
 
    mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4
+
+For Windows 11:
+.. code-block:: console
+
+   mpiexec -np 8 pschism_OLDIO_PREC_EVAP_TVD-VL.exe 4
