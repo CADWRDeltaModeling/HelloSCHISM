@@ -35,7 +35,7 @@ SOFTWARE REQUIREMENTS
 
 SCHISM
 `````````````````````
-This training includes a ready-made Windows build of SCHISM 5.10 found in the folder “.\\software\\schism_windows_5.10_build”. After downloading, installing, and setting up your working environment, you’ll want to add this folder to your path.
+This training includes a ready-made Windows build of SCHISM 5.10 and SCHISM 5.11 found in the folders “.\\software\\schism_windows10_5.10_build” and “.\\software\\schism_windows11_5.11_build”. After downloading, installing, and setting up your working environment, you’ll want to add this folder to your path.
 
 C++
 `````````````````````

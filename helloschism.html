@@ -125,7 +125,7 @@
 <li><p>Obtain SCHISM and follow the installation instructions and prerequisites</p>
 <ul class="simple">
 <li><p>On Linux you will have to compile the model.</p></li>
-<li><p>On Windows, you will need precompiled Bay-Delta executables (found in “./software/schism_windows_5.10_build”).</p></li>
+<li><p>On Windows, you will need precompiled Bay-Delta executables (found in “./software/schism_windows10_5.10_build” or “./software/schism_windows11_5.11_build”).</p></li>
 </ul>
 </li>
 <li><p>Navigate to “./module_data/<strong>m1_hello_schism</strong>”</p></li>
@@ -135,10 +135,17 @@
 <a class="reference internal" href="_images/cmd_example.png"><img alt="cmd" src="_images/cmd_example.png" style="width: 624.65px; height: 215.15px;" /></a></p></li>
 <li><p>Launch the run in the command prompt using the following command:</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4</span>
-</pre></div>
-</div>
-<p>This will take at least 20 minutes to run.</p>
+<p>For Windows 10:
+.. code-block:: console</p>
+<blockquote>
+<div><p>mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4</p>
+</div></blockquote>
+<p>For Windows 11:
+.. code-block:: console</p>
+<blockquote>
+<div><p>mpiexec -np 8 pschism_OLDIO_PREC_EVAP_TVD-VL.exe 4</p>
+</div></blockquote>
+<p>This will take up to 20 minutes to run.</p>
 <section id="understanding-the-command">
 <h2>Understanding the command<a class="headerlink" href="#understanding-the-command" title="Link to this heading"></a></h2>
 <p>The program mpiexec is a wrapper used to launch parallel processes (<em>mpirun</em> is a synonym on many systems). The name of the executable is <em>pschism_PREC_EVAP_GOTM_TVD-VL</em> derived from “parallel SCHISM”. The flag  <em>-np 8</em> indicates that mpiexec should use 8 processors for computing, while the “4” at the end of command is the number of processors dedicated to writing output.</p>

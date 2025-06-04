@@ -18,7 +18,7 @@ Running the Model
 #. Obtain SCHISM and follow the installation instructions and prerequisites
    
    * On Linux you will have to compile the model. 
-   * On Windows, you will need precompiled Bay-Delta executables (found in “./software/schism_windows_5.10_build”).
+   * On Windows, you will need precompiled Bay-Delta executables (found in “./software/schism_windows10_5.10_build” or "./software/schism_windows11_5.11_build").
 
 #. Navigate to "./module_data/**m1_hello_schism**"
 #. Make sure that the tools are accessible and schism build directory is on path (See :ref:`Getting Started <getstart>`). 
@@ -30,11 +30,17 @@ Running the Model
 .. |cmd| image:: /img/cmd_example.png
           :scale: 65 % 
 
+For Windows 10:
 .. code-block:: console
 
    mpiexec -np 8 pschism_PREC_EVAP_GOTM_TVD-VL.exe 4
 
-This will take at least 20 minutes to run.
+For Windows 11:
+.. code-block:: console
+
+   mpiexec -np 8 pschism_OLDIO_PREC_EVAP_TVD-VL.exe 4
+
+This will take up to 20 minutes to run.
 
 Understanding the command
 ``````````````````````````
