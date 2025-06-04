@@ -8,7 +8,7 @@ This module’s directory (“./module_data/**m4_requestoutput**”) contains a 
 Adding Flow Observation Transects
 ``````````````````````````````````
 
-As seen in "FIGURE" there are 2 transects already specified in the model with the **flowlines.yaml** file, which creates the **fluxflag.prop** file. You will add a X+1-nth transect to capture flow through A LOCATION as shown below:
+As seen in "FIGURE" there are 2 transects already specified in the model with the **flowlines.yaml** file, which creates the **fluxflag.prop** file. You will add a 3rd transect to capture flow through A LOCATION as shown below:
 
 .. _obs_xs_req:
 
@@ -25,7 +25,7 @@ The coordinates for the transect you will add will be one line straight down the
    - [15587.5, -10294.] 
    - [15885.9, 10294.] 
 
-1.	Open ‘flow_station_xsects.yaml’ in an editor, and note the contents. 
+1.	Open 'flowlines.yaml’ in an editor, and note the contents. 
 
 2.	Add one line or remove one for the location to calculate flows if you want.
 
@@ -33,7 +33,7 @@ The coordinates for the transect you will add will be one line straight down the
 
 .. code-block:: console
 
-   prepare_pschism.py input.yaml
+   prepare_schism input.yaml
 
 This creates all the neceesarry files for SCHISM to run, and your edit to the **flowlines.yaml** file is what modifies the **fluxflag.prop** file.
 
