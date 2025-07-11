@@ -1,0 +1,45 @@
+resource_group: <your_resource_group_name> # the resource group containing the batch account
+job_name: m1_hello_schism # job name, will be used to name the pool and the job
+batch_account_name: <your_batch_account_name> # batch account name
+storage_account_name: <your_storage_account_name> # this is the storage account containing batch and storage_container defined below
+storage_container_name: modules # this is mounted to $AZ_BATCH_MOUNTS_DIR/<<storage_container_name>> in addition to batch container which is mounted to $AZ_BATCH_MOUNTS_DIR/batch
+study_copy_flags: --recursive --preserve-symlinks --exclude-regex "outputs.*/.*nc"
+study_dir: m1_hello_schism # this is copied using the study_copy_flags according to azcopy
+# setup_dirs: # these are directories that are also copied in addition to the study_dir
+#  - data/atmos # used in larger-scale models with large atmospheric inputs
+
+num_hosts: 2 # number of nodes in the pool
+# num_cores: <<number of cores total>> # is optional as default is number of cores per host * number of hosts
+num_scribes: 10 # This is used in the mpi_cmd template if referred to there
+# command to run , assume the study_dir is current directory
+node_type: 'TargetLowPriorityNodes' # 'TargetDedicatedNodes' # 'TargetLowPriorityNodes'
+max_task_retry_count: 3
+mpi_opts: --bind-to core
+task_slots_per_node: 1
+mpi_command: |
+  mkdir -p outputs;
+  current_date=$(date);
+
+  if [ -f $AZ_BATCH_TASK_ID.state.txt ]; then
+    echo $current_date >> $AZ_BATCH_TASK_ID.state.txt;
+    echo "Restarting from previous run: $current_date";
+    iterations=$($SCHISM_SCRIPTS_HOME/batch/get_iterations_from_fluxout.sh);
+    echo "flux.out @ $iterations. Copying hotstart_\d+_$iterations\.nc files";
+    azcopy copy --include-regex="hotstart_\d+_$iterations\.nc" --recursive "https://{storage_account_name}.blob.core.windows.net/{storage_container_name}/{study_dir}/outputs/?{sas}" . || true;
+    echo "Generating and linking hotstart for $iterations";
+    $SCHISM_SCRIPTS_HOME/batch/generate_and_link_hotstart.sh $iterations;
+    $SCHISM_SCRIPTS_HOME/batch/update_param_for_restart.sh param.nml;
+  else
+    echo "Starting from the beginning/first hotstart";
+    echo $current_date > $AZ_BATCH_TASK_ID.state.txt;
+  fi
+
+  # run the main SCHISM model
+  mpirun -np {num_cores} -f hostfile {mpi_opts} pschism_PREC_EVAP_GOTM_TVD-VL {num_scribes}
+
+  wait;
+  echo "Done with everything. Shutting down";
+  exit $exit_code
+
+template_name: "alma87_mvapich2_20241018_ipp" # this is the template name for the pool, e.g. "centos7" or "alma8"
+delete_after_mins: 600 # delete the job after this many minutes
