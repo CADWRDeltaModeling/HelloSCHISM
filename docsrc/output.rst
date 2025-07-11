@@ -3,7 +3,7 @@
 Module 3: Overview
 -------------------
 
-This module’s directory (“./module_data/**m3_output**”) contains a set of tutorials based on short set (a few weeks) of station and binary model output. These are stored in a directory named ./**outputs** along with supplementary files (like the global_to_local mapping files) needed to make sense out of them. 
+This module’s directory (“./modules/**m3_output**”) contains a set of tutorials based on short set (a few weeks) of station and binary model output. These are stored in a directory named ./**outputs** along with supplementary files (like the global_to_local mapping files) needed to make sense out of them. 
 
 .. note::
     There are library imports from **schimpy** in this module. Be sure to have installed the python schimpy package (see :ref:`Getting Started - Python <pystart>`)

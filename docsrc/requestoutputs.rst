@@ -3,7 +3,7 @@
 Module 4: Overview
 -------------------
 
-This module’s directory (“./module_data/**m4_requestoutput**”) contains a sample of model input files that you will need to edit in order to change what outputs are produced in Hello SCHISM.
+This module’s directory (“./modules/**m4_requestoutput**”) contains a sample of model input files that you will need to edit in order to change what outputs are produced in Hello SCHISM.
 
 Adding Flow Observation Transects
 ``````````````````````````````````
