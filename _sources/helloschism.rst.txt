@@ -12,15 +12,15 @@ The goal of this session is to practice running SCHISM using a pre-configured si
 
    *Simplified domain used for Hello SCHISM practice problems. Ocean boundary is on the left, two river inputs on the right. Domain length in the x direction is roughly 56km*
 
-Running the Model
------------------
+Running the Model Locally
+-------------------------
 
 #. Obtain SCHISM and follow the installation instructions and prerequisites
    
    * On Linux you will have to compile the model. 
    * On Windows, you will need precompiled Bay-Delta executables (found in “./software/schism_windows10_5.10_build” or "./software/schism_windows11_5.11_build").
 
-#. Navigate to "./module_data/**m1_hello_schism**"
+#. Navigate to "./modules/**m1_hello_schism**"
 #. Make sure that the tools are accessible and schism build directory is on path (See :ref:`Getting Started <getstart>`). 
 #. Make sure that there is an **/outputs** directory inside the module directory. We include this with the module folder, so it should be there.
 #. Obtain a windows command prompt window by typing **cmd** in the windows explorer navigation bar and press enter. This sets the current directory to the folder you were viewing (**m1_hello_schism**). 
