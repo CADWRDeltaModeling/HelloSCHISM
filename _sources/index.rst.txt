@@ -30,6 +30,14 @@ The modules found in the `github repository`_ contain the following exercises:
 
 The explanatory material for these modules is found in this document, while the supporting data required to run through the training is found in the “**modules**” folder, with each Module labeled according to the above list. In order to have in-tact training material, it is recommended that you make a copy of the modules folder called “**modules_working**”. This way you can see the difference between your completed work and the original tutorial data.
 
+Cloud-Computing Example
+------------------------
+
+.. note::
+
+   There is a step-by-step guide to running the Module 1 of the HelloSCHISM tutorial on Microsoft Azure using Azure Batch and Azure Blob Storage. This guide can be found here: `Hello SCHISM on Azure <https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/helloschism_azure.html>`_
+
+
 SOFTWARE REQUIREMENTS
 ---------------------
 
