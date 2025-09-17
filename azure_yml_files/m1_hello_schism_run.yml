@@ -42,5 +42,5 @@ mpi_command: |
   exit $exit_code
 
 template_name: "alma87_mvapich2_20241018" # this is the template name for the pool, e.g. "centos7" or "alma8"
-location: eastus2 # change this location if it is not eastus (this is set in the default_config.yml in azure_dms_batch)
+location: westus2 # change this location if it is not eastus (the default is set in the default_config.yml in azure_dms_batch)
 delete_after_mins: 600 # delete the job after this many minutes
