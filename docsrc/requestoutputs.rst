@@ -29,7 +29,14 @@ The coordinates for the transect you will add will be one line straight down the
 
 2.	Add one line or remove one for the location to calculate flows if you want.
 
-3.	Run the preprocessor to create a new fluxflag.prop.
+3. In input.yaml, specify which version of the grid to use:
+
+.. code-block:: yaml
+
+   mesh:
+      mesh_inputfile: hgrid_6m.gr3 # or h_grid_16m.gr3
+
+4.	Run the preprocessor to create a new fluxflag.prop.
 
 .. code-block:: console
 
