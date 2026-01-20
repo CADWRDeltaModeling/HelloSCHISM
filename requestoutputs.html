@@ -127,6 +127,13 @@
 <ol class="arabic simple">
 <li><p>Open ‘flowlines.yaml’ in an editor, and note the contents.</p></li>
 <li><p>Add one line or remove one for the location to calculate flows if you want.</p></li>
+<li><p>In input.yaml, specify which version of the grid to use:</p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mesh</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">mesh_inputfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hgrid_6m.gr3</span><span class="w"> </span><span class="c1"># or h_grid_16m.gr3</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
 <li><p>Run the preprocessor to create a new fluxflag.prop.</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">prepare_schism input.yaml</span>
