@@ -57,7 +57,11 @@ The task is also a soft introduction to the preprocessor:
      - [100000.0, 100000.0]
      - [0.0, 100000.0]
 
-5.	Now you should be able to run the preprocessor. You will either need to be in the **schism** conda environment created in the :ref:`Getting Started  section <pystart>` or you’ll need to specify the script location.
+5. Additionally, we must define the output location for the preprocessor files in input.yaml:
+.. code:: yaml
+prepro_output_dir: /path/to/output/directory/
+
+6.	Now you should be able to run the preprocessor. You will either need to be in the **schism** conda environment created in the :ref:`Getting Started  section <pystart>` or you’ll need to specify the script location.
 
 **With conda (Preferred):**
 
